@@ -1,0 +1,24 @@
+<div id="login">
+  <h3>Login</h3>
+
+  <form name="form" (submit)="login()" role="form" class="formLog">
+
+    <div>
+      <i class="mdi mdi-pencil"></i>
+      <input type="email" name="username" placeholder="user name"
+             [(ngModel)]="loginForm.userName" required />
+    </div>
+
+    <div>
+      <i class="mdi mdi-key"></i>
+      <input type="password" name="password" placeholder="password"
+             [(ngModel)]="loginForm.password" required />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">
+        LOGIN
+      </button>
+    </div>
+  </form>
+</div>
