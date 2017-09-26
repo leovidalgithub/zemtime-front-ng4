@@ -12,7 +12,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
 // ia-components
 import { IaCompHeaderComponentLight } from 'ia-comp-header';
-import { IaCompSidebarComponentLight } from 'ia-comp-sidebar';
+// import { IaCompSidebarComponentLight } from 'ia-comp-sidebar';
 
 @NgModule({
   imports: [
@@ -27,8 +27,8 @@ import { IaCompSidebarComponentLight } from 'ia-comp-sidebar';
     AuthComponent,
     LoginComponent,
     DashboardComponent,
-    IaCompHeaderComponentLight,
-    IaCompSidebarComponentLight
+    IaCompHeaderComponentLight
+    // IaCompSidebarComponentLight
   ],
   providers: [
     ApiService,
