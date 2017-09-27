@@ -9,12 +9,9 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // title: string;
-  // image: any;
 
   constructor(private api: ApiService) {
-    // this.title = this.api.title;
-    // this.image = require('../public/img/logo-vertical.png');
+
   }
 
 }

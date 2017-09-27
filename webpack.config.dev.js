@@ -16,7 +16,7 @@ const config = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].js'
   },
   resolve: {
     extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html']
@@ -32,7 +32,7 @@ const config = {
       loader: 'tslint-loader'
     }, {
       test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'file-loader?name=/assets/[name].[hash].[ext]?'
+      loader: 'file-loader?name=/assets/[name].[ext]?'
     }, {
       test: /\.json$/,
       loader: 'json-loader'
@@ -75,16 +75,12 @@ const config = {
     new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, app),
     new webpack.optimize.CommonsChunkPlugin({ name: ['vendor', 'polyfills'] }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: false,
-      sourcemap: false
-    }),
     new htmlWebpackPlugin({
       template: path.join(app, 'public', 'index.html'),
       chunksSortMode: 'dependency'
     }),
     new extractTextPlugin({
-      filename: 'css/[name].[hash].css',
+      filename: 'css/[name].css',
       disable: true
     })
   ]

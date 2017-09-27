@@ -1,5 +1,12 @@
-<h2>SIDEBAR</h2>
+<!-- ia-comp-sidebar -->
+<ia-comp-sidebar
+  [sidebarHead]="headSidebar"
+  [dataCompSidebar]="dataSidebar"
+></ia-comp-sidebar>
 
-<router-outlet></router-outlet>
+<!-- app content -->
+<div id="mainWrapper">
+  <router-outlet></router-outlet>
+</div>
 
 

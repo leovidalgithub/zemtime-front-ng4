@@ -1,12 +1,7 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-
-import {  } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent } from './components';
@@ -15,22 +10,25 @@ import { APP_ROUTING } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-// export function HttpLoaderFactory(http: )
+// ia-components
+import { IaCompHeaderComponent } from 'ia-comp-header';
+import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    APP_ROUTING,
-    TranslateModule.forRoot()
+    APP_ROUTING
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    IaCompHeaderComponent,
+    IaCompSidebarComponent
   ],
   providers: [
     ApiService,
