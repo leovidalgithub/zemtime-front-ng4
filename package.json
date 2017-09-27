@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@angularclass/hmr": "^1.0.1",
-    "@angularclass/hmr-loader": "^3.0.2",
+    "@angularclass/hmr-loader": "^3.0.2" ,
     "@types/jasmine": "^2.5.41",
     "@types/node": "^6.0.38",
     "@types/selenium-webdriver": "2.53.39",
