@@ -11,8 +11,8 @@ import { APP_ROUTING } from './app.routing';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
 // ia-components
-import { IaCompHeaderComponentLight } from 'ia-comp-header';
-// import { IaCompSidebarComponentLight } from 'ia-comp-sidebar';
+import { IaCompHeaderComponent } from 'ia-comp-header';
+import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
 @NgModule({
   imports: [
@@ -27,8 +27,8 @@ import { IaCompHeaderComponentLight } from 'ia-comp-header';
     AuthComponent,
     LoginComponent,
     DashboardComponent,
-    IaCompHeaderComponentLight
-    // IaCompSidebarComponentLight
+    IaCompHeaderComponent,
+    IaCompSidebarComponent
   ],
   providers: [
     ApiService,

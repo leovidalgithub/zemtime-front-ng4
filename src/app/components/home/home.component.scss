@@ -1,4 +1,15 @@
-// component styles are encapsulated and only applied to their components
-* {
-  color: #FFEF00;
+// *************************************************** //
+// Home Component Styles
+// *************************************************** //
+
+#mainWrapper {
+  height: 100vh;
+  margin-left: 50px;
+  position: relative;
+  transition: all .7s ease;
+  z-index: 10;
+
+  @media (min-width: 769px) {
+    margin-left: 200px;
+  }
 }
