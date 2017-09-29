@@ -5,5 +5,16 @@
 ></ia-comp-header>
 
 <main>
-  <p class="testColor">Prueba color</p>
+  <select #langSelect (change)="translate.use(langSelect.value)">
+    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+  </select>
+
+  <h1>Here I am once more</h1>
+  <h2>x {{ 'HOME.TITLE' | translate }}</h2>
+  <hr>
+
+  <ul>
+    <li *ngFor="let myVar of this.ap.getData()">{{myVar}}</li>
+  </ul>
+
 </main>

@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const extractTextPlugin = require('extract-text-webpack-plugin')
+const copyWebpackPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const app = path.join(__dirname, 'src')
@@ -33,9 +34,6 @@ const config = {
     }, {
       test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader?name=/assets/[name].[ext]?'
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader'
     }, {
       test: /\.(scss|sass)$/,
       exclude: path.join(app, 'app'),
@@ -82,7 +80,11 @@ const config = {
     new extractTextPlugin({
       filename: 'css/[name].css',
       disable: true
-    })
+    }),
+    new copyWebpackPlugin([{
+      from: path.join(app, 'public', 'locale'),
+      to: path.join(__dirname, 'dist', 'assets', 'locale')
+    }])
   ]
 }
 
