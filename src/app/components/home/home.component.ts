@@ -14,6 +14,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  xxx = 'EPA';
+
   // Sidebar
   headSidebar = {
     logoLink: 'dashboard',
@@ -30,9 +32,14 @@ export class HomeComponent implements OnInit {
       roleAuth: [],
       url: 'calendars',
       icon: 'mdi-calendar-range',
-      title: 'Calendarios'
+      // title: 'Calendarioss'
+      title: this.fn('asw')
     }
   ];
+
+  fn(name) {
+    return name.toUpperCase();
+  }
 
   constructor() { }
 

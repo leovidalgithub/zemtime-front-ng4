@@ -1,20 +1,8 @@
 <ia-comp-header
-  [compHeaderSectionData]="sectionData"
-  [compHeaderActionsShow]="actionsShow"
-  [compHeaderButtonsActions]="actionButtons"
+  [compHeaderSectionData]="headerData.sectionData"
+  [compHeaderActionsShow]="headerData.actionsShow"
+  [compHeaderButtonsActions]="headerData.actionButtons"
 ></ia-comp-header>
 
 <main>
-  <select #langSelect (change)="translate.use(langSelect.value)">
-    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-  </select>
-
-  <h1>Here I am once more</h1>
-  <h2>x {{ 'HOME.TITLE' | translate }}</h2>
-  <hr>
-
-  <ul>
-    <li *ngFor="let myVar of this.ap.getData()">{{myVar}}</li>
-  </ul>
-
 </main>

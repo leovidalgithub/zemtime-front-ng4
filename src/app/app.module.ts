@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent } from './components';
-import { ApiService, AlwaysAuthGuard, UserService } from './shared';
+import { TranslationService, AlwaysAuthGuard, UserService } from './shared';
 import { APP_ROUTING } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -48,7 +48,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     IaCompSidebarComponent
   ],
   providers: [
-    ApiService,
+    TranslationService,
     AlwaysAuthGuard,
     UserService
   ],

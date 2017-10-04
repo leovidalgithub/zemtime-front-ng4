@@ -1,6 +1,31 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular with ngx-translate!",
-    "SELECT": "Change language"
+  "general" : {
+    "sidebar" : {
+      "menuClose" : "Close",
+      "bugReport" : "Report bug",
+      "closeSession" : "Logout"
+    },
+    "buttons" : {
+      "ok" : "Accept",
+      "send" : "Send",
+      "cancel" : "Cancel"
+    }
+  },
+  "auth" : {
+    "login" : {
+      "login" : "Login"
+    }
+  },
+  "dashboard" : {
+    "title" : "Notifications"
+  },
+  "calendars" : {
+    "title" : "Calendars",
+    "calendar" : "Calendar",
+    "filter" : {
+      "showCountries" : "Countries",
+      "showCommunities" : "Comunities",
+      "showCities" : "Cities"
+    }
   }
 }
