@@ -10,17 +10,19 @@ import '../style/app.scss';
 export class AppComponent implements OnInit {
 
   constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'fr', 'es']);
+    translate.addLangs(['en', 'ca', 'es']);
     translate.setDefaultLang('en');
 
     let browserLang = this.translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr|es/) ? browserLang : 'en');
+    translate.use(browserLang.match(/en|ca|es/) ? browserLang : 'en');
   }
 
   ngOnInit() {
-    console.log('AppComponent');
-    console.log(this.translate.getLangs());
-    console.log(this.translate.currentLang);
+    // console.log('**********************');  
+    // console.log('AppComponent');
+    // console.log(this.translate.getLangs());
+    // console.log(this.translate.currentLang);
+    // console.log('**********************');
   }
 
 

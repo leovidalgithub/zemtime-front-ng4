@@ -6,6 +6,7 @@
 // *************************************************** //
 
 import { Component, OnInit } from '@angular/core';
+import { TranslationService } from '../../shared';
 
 @Component({
   selector: 'zem-home',
@@ -14,34 +15,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  xxx = 'EPA';
-
-  // Sidebar
-  headSidebar = {
-    logoLink: 'dashboard',
-    userLink: 'dashboard',
-    userName: 'Nombre'
+  // SIDEBAR DATA
+  private sidebarData: object = {
+    headSidebar: {
+      logoLink: 'dashboard',
+      userLink: 'dashboard',
+      userName: 'Nombre',
+      closeMenu: this.myTranslate.getTranslation('general.sidebar.menuClose'),
+      reportBug: this.myTranslate.getTranslation('general.sidebar.bugReport'),
+      signOut: this.myTranslate.getTranslation('general.sidebar.logout')
+    },
+    dataSidebar: [
+      {
+        roleAuth: [],
+        url: 'dashboard',
+        icon: 'mdi-bell-outline',
+        title: this.myTranslate.getTranslation('dashboard.title')
+      }, {
+        roleAuth: [],
+        url: 'calendars',
+        icon: 'mdi-calendar-range',
+        title: this.myTranslate.getTranslation('calendars.title')
+      },
+    ],
   };
-  dataSidebar = [
-    {
-      roleAuth: [],
-      url: 'dashboard',
-      icon: 'mdi-bell-outline',
-      title: 'Notificaciones'
-    }, {
-      roleAuth: [],
-      url: 'calendars',
-      icon: 'mdi-calendar-range',
-      // title: 'Calendarioss'
-      title: this.fn('asw')
-    }
-  ];
 
-  fn(name) {
-    return name.toUpperCase();
-  }
-
-  constructor() { }
+  constructor(private myTranslate: TranslationService) { }
 
   ngOnInit() { }
 

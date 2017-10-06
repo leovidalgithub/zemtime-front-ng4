@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
       titleClass: 'mdi mdi-bell-outline',
       notificationShow: true,
       notificationCondition: '1',
-      notificationResult: '3',
+      notificationResult: '4',
       span: this.myTranslate.getTranslation('calendars.calendar'),
       spanName: ' Barcelona',
       spanShow: true

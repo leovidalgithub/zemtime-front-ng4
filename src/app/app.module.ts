@@ -14,7 +14,6 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 // ia-components
 import { IaCompHeaderComponent } from 'ia-comp-header';
 import { IaCompSidebarComponent } from 'ia-comp-sidebar';

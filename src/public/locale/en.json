@@ -1,9 +1,9 @@
 {
   "general" : {
     "sidebar" : {
-      "menuClose" : "Close",
+      "menuClose" : "Close Menu",
       "bugReport" : "Report bug",
-      "closeSession" : "Logout"
+      "logout" : "LogOut"
     },
     "buttons" : {
       "ok" : "Accept",
