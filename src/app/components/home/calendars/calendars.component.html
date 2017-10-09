@@ -1,0 +1,52 @@
+<ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow" [compHeaderButtonsActions]="headerData.actionButtons"></ia-comp-header>
+
+<main>
+    <!-- Show calendar filter -->
+    <div class="filter">
+
+        <!-- Filter buttons  - main options-->
+        <ul class="filterButtons">
+            <li (click)="typeView = 'countryShow'" [class.filter-selected]="typeView == 'countryShow'">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="typeView = 'comShow'" [class.filter-selected]="typeView == 'comShow'">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="typeView = 'cityShow'" [class.filter-selected]="typeView == 'cityShow'">{{ 'calendars.filter.showCities' | translate}}</li>
+        </ul>
+
+        <!-- Filter suboptions -->
+        <div [ngSwitch]="typeView" class="filterOptions">
+            <ul *ngSwitchCase="'countryShow'" class="filtratedList">
+                <li *ngFor="let pais of paises">
+                    <a [routerLink]="['./calendar/pais']" (click)="selectSubfilter(this)">{{ pais }}</a>
+                </li>
+                <li>
+                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
+                </li>
+            </ul>
+
+            <ul *ngSwitchCase="'comShow'" class="filtratedList">
+                <li *ngFor="let ca of cas">
+                    <a [routerLink]="['./calendar/comunindad']">{{ ca }}</a>
+                </li>
+                <li>
+                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
+                </li>
+            </ul>
+
+            <ul *ngSwitchCase="'cityShow'" class="filtratedList">
+                <li *ngFor="let ciudad of ciudades">
+                    <a [routerLink]="['./calendar/ciudad']">{{ ciudad }}</a>
+                </li>
+                <li>
+                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Calendar content -->
+    <!-- <zem-calendar-selected></zem-calendar-selected> -->
+    <div class="choosenCalendar">
+        <router-outlet></router-outlet>
+    </div>
+
+</main>
