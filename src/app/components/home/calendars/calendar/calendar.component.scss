@@ -1,0 +1,119 @@
+@import "../../../../../style/colors";
+@import "../../../../../style/typo";
+@import "../../../../../style/icons";
+@import "../../../../../style/extends";
+
+// DATEPICKER STYLES
+// Datepicker Container
+#months {
+  display: flex;
+  flex-flow: row wrap;
+
+  // Calendar container
+  .calendar {
+    // display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    // animation: enterOpacity .5s;
+
+    // Datepicker container
+    .ui-datepicker-inline, .ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all {
+      background-color: white;
+      margin: 10px;
+      // border: 1px solid $col-grey-80;
+      min-width: 180px;
+      text-align: center;
+
+      // Datepicker header
+      .ui-datepicker-header, .ui-widget-header, .ui-helper-clearfix, .ui-corner-all {
+        // background-color: $col-grey-80;
+        padding: 10px 15px 6px 15px;
+        margin: 0;
+        text-align: center;
+        color: $col-black;
+        font-size: 1.2em;
+        letter-spacing: .05em;
+        width: 100%;
+        border: none;
+
+        // Datepicker next/prev buttons
+        .ui-datepicker-prev, .ui-datepicker-next {
+          display: none;
+        }
+      }
+
+      // Datepicker table days/numbers
+      .ui-datepicker-calendar {
+        width: 100%;
+
+        // Datepicker days
+        thead {
+          border-bottom: 1px solid lighten($col-zemsania, 10%);
+          display: table-caption;
+
+          tr th {
+            padding: 0 8px 6px 8px;
+            font-size: .9em;
+            color: $col-grey-40;
+          }
+        }
+
+        // Datepicker numbers
+        tbody {
+          td {
+            width: auto;
+            height: auto;
+          }
+          a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            color: $col-grey-40;
+            // background-color: white;
+            transition: all .3s;
+
+            &:hover {
+              color: $col-black;
+            }
+          }
+        }
+      }
+
+      // .ui-state-active,
+      // .ui-widget-content .ui-state-active,
+      // .ui-widget-header .ui-state-active {
+      //   background-color: $col-grey-80 !important;
+      //   color: $col-grey-10 !important;
+      //   transition: all .3s;
+      // }
+
+
+      // .ui-state-highlight,
+      // .ui-widget-content .ui-state-highlight,
+      // .ui-widget-header .ui-state-highlight {
+      //   background-color: lighten($col-zemsania, 60%);
+      //   border: 1px solid lighten($col-zemsania, 30%);
+      //   color: white;
+      //   transition: all .3s;
+      // }
+
+    }
+
+  }
+
+  // .vacationDay {
+  //   // background-color: red !important;
+  // }
+
+
+}
+
+.activeClass {
+  color: red !important;
+}
+.specialDate { background-color: #6F0 !important; }
+
+.vacationDay { background-color: #6F0 !important; }
+.workingDay { background-color: tomato !important; }
+
+.eventDay { background-color: red !important; }

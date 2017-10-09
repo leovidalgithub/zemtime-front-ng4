@@ -1,6 +1,13 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular with ngx-translate!",
-    "SELECT": "Change language"
+  "auth" : {
+    "login" : {
+      "login" : "Iniciar sesión"
+    }
+  },
+  "dashboard" : {
+    "title" : "ENGLISH!!!!"
+  },
+  "calendars" : {
+    "title" : "Calendarios"
   }
 }

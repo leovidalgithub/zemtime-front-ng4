@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from './shared';
+import { TranslateService } from '@ngx-translate/core';
 
 import '../style/app.scss';
 
@@ -10,8 +10,12 @@ import '../style/app.scss';
 })
 export class AppComponent {
 
-  constructor(private api: ApiService) {
+  constructor(private  translate: TranslateService) {
+    translate.addLangs(['en', 'fr', 'es']);
+    translate.setDefaultLang('es');
 
+    let browserLang = this.translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr|es/) ? browserLang : 'es');
   }
 
 }

@@ -16,9 +16,12 @@ export class HomeComponent implements OnInit {
 
   // Sidebar
   headSidebar = {
-    logoLink: 'dashboard',
+    logoLink: 'dashboard.title',
     userLink: 'dashboard',
-    userName: 'Nombre'
+    userName: 'Nombre',
+    menuClose: 'general.sidebar.menuClose',
+    bugReport: 'general.sidebar.bugReport',
+    closeSession: 'general.sidebar.closeSession'
   };
   dataSidebar = [
     {

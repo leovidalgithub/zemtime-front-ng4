@@ -48,13 +48,13 @@
 
 // FONT EXTENDS
 // ************
-    %comp-hd-fw-light {
+    %fw-light {
         font-weight: 300;
     }
-    %comp-hd-fw-regular {
+    %fw-regular {
         font-weight: normal;
     }
-    %comp-hd-fw-bold {
+    %fw-bold {
         font-weight: bold;
     }
 
@@ -77,11 +77,6 @@
 
 // FONT GENERAL STYLES
 // *******************
-
-// SECTION SUBTITLE
-    .typ-s-subt {
-        @extend %sectionSubtitle;
-    }
 
 // FORMS
     input[type="text"],[type='email'] {

@@ -1,21 +1,25 @@
+// Modules Import
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule  } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+// Components Import
 import { AppComponent } from './app.component';
-import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent } from './components';
+import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent, CalendarsComponent, CalendarComponent } from './components';
+
+// Services Import
 import { ApiService, AlwaysAuthGuard, UserService } from './shared';
 import { APP_ROUTING } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
+// Translation import
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
-// ia-components
+// ia-components import
 import { IaCompHeaderComponent } from 'ia-comp-header';
 import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
@@ -44,6 +48,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AuthComponent,
     LoginComponent,
     DashboardComponent,
+    CalendarsComponent,
+    CalendarComponent,
     IaCompHeaderComponent,
     IaCompSidebarComponent
   ],
