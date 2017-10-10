@@ -1,1 +1,6 @@
+@import "../../../../style/colors";
+@import "../../../../style/extends";
 
+.headerWrapper {
+  @extend %headerWrapper;
+}

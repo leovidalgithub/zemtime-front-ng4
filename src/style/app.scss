@@ -28,6 +28,9 @@
     //max-width: 1440px;
     //margin: 0 auto;
   }
+  body {
+    height: auto;
+  }
   ul {
     list-style: none;
   }
@@ -47,6 +50,7 @@
 //    <main></main>
 // The main tag will contain all the information of the component so we give this container a padding
   main {
+    margin-top: 50px;
     padding: 10px 3%;
   }
 

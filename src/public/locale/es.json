@@ -7,8 +7,10 @@
     },
     "buttons" : {
       "send" : "Enviar",
+      "save" : "Guardar",
       "title": {
-        "addCalendar": "Añadir calendario"
+        "addCalendar" : "Añadir calendario",
+        "nameCalendar" : "Nombre calendario"
       }
     }
   },

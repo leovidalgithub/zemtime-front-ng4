@@ -13,17 +13,16 @@ export class CalendarsComponent implements OnInit {
     private myCalendars: Array<iCalendars> = [];
 
     // Calendars first filter
-    private countryShow: Boolean = true;
-    private countryArray: Array<string>;
+    private myTypeFilterObject: object = {
+      countryShow: true,
+      stateShow: false,
+      cityShow: false
+    };
 
-    private comShow: Boolean = false;
-    private comArray: Array<string>;
+    // Create calendar div
+    private createCalendarShow: boolean;
 
-    private cityShow: Boolean = false;
-    private cityArray: Array<string>;
-
-    // Show country on load
-    private typeView = 'countryShow';
+    private typeView: any = 'myTypeFilterObject.countryShow'; // Show country on load
 
     private headerData: object = {
         sectionData: {
@@ -39,10 +38,20 @@ export class CalendarsComponent implements OnInit {
 
     constructor(private myTranslate: TranslationService,
         private myGetCalendarsService: GetCalendarsService
-    ) {}
+    ) {
+      // this.typeView = 'myTypeFilterObject.countryShow';
+    }
 
     ngOnInit() {
         this.myCalendars = this.myGetCalendarsService.getCalendars();
+    }
+
+    showCreateCalendar() {
+      this.createCalendarShow = !this.createCalendarShow;
+    }
+    saveNewCalendar(name, type) {
+      console.log('Name: ' + name);
+      console.log('Type: ' + type);
     }
 
 }

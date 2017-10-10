@@ -1,4 +1,9 @@
-<ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow" [compHeaderButtonsActions]="headerData.actionButtons"></ia-comp-header>
+<div class="headerWrapper">
+  <ia-comp-header
+    [compHeaderSectionData]="headerData.sectionData"
+    [compHeaderActionsShow]="headerData.actionsShow">
+  </ia-comp-header>
+</div>
 
 <main>
     <!-- Show calendar filter -->
@@ -6,39 +11,51 @@
 
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
-            <li (click)="typeView = 'countryShow'" [class.filter-selected]="typeView == 'countryShow'">{{ 'calendars.filter.showCountries' | translate}}</li>
-            <li (click)="typeView = 'comShow'" [class.filter-selected]="typeView == 'comShow'">{{ 'calendars.filter.showCommunities' | translate}}</li>
-            <li (click)="typeView = 'cityShow'" [class.filter-selected]="typeView == 'cityShow'">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="typeView = 'myTypeFilterObject.countryShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.countryShow'">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="typeView = 'myTypeFilterObject.stateShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.stateShow'">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="typeView = 'myTypeFilterObject.cityShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.cityShow'">{{ 'calendars.filter.showCities' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
         <div [ngSwitch]="typeView" class="filterOptions">
-            <ul *ngSwitchCase="'countryShow'" class="filtratedList">
-                <li *ngFor="let calendar of (myCalendars | calendarsTypesPipe:'01')">
-                    <a [routerLink]="['./calendar/calendar.id']" (click)="selectSubfilter(this)">{{ calendar.name }}</a>
+            <ul *ngSwitchCase="'myTypeFilterObject.countryShow'" class="filtratedList">
+                <li *ngFor="let country of (myCalendars | myCalendarsTypesPipe:'01')">
+                    <a [routerLink]="['calendar', country.id]" routerLinkActive="active-calendar">{{ country.name }}</a>
                 </li>
                 <li>
-                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
+                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="showCreateCalendar()"></a>
                 </li>
+                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '01')">
+                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
+                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
+                </form>
             </ul>
 
-            <!-- <ul *ngSwitchCase="'comShow'" class="filtratedList">
-                <li *ngFor="let ca of cas">
-                    <a [routerLink]="['./calendar/comunindad']">{{ ca }}</a>
+            <ul *ngSwitchCase="'myTypeFilterObject.stateShow'" class="filtratedList">
+                <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:'02')">
+                    <a [routerLink]="['calendar', state.id]" routerLinkActive="active-calendar">{{ state.name }}</a>
                 </li>
                 <li>
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
                 </li>
+                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '02')" [ngClass]="{'viewNewCalendar': true}">
+                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
+                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
+                </form>
             </ul>
 
-            <ul *ngSwitchCase="'cityShow'" class="filtratedList">
-                <li *ngFor="let ciudad of ciudades">
-                    <a [routerLink]="['./calendar/ciudad']">{{ ciudad }}</a>
+            <ul *ngSwitchCase="'myTypeFilterObject.cityShow'" class="filtratedList">
+                <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:'03')">
+                    <a [routerLink]="['calendar', city.id]" routerLinkActive="active-calendar">{{ city.name }}</a>
                 </li>
                 <li>
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
                 </li>
-            </ul> -->
+                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '03')">
+                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
+                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
+                </form>
+            </ul>
         </div>
 
     </div>
@@ -46,6 +63,7 @@
     <!-- Calendar content -->
     <!-- <zem-calendar-selected></zem-calendar-selected> -->
     <div class="choosenCalendar">
+
         <router-outlet></router-outlet>
     </div>
 

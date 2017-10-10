@@ -65,7 +65,25 @@
 
 	// TEXT
 		.txt-center{text-align: center !important}
-		.txt-upper{text-transform: uppercase !important}
+    .txt-upper{text-transform: uppercase !important}
+
+  // HEADER DISPLAY WHEN APP USES SIDEBAR
+    // .headerWrapper {
+    //    @extend %headerWrapper;
+    // }
+
+    %headerWrapper {
+      margin-left: 50px;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      transition: all .7s ease;
+
+      @media (min-width: 769px) {
+        margin-left: 200px;
+      }
+    }
 
 
 

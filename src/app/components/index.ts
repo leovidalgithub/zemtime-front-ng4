@@ -5,14 +5,10 @@ export * from './home/home.component';
   // Calendars
   export * from './home/calendars/calendars.component';
   export * from './home/calendars/getCalendars.service';
+  export * from './home/calendars/calendars.pipe';
     // Calendar
     export * from './home/calendars/calendar/calendar.component';
     export * from './home/calendars/calendar/getCalendar.service';
-
-export * from './home/dashboard/dashboard.component';
-
-export * from './home/calendars/calendars.component';
-export * from './home/calendars/calenfars.filter';
 
 export * from './home/calendars/calendar/calendar.component';
 export * from './home/calendars/getCalendars.service';

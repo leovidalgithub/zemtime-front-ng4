@@ -3,6 +3,10 @@
 @import "../../../../style/icons";
 @import "../../../../style/extends";
 
+.headerWrapper {
+  @extend %headerWrapper;
+}
+
 .filter {
   width: 100%;
   margin: 0 auto;
@@ -30,9 +34,17 @@
     width: 100%;
     padding: 8px;
 
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
     li {
       display: inline-block;
       padding-right: 10px;
+
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
 
       &:first-child {
         margin-left: -6px;
@@ -50,6 +62,11 @@
         &:hover {
           color: $col-zemsania;
         }
+      }
+
+      .active-calendar {
+        color: $col-orange !important;
+        // @extend %fw-bold;
       }
 
       .add-calendar {
