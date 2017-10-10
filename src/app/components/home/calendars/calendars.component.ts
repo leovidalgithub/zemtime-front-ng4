@@ -3,6 +3,12 @@ import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { TranslationService, iCalendars } from '../../../shared';
 import { GetCalendarsService } from './calendars.services';
 
+enum eCalendarTypeShowed {
+    country = 1,
+    state   = 2,
+    city    = 3
+}
+
 @Component({
     selector: 'zem-calendars',
     templateUrl: './calendars.component.html',
@@ -10,19 +16,9 @@ import { GetCalendarsService } from './calendars.services';
 })
 export class CalendarsComponent implements OnInit {
 
-    private myCalendars: Array<iCalendars> = [];
-
-    // Calendars first filter
-    private myTypeFilterObject: object = {
-      countryShow: true,
-      stateShow: false,
-      cityShow: false
-    };
-
-    // Create calendar div
-    private createCalendarShow = false;
-
-    private typeView: any = 'myTypeFilterObject.countryShow'; // Show country on load
+    private myCalendars: Array<iCalendars>      = [];
+    private newCalendarShowed: Boolean          = false;
+    private typeViewShowed: eCalendarTypeShowed = 1; // initialize in 'Country' by default
 
     private headerData: object = {
         sectionData: {
@@ -36,7 +32,8 @@ export class CalendarsComponent implements OnInit {
         }
     };
 
-    constructor(private myTranslate: TranslationService,
+    constructor(
+        private myTranslate: TranslationService,
         private myGetCalendarsService: GetCalendarsService
     ) {
       // this.typeView = 'myTypeFilterObject.countryShow';
@@ -46,12 +43,9 @@ export class CalendarsComponent implements OnInit {
         this.myCalendars = this.myGetCalendarsService.getCalendars();
     }
 
-    viewNewCalendar() {
-      this.createCalendarShow = !this.createCalendarShow;
-    }
-    saveNewCalendar(name, type) {
-      console.log('Name: ' + name);
-      console.log('Type: ' + type);
+    saveNewCalendar(newCalendarName, currentCalendarType) {
+        // tslint:disable-next-line:curly
+        if (!newCalendarName.trim()) {};
     }
 
 }

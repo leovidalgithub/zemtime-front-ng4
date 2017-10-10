@@ -1,8 +1,6 @@
 <div class="headerWrapper">
-  <ia-comp-header
-    [compHeaderSectionData]="headerData.sectionData"
-    [compHeaderActionsShow]="headerData.actionsShow">
-  </ia-comp-header>
+    <ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow">
+    </ia-comp-header>
 </div>
 
 <main>
@@ -11,30 +9,31 @@
 
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
-            <li (click)="typeView = 'myTypeFilterObject.countryShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.countryShow'">{{ 'calendars.filter.showCountries' | translate}}</li>
-            <li (click)="typeView = 'myTypeFilterObject.stateShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.stateShow'">{{ 'calendars.filter.showCommunities' | translate}}</li>
-            <li (click)="typeView = 'myTypeFilterObject.cityShow'" [class.filter-selected]="typeView == 'myTypeFilterObject.cityShow'">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="typeViewShowed = 2" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="typeViewShowed = 3" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
-        <div [ngSwitch]="typeView" class="filterOptions">
-            <ul *ngSwitchCase="'myTypeFilterObject.countryShow'" class="filtratedList">
-                <li *ngFor="let country of (myCalendars | myCalendarsTypesPipe:'01')">
+        <div [ngSwitch]="typeViewShowed" class="filterOptions">
+            <ul *ngSwitchCase="1" class="filtratedList">
+                <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
                     <a [routerLink]="['calendar', country.id]" routerLinkActive="active-calendar">{{ country.name }}</a>
                 </li>
             </ul>
 
-            <ul *ngSwitchCase="'myTypeFilterObject.stateShow'" class="filtratedList">
-                <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:'02')">
+            <ul *ngSwitchCase="2" class="filtratedList">
+                <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
                     <a [routerLink]="['calendar', state.id]" routerLinkActive="active-calendar">{{ state.name }}</a>
                 </li>
             </ul>
 
-            <ul *ngSwitchCase="'myTypeFilterObject.cityShow'" class="filtratedList">
-                <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:'03')">
+            <ul *ngSwitchCase="3" class="filtratedList">
+                <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
                     <a [routerLink]="['calendar', city.id]" routerLinkActive="active-calendar">{{ city.name }}</a>
                 </li>
             </ul>
+
         </div>
 
         <li class="createCalendarIcon">
@@ -49,7 +48,6 @@
     </div>
 
     <!-- Calendar content -->
-    <!-- <zem-calendar-selected></zem-calendar-selected> -->
     <div class="choosenCalendar">
 
         <router-outlet></router-outlet>

@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GetCalendarService {
 
+  constructor() { }
+
   // getCalendar(id): Observable<string> {
   // return this.translate.get(value)
   // .map(thisValue => thisValue.toUpperCase());
@@ -22,7 +24,5 @@ export class GetCalendarService {
     }
     return myDates;
   }
-
-  constructor() { }
 
 }
