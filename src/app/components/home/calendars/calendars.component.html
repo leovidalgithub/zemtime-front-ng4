@@ -14,15 +14,15 @@
         <!-- Filter suboptions -->
         <div [ngSwitch]="typeView" class="filterOptions">
             <ul *ngSwitchCase="'countryShow'" class="filtratedList">
-                <li *ngFor="let pais of paises">
-                    <a [routerLink]="['./calendar/pais']" (click)="selectSubfilter(this)">{{ pais }}</a>
+                <li *ngFor="let calendar of (myCalendars | calendarsTypesPipe:'01')">
+                    <a [routerLink]="['./calendar/calendar.id']" (click)="selectSubfilter(this)">{{ calendar.name }}</a>
                 </li>
                 <li>
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
                 </li>
             </ul>
 
-            <ul *ngSwitchCase="'comShow'" class="filtratedList">
+            <!-- <ul *ngSwitchCase="'comShow'" class="filtratedList">
                 <li *ngFor="let ca of cas">
                     <a [routerLink]="['./calendar/comunindad']">{{ ca }}</a>
                 </li>
@@ -38,7 +38,7 @@
                 <li>
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
 
     </div>

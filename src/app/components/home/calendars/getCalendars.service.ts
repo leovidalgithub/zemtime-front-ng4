@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { iCalendars } from '../../../shared';
 
 @Injectable()
 export class GetCalendarsService {
@@ -8,7 +9,7 @@ export class GetCalendarsService {
   // return this.translate.get(value)
   // .map(thisValue => thisValue.toUpperCase());
   // }
-  getCalendars(): Array<object> {
+  getCalendars(): Array<iCalendars> {
     return [
       {
         name: 'España',

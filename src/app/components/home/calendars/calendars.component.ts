@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
-import { TranslationService } from '../../../shared';
+import { TranslationService, iCalendars } from '../../../shared';
 import { GetCalendarsService } from './getCalendars.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { GetCalendarsService } from './getCalendars.service';
 })
 export class CalendarsComponent implements OnInit {
 
-    private myCalendars: object[] = [];
+    private myCalendars: Array<iCalendars> = [];
 
     // Calendars first filter
     private countryShow: Boolean = true;
@@ -67,8 +67,7 @@ export class CalendarsComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        // this.myCalendars = this.myGetCalendarsService.getCalendars();
-        // console.log(this.myCalendars);
+        this.myCalendars = this.myGetCalendarsService.getCalendars();
     }
 
 }
