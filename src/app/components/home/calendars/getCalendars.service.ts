@@ -71,7 +71,7 @@ export class GetCalendarsService {
         id: '983221',
         type: '03' // city
       },
-    ]
+    ];
   };
 
   constructor() { }

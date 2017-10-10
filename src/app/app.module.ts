@@ -1,3 +1,4 @@
+// Modules Import
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -48,6 +49,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AuthComponent,
     LoginComponent,
     DashboardComponent,
+    CalendarsComponent,
+    CalendarComponent,
     IaCompHeaderComponent,
     IaCompSidebarComponent,
     CalendarsComponent,

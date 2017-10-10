@@ -62,6 +62,9 @@
           td {
             width: auto;
             height: auto;
+            &:hover {
+              background-color: $col-grey-80;
+            }
           }
           a {
             display: inline-block;
@@ -82,16 +85,17 @@
 
   }
 
+  // .vacationDay {
+  //   // background-color: red !important;
+  // }
 
+  .eventDay {
+    background-color: lighten($col-orange, 25%) !important;
+
+    a{
+      color: white !important;
+    }
+  }
 
 }
 
-.activeClass {
-  color: red !important;
-}
-.specialDate { background-color: #6F0 !important; }
-
-.vacationDay { background-color: #6F0 !important; }
-.workingDay { background-color: tomato !important; }
-
-.eventDay { background-color: red !important; }

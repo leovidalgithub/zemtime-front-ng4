@@ -6,6 +6,7 @@ import { TranslationService } from '../../../shared';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
   private headerData: object = {
@@ -16,11 +17,10 @@ export class DashboardComponent implements OnInit {
       notificationCondition: '1',
       notificationResult: '4',
       span: this.myTranslate.getTranslation('calendars.calendar'),
-      spanName: ' Barcelona',
-      spanShow: true
+      spanShow: false
     },
     actionsShow : {
-      showActions: true
+      showActions: false
     },
     actionButtons: [
       {

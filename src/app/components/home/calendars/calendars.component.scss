@@ -39,7 +39,7 @@
       }
 
       a {
-        color: $col-grey-20;
+        color: $col-grey-30;
         font-size: .9em;
         letter-spacing: .03em;
         padding: 5px 8px;
@@ -71,7 +71,7 @@
 
 .filter-selected {
   border-bottom: 1px solid $col-zemsania !important;
-  // @extend %fw-bold;
+  @extend %fw-bold;
 }
 
 .subfilter-selected {
