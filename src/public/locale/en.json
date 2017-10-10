@@ -1,13 +1,31 @@
 {
+  "general" : {
+    "sidebar" : {
+      "menuClose" : "Close Menu",
+      "bugReport" : "Report bug",
+      "logout" : "LogOut"
+    },
+    "buttons" : {
+      "ok" : "Accept",
+      "send" : "Send",
+      "cancel" : "Cancel"
+    }
+  },
   "auth" : {
     "login" : {
-      "login" : "Iniciar sesión"
+      "login" : "Login"
     }
   },
   "dashboard" : {
-    "title" : "ENGLISH!!!!"
+    "title" : "Notifications"
   },
   "calendars" : {
-    "title" : "Calendarios"
+    "title" : "Calendars",
+    "calendar" : "Calendar",
+    "filter" : {
+      "showCountries" : "Countries",
+      "showCommunities" : "Comunities",
+      "showCities" : "Cities"
+    }
   }
 }

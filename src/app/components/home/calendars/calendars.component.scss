@@ -39,7 +39,11 @@
       }
 
       a {
+<<<<<<< HEAD
         color: $col-grey-30;
+=======
+        color: $col-grey-20;
+>>>>>>> lrodriguez
         font-size: .9em;
         letter-spacing: .03em;
         padding: 5px 8px;
@@ -77,4 +81,3 @@
 .subfilter-selected {
   color: $col-zemsania;
 }
-

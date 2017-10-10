@@ -15,11 +15,11 @@ const APP_ROUTES: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'calendars', component: CalendarsComponent,
-        children: [
+      children: [
           { path: 'calendar/:id', component: CalendarComponent }
         ]
-      }
-    ]
+    }
+      ]
   },
   { path: '**', redirectTo: 'auth', pathMatch: 'full' }
 ];

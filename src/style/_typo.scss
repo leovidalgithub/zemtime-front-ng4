@@ -10,7 +10,7 @@
 // *****************
 
     // INSTALL FONTS VIA CDN
-        //    @import url('https://../public/fonts.googleapis.com/css?family=Roboto:300,400,700');
+        //    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
         //
         // Usage:
         // font-family: 'Roboto', sans-serif;
@@ -20,28 +20,28 @@
     // INSTALL FONTS VIA @FONTFACE
         @font-face {
             font-family: 'Roboto';
-            src: url('../public/fonts/Roboto-Light.eot');
-            src: url('../public/fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'),
-            url('../public/fonts/Roboto-Light.woff') format('woff'),
-            url('../public/fonts/Roboto-Light.ttf') format('truetype');
+            src: url('fonts/Roboto-Light.eot');
+            src: url('fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+            url('fonts/Roboto-Light.woff') format('woff'),
+            url('fonts/Roboto-Light.ttf') format('truetype');
             font-weight: 300;
             font-style: normal;
         }
         @font-face {
             font-family: 'Roboto';
-            src: url('../public/fonts/Roboto-Regular.eot');
-            src: url('../public/fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
-            url('../public/fonts/Roboto-Regular.woff') format('woff'),
-            url('../public/fonts/Roboto-Regular.ttf') format('truetype');
+            src: url('fonts/Roboto-Regular.eot');
+            src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+            url('fonts/Roboto-Regular.woff') format('woff'),
+            url('fonts/Roboto-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
         @font-face {
             font-family: 'Roboto';
-            src: url('../public/fonts/Roboto-Bold.eot');
-            src: url('../public/fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
-            url('../public/fonts/Roboto-Bold.woff') format('woff'),
-            url('../public/fonts/Roboto-Bold.ttf') format('truetype');
+            src: url('fonts/Roboto-Bold.eot');
+            src: url('fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+            url('fonts/Roboto-Bold.woff') format('woff'),
+            url('fonts/Roboto-Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
         }
@@ -90,12 +90,9 @@
         letter-spacing: .02rem;
         line-height: 1.5px;
         font-weight: 400;
-        // text-transform: uppercase;
     }
     label {
         font-size: 1.12rem;
         color: $col-grey-10;
         letter-spacing: .01rem;
-        // margin-bottom: 15px;
-        // text-transform: capitalize;
     }

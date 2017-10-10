@@ -4,24 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule  } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
-// Components Import
-import { AppComponent } from './app.component';
-import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent, CalendarsComponent, CalendarComponent } from './components';
-
-// Services Import
-import { ApiService, AlwaysAuthGuard, UserService } from './shared';
 import { APP_ROUTING } from './app.routing';
+
+// COMPONENTS
+import { AppComponent } from './app.component';
+import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent, CalendarComponent, CalendarsComponent } from './components';
+// ia-components
+import { IaCompHeaderComponent } from 'ia-comp-header';
+import { IaCompSidebarComponent } from 'ia-comp-sidebar';
+
+// SERVICES
+import { TranslationService, AlwaysAuthGuard, UserService } from './shared';
+import { GetCalendarsService, GetCalendarService } from './components';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-// Translation import
+// TRANSLATE
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-// ia-components import
-import { IaCompHeaderComponent } from 'ia-comp-header';
-import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/locale/', '.json');
@@ -51,12 +51,16 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CalendarsComponent,
     CalendarComponent,
     IaCompHeaderComponent,
-    IaCompSidebarComponent
+    IaCompSidebarComponent,
+    CalendarsComponent,
+    CalendarComponent
   ],
   providers: [
-    ApiService,
+    TranslationService,
     AlwaysAuthGuard,
-    UserService
+    UserService,
+    GetCalendarsService,
+    GetCalendarService
   ],
   bootstrap: [AppComponent]
 })
