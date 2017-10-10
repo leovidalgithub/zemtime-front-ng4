@@ -14,8 +14,6 @@ const APP_ROUTES: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'calendars', component: CalendarsComponent },
-      // { path: 'calendar', component: CalendarComponent }
       { path: 'calendars', component: CalendarsComponent,
         children: [
           { path: 'calendar/:id', component: CalendarComponent }

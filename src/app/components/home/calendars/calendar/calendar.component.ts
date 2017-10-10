@@ -28,11 +28,9 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.servicioDates();
     this.createMonths();
     this.createCalendars();
-
   }
 
 
@@ -46,8 +44,6 @@ export class CalendarComponent implements OnInit {
         }
     }
   }
-
-
 
 
   // selectedDay(date, inst) {
@@ -74,16 +70,14 @@ export class CalendarComponent implements OnInit {
         changeMonth: false,
         stepMonths: 0,
         defaultDate: new Date( month + '/01/' + this.currentYear ),
-        dateFormat: 'dd-mm-yy',
+        // dateFormat: 'dd-mm-yy',
         showMonthAfterYear: false,
         firstDay: 1,
         inline: true,
         onSelect: (date, inst) => { // devuelve el día
-
-          // this.selectedDay(date, inst);
           date = new Date(date).getTime();
 
-          if( this.datesObject[date] ) {
+          if ( this.datesObject[date] ) {
             delete this.datesObject[date];
           } else {
             this.datesObject[date] = {};
@@ -91,21 +85,16 @@ export class CalendarComponent implements OnInit {
           }
 
           console.log(this.datesObject);
-
-          // this.createMonths();
           this.createCalendars();
 
         },
         beforeShowDay : (date) => {
-
           date = new Date(date).getTime();
-
           if( this.datesObject[date] ) {
              return [ true, 'eventDay', 'eventDay']
           } else {
-            return [ true, 'vacationDay', 'holiday']
+            return [ true, '', 'holiday']
           }
-
         }
       } );
     }
