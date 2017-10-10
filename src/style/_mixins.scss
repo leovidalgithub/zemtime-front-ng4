@@ -1,0 +1,49 @@
+// *************************************************** //
+	// MIXINS AND FUNCTIONS
+// *************************************************** //
+
+
+// *************************************************** //
+	// FONTS AND TYPO
+// *************************************************** //
+
+	// FONT PX TO EM
+		// Usage
+		// 	h1 { font-size: em(32) }
+		$browser-context: 14; // Default
+		@function em($pixels, $context: $browser-context) {
+		  @return #{$pixels/$context}em;
+		}
+
+
+// ----------------------------------------------------------------
+// !!!REVISAR!!!
+// ----------------------------------------------------------------
+
+// FOR DAYTYPES-LEYEND AT 'IMPUTE' AND 'CALENDAR'
+	@mixin myLeyend( $boxWidth, $borderWidth ) {
+	        border: solid $borderWidth #6C6C6C;
+	        border-radius: 5px;
+	        background-color: #FBFBFB;
+	        width: $boxWidth;
+	        margin: 5px auto;
+	        text-align: left;
+	        padding: 10px;
+	}
+	@mixin myLeyendBox( $boxHeight, $boxWidth ) {
+            height: $boxHeight;
+            width: $boxWidth;
+            border-radius: 2px;
+            border: solid 1px black;
+            display: inline-block;
+    }
+
+
+
+	@mixin vertical-align( $position: relative ) {
+	  position: $position;
+	  top: 50%;
+	  -webkit-transform: translateY( -50% );
+	  -ms-transform: translateY( -50% );
+	  transform: translateY( -50% );
+	}

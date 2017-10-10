@@ -1,33 +1,65 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent } from './components';
-import { ApiService, AlwaysAuthGuard, UserService } from './shared';
 import { APP_ROUTING } from './app.routing';
 
+// COMPONENTS
+import { AppComponent } from './app.component';
+import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent,
+          CalendarComponent, CalendarsComponent, CalendarsTypesPipe } from './components';
+// ia-components
+import { IaCompHeaderComponent } from 'ia-comp-header';
+import { IaCompSidebarComponent } from 'ia-comp-sidebar';
+
+// SERVICES
+import { TranslationService, AlwaysAuthGuard, UserService } from './shared';
+import { GetCalendarsService, GetCalendarService } from './components';
+
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
+
+// TRANSLATE
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, 'assets/locale/', '.json');
+}
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     HttpModule,
     FormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    IaCompHeaderComponent,
+    IaCompSidebarComponent,
+    CalendarsComponent,
+    CalendarComponent,
+    CalendarsTypesPipe
   ],
   providers: [
-    ApiService,
+    TranslationService,
     AlwaysAuthGuard,
-    UserService
+    UserService,
+    GetCalendarsService,
+    GetCalendarService
   ],
   bootstrap: [AppComponent]
 })

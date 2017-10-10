@@ -1,10 +1,51 @@
-@import "icons";
+// *************************************************** //
+// Global App Styles, reset and Lookandfeel imports
+// *************************************************** //
 
-// styles in src/style directory are applied to the whole page
-body {
-    background: #0147A7;
-    color: #fff;
-}
-a {
-    color: #03A9F4;
-}
+
+// LOOKANDFEEL IMPORTS
+  @import "colors";
+  @import "typo";
+  @import "mediaqueries";
+  @import "grid";
+  @import "reset";
+  @import "icons";
+  @import "buttons";
+  @import "extends";
+  @import "mixins";
+
+
+// BASIC RESET STYLES
+// todo borrar reset cuando este el componente de lookAndFeel
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    //max-width: 1440px;
+    //margin: 0 auto;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+  }
+  li {
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+// ¡¡ IMPORTANT !!
+// Zemtime App Components has this structure:
+//    <ia-comp-header></ia-comp-header>
+//    <main></main>
+// The main tag will contain all the information of the component so we give this container a padding
+  main {
+    padding: 10px 3%;
+  }

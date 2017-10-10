@@ -1,0 +1,79 @@
+@import "../../../../style/colors";
+@import "../../../../style/typo";
+@import "../../../../style/icons";
+@import "../../../../style/extends";
+
+.filter {
+  width: 100%;
+  margin: 0 auto;
+
+  // Filter Buttons
+  .filterButtons {
+    li {
+      display: inline-block;
+      padding: 10px;
+      cursor: pointer;
+      color: $col-black;
+      font-size: 1em;
+      letter-spacing: .04em;
+      border-bottom: 1px solid $col-smoke-white;
+      transition: all .3s;
+
+      &:hover {
+        border-bottom: 1px solid $col-zemsania !important;
+      }
+    }
+  }
+
+  // Filtrated list options
+  .filtratedList {
+    width: 100%;
+    padding: 8px;
+
+    li {
+      display: inline-block;
+      padding-right: 10px;
+
+      &:first-child {
+        margin-left: -6px;
+      }
+
+      a {
+        color: $col-grey-20;
+        font-size: .9em;
+        letter-spacing: .03em;
+        padding: 5px 8px;
+        transition: all .3s;
+
+        animation: enterOpacity .5s;
+
+        &:hover {
+          color: $col-zemsania;
+        }
+      }
+
+      .add-calendar {
+        font-size: 1.3em;
+        color: lighten($col-green, 15%);
+        cursor: pointer;
+
+        &:hover {
+          color: $col-green;
+        }
+      }
+    }
+
+  }
+
+} // Filter close
+
+
+
+.filter-selected {
+  border-bottom: 1px solid $col-zemsania !important;
+  // @extend %fw-bold;
+}
+
+.subfilter-selected {
+  color: $col-zemsania;
+}
