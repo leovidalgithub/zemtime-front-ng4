@@ -8,6 +8,7 @@ export class GetCalendarsService {
   // return this.translate.get(value)
   // .map(thisValue => thisValue.toUpperCase());
   // }
+
   getCalendars(): Array<object> {
     return [
       {
@@ -70,7 +71,7 @@ export class GetCalendarsService {
         id: '983221',
         type: '03' // city
       },
-    ]
+    ];
   };
 
   constructor() { }

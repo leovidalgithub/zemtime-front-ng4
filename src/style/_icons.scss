@@ -8,8 +8,12 @@
 // CALL FONT-FACE
 @font-face {
     font-family: "Material Design Icons";
-    src: url("icon-fonts/materialdesignicons-webfont.eot?v=2.0.46");
-    src: url("icon-fonts/materialdesignicons-webfont.eot?#iefix&v=2.0.46") format("embedded-opentype"), url("icon-fonts/materialdesignicons-webfont.woff2?v=2.0.46") format("woff2"), url("icon-fonts/materialdesignicons-webfont.woff?v=2.0.46") format("woff"), url("icon-fonts/materialdesignicons-webfont.ttf?v=2.0.46") format("truetype"), url("icon-fonts/materialdesignicons-webfont.svg?v=2.0.46#materialdesigniconsregular") format("svg");
+    src: url("../public/fonts/materialdesignicons-webfont.eot?v=2.0.46");
+    src: url("../public/fonts/materialdesignicons-webfont.eot?#iefix&v=2.0.46") format("embedded-opentype"),
+         url("../public/fonts/materialdesignicons-webfont.woff2?v=2.0.46") format("woff2"),
+         url("../public/fonts/materialdesignicons-webfont.woff?v=2.0.46") format("woff"),
+         url("../public/fonts/materialdesignicons-webfont.ttf?v=2.0.46") format("truetype"),
+         url("../public/fonts/materialdesignicons-webfont.svg?v=2.0.46#materialdesigniconsregular") format("svg");
     font-weight: normal;
     font-style: normal;
 }

@@ -53,9 +53,9 @@ export class CalendarComponent implements OnInit {
                 beforeShowDay: (date) => {
                     date = new Date(date).getTime();
                     if (this.myDates[date]) {
-                        return [true, 'eventDay', 'eventDay']
+                        return [true, 'eventDay', 'eventDay'];
                     } else {
-                        return [true, '', 'holiday']
+                        return [true, '', 'holiday'];
                     }
                 }
             });
