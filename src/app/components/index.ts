@@ -4,15 +4,11 @@ export * from './home/home.component';
   export * from './home/dashboard/dashboard.component';
   // Calendars
   export * from './home/calendars/calendars.component';
-  export * from './home/calendars/getCalendars.service';
+  export * from './home/calendars/calendars.services';
   export * from './home/calendars/calendars.pipe';
     // Calendar
     export * from './home/calendars/calendar/calendar.component';
-    export * from './home/calendars/calendar/getCalendar.service';
-
-export * from './home/calendars/calendar/calendar.component';
-export * from './home/calendars/getCalendars.service';
-export * from './home/calendars/calendar/getCalendar.service';
+    export * from './home/calendars/calendar/calendar.services';
 
 // AUTH
 export * from './auth/auth.component';

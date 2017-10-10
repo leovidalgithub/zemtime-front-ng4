@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { TranslationService, iCalendars } from '../../../shared';
-import { GetCalendarsService } from './getCalendars.service';
+import { GetCalendarsService } from './calendars.services';
 
 @Component({
     selector: 'zem-calendars',
@@ -20,7 +20,7 @@ export class CalendarsComponent implements OnInit {
     };
 
     // Create calendar div
-    private createCalendarShow: boolean;
+    private createCalendarShow = false;
 
     private typeView: any = 'myTypeFilterObject.countryShow'; // Show country on load
 
@@ -46,7 +46,7 @@ export class CalendarsComponent implements OnInit {
         this.myCalendars = this.myGetCalendarsService.getCalendars();
     }
 
-    showCreateCalendar() {
+    viewNewCalendar() {
       this.createCalendarShow = !this.createCalendarShow;
     }
     saveNewCalendar(name, type) {

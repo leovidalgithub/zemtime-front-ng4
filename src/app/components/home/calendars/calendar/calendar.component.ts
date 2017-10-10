@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslationService } from '../../../../shared';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { GetCalendarService } from './getCalendar.service';
+import { GetCalendarService } from './calendar.services';
 import { ViewEncapsulation } from '@angular/core';
 declare var $: any;
 

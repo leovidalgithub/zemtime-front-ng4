@@ -2,16 +2,13 @@
 @import "../../../../style/typo";
 @import "../../../../style/icons";
 @import "../../../../style/extends";
-
 .headerWrapper {
   @extend %headerWrapper;
 }
 
 .filter {
   width: 100%;
-  margin: 0 auto;
-
-  // Filter Buttons
+  margin: 0 auto; // Filter Buttons
   .filterButtons {
     li {
       display: inline-block;
@@ -22,70 +19,82 @@
       letter-spacing: .04em;
       border-bottom: 1px solid $col-smoke-white;
       transition: all .3s;
-
       &:hover {
         border-bottom: 1px solid $col-zemsania !important;
       }
     }
   }
-
-  // Filtrated list options
-  .filtratedList {
-    width: 100%;
-    padding: 8px;
-
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-
-    li {
-      display: inline-block;
-      padding-right: 10px;
-
+  .filterOptions {
+    display: inline-block; // Filtrated list options
+    .filtratedList {
+      width: 100%;
+      padding: 8px;
       display: flex;
       flex-flow: row wrap;
       align-items: center;
-
-      &:first-child {
-        margin-left: -6px;
-      }
-
-      a {
-        color: $col-grey-30;
-        font-size: .9em;
-        letter-spacing: .03em;
-        padding: 5px 8px;
-        transition: all .3s;
-
-        animation: enterOpacity .5s;
-
-        &:hover {
-          color: $col-zemsania;
+      li {
+        display: inline-block;
+        padding-right: 10px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        &:first-child {
+          margin-left: -6px;
         }
-      }
-
-      .active-calendar {
-        color: $col-orange !important;
-        // @extend %fw-bold;
-      }
-
-      .add-calendar {
-        font-size: 1.3em;
-        color: lighten($col-green, 15%);
-        cursor: pointer;
-
-        &:hover {
-          color: $col-green;
+        a {
+          color: $col-grey-30;
+          font-size: .9em;
+          letter-spacing: .03em;
+          padding: 5px 8px;
+          transition: all .3s;
+          animation: enterOpacity .5s;
+          &:hover {
+            color: $col-zemsania;
+          }
+        }
+        .active-calendar {
+          color: $col-orange !important; // @extend %fw-bold;
         }
       }
     }
-
   }
-
+  .createCalendarIcon {
+    display: inline-block;
+    .add-calendar {
+      font-size: 1.3em;
+      color: lighten($col-green, 15%);
+      cursor: pointer;
+      &:hover {
+        color: $col-green;
+      }
+    }
+  }
+  form {
+    display: none !important;
+    transition: all .6s;
+    margin-left: 8px;
+    input[type="text"] {
+      width: 180px;
+      border: 1.3px solid $col-grey-70;
+      border-radius: 2px; //position: absolute;
+      font-size: .8em;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      outline: none;
+      color: $col-black;
+      padding: 4px 2em 4px 10px;
+      transition: all .6s; //margin-right: -2.5em;
+      &:focus {
+        border: 1.3px solid lighten($col-orange, 20%);
+        background-color: $col-grey-80; //cursor: text;
+      }
+    }
+  }
+  .createNew {
+    display: block !important;
+    animation: enterHeightOpacity .6s;
+  }
 } // Filter close
-
-
-
 .filter-selected {
   border-bottom: 1px solid $col-zemsania !important;
   @extend %fw-bold;

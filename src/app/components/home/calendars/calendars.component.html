@@ -22,41 +22,29 @@
                 <li *ngFor="let country of (myCalendars | myCalendarsTypesPipe:'01')">
                     <a [routerLink]="['calendar', country.id]" routerLinkActive="active-calendar">{{ country.name }}</a>
                 </li>
-                <li>
-                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="showCreateCalendar()"></a>
-                </li>
-                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '01')">
-                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
-                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
-                </form>
             </ul>
 
             <ul *ngSwitchCase="'myTypeFilterObject.stateShow'" class="filtratedList">
                 <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:'02')">
                     <a [routerLink]="['calendar', state.id]" routerLinkActive="active-calendar">{{ state.name }}</a>
                 </li>
-                <li>
-                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
-                </li>
-                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '02')" [ngClass]="{'viewNewCalendar': true}">
-                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
-                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
-                </form>
             </ul>
 
             <ul *ngSwitchCase="'myTypeFilterObject.cityShow'" class="filtratedList">
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:'03')">
                     <a [routerLink]="['calendar', city.id]" routerLinkActive="active-calendar">{{ city.name }}</a>
                 </li>
-                <li>
-                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate"></a>
-                </li>
-                <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '03')">
-                  <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
-                  <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
-                </form>
             </ul>
         </div>
+
+        <li class="createCalendarIcon">
+            <a class="mdi mdi-plus-circle-outline add-calendar" (click)="viewNewCalendar()" [title]="'general.buttons.title.addCalendar' | translate"></a>
+        </li>
+
+        <form (ngSubmit)="saveNewCalendar(nameCalendar.value, '02')" [class.createNew]="createCalendarShow">
+            <input type="text" #nameCalendar placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}">
+            <button type="submit" class="bt-pos">{{ 'general.buttons.save' | translate }}</button>
+        </form>
 
     </div>
 
