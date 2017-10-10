@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log('**********************');  
+    // console.log('**********************');
     // console.log('AppComponent');
     // console.log(this.translate.getLangs());
     // console.log(this.translate.currentLang);

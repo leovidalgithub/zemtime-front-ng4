@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GetCalendarService {
 
+  constructor() { }
+
   // getCalendar(id): Observable<string> {
   // return this.translate.get(value)
   // .map(thisValue => thisValue.toUpperCase());
   // }
   getCalendar(id): object {
-    let myDates: object = {}
+    let myDates: object = {};
     for (let i = 1; i < 20; i++) {
       let dayNumber = Math.floor((Math.random() * 30) + 1);
       let longDate = new Date(2017, 0, dayNumber);
@@ -22,7 +24,5 @@ export class GetCalendarService {
     }
     return myDates;
   }
-
-  constructor() { }
 
 }
