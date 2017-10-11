@@ -2,14 +2,10 @@ import { Injectable } from '@angular/core';
 // import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class GetCalendarService {
+export class GetCalendarServices {
 
   constructor() { }
 
-  // getCalendar(id): Observable<string> {
-  // return this.translate.get(value)
-  // .map(thisValue => thisValue.toUpperCase());
-  // }
   getCalendar(id): object {
     let myDates: object = {};
     for (let i = 1; i < 20; i++) {

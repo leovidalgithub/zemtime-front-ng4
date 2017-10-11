@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { TranslationService, iCalendars } from '../../../shared';
-import { GetCalendarsService } from './calendars.services';
+import { GetCalendarsServices } from './calendars.services';
 
 enum eCalendarTypeShowed {
     country = 1,
@@ -15,6 +15,7 @@ enum eCalendarTypeShowed {
     styleUrls: ['./calendars.component.scss']
 })
 export class CalendarsComponent implements OnInit {
+    private myVar: any;
 
     private myCalendars: Array<iCalendars>      = [];
     private newCalendarShowed: Boolean          = false;
@@ -34,16 +35,25 @@ export class CalendarsComponent implements OnInit {
 
     constructor(
         private myTranslate: TranslationService,
-        private myGetCalendarsService: GetCalendarsService
+        private myGetCalendarsServices: GetCalendarsServices
     ) {}
 
     ngOnInit() {
-        this.myCalendars = this.myGetCalendarsService.getCalendars();
+        this.myCalendars = this.myGetCalendarsServices.getCalendars();
     }
 
     saveNewCalendar(newCalendarName, currentCalendarType) {
         // tslint:disable-next-line:curly
         if (!newCalendarName.trim()) {};
+    }
+
+    fn() {
+        this.myGetCalendarsServices.searchCity()
+            .subscribe(
+                (res) => {
+                    console.log(res[0].id);
+                    this.myVar = res;
+                });
     }
 
 }

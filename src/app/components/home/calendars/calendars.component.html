@@ -4,6 +4,11 @@
 </div>
 
 <main>
+    <button (click)="fn()">Go!!!</button>
+    <ul>
+        <li>Here!</li>
+        <li *ngFor="let item of myVar">{{item.id}} / {{item.name}}</li>
+    </ul>
     <!-- Show calendar filter -->
     <div class="filter">
 

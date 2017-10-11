@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { iCalendars } from '../../../shared';
+import { Http, Response } from '@angular/http';
+import { buildURL } from '../../../shared';
 
 @Injectable()
-export class GetCalendarsService {
+export class GetCalendarsServices {
+  constructor(private http: Http) {}
 
-  constructor() {}
+  searchCity(): Observable<CalendarClass> {
+    return this.http.get(buildURL('testing'))
+      .map( res => {
+        return res.json().map(item => {
+          return new CalendarClass(
+            item._id,
+            item.type,
+            item.name,
+            item.days
+          );
+        });
+      });
+  }
 
-  // getCalendar(id): Observable<string> {
-  // return this.translate.get(value)
-  // .map(thisValue => thisValue.toUpperCase());
-  // }
   getCalendars(): Array<iCalendars> {
     return [
       {
@@ -75,5 +86,19 @@ export class GetCalendarsService {
       },
     ];
   };
+
+}
+
+class CalendarClass {
+  private id: number;
+  private type: number;
+  private name: string;
+  private days: number[];
+  constructor(_id, _type, _name, _days) {
+    this.id = _id;
+    this.type = _type;
+    this.name = _name;
+    this.days = _days;
+}
 
 }

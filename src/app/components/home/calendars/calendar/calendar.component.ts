@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslationService } from '../../../../shared';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { GetCalendarService } from './calendar.services';
+import { GetCalendarServices } from './calendar.services';
 import { ViewEncapsulation } from '@angular/core';
 declare var $: any;
 
@@ -18,12 +18,12 @@ export class CalendarComponent implements OnInit {
 
     constructor(
         // private myTranslate: TranslationService,
-        private myGetCalendarService: GetCalendarService,
+        private myGetCalendarServices: GetCalendarServices,
         // private activatedRoute: ActivatedRoute
     ) { }
 
     ngOnInit() {
-        this.myDates = this.myGetCalendarService.getCalendar('123');
+        this.myDates = this.myGetCalendarServices.getCalendar('123');
         console.log(this.myDates);
         this.createMonths();
         this.createCalendars();
