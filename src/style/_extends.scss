@@ -166,7 +166,13 @@
 }
 
 // Entrance animation height / opacity
-@keyframes enterHeightOpacity {
-  from {height: 0; opacity: 0;}
-  to {height: 100%; opacity: 1;}
+@keyframes enterTranslateY {
+  from {
+      opacity:0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity:1;
+      transform: translateY(0);
+  }
 }

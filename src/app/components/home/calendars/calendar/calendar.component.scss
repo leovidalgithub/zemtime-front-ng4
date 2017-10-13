@@ -8,6 +8,9 @@
 #months {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
+
+  animation: enterOpacity .5s;
 
   // Calendar container
   .calendar {
@@ -85,10 +88,6 @@
 
   }
 
-  // .vacationDay {
-  //   // background-color: red !important;
-  // }
-
   .eventDay {
     background-color: lighten($col-orange, 25%) !important;
 
@@ -99,3 +98,86 @@
 
 }
 
+// Calendar title
+h2 {
+  color: $col-grey-20;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $col-grey-70;
+  margin-bottom: 15px;
+  animation: enterOpacity .5s;
+}
+
+// Name
+form {
+  animation: enterTranslateY .6s;
+  display: block;
+  transition: all .6s;
+  position: relative;
+  border-bottom: 1.3px solid $col-grey-70;
+  // padding-bottom: 8px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+
+  input[type="text"] {
+    width: auto;
+    border: none;
+    text-align: center;
+    // border-bottom: 1px solid lighten($col-orange, 20%);
+    padding: 8px;
+    font-size: 1.4em;
+    color: $col-grey-20;
+    font-weight: bold;
+    outline: none;
+    transition: all .6s;
+
+    &:hover {
+      background-color: $col-grey-80; //cursor: text;
+    }
+    &:focus {
+      // border-bottom: 1.3px solid lighten($col-orange, 20%);
+      background-color: $col-grey-80; //cursor: text;
+    }
+
+  }
+  .alert {
+    color: $col-red;
+    padding: 4px;
+    position: absolute;
+    top: 35px;
+    font-size: .8em;
+    display: inline-block;
+    animation: .5s enterTranslateY;
+    animation-direction: alternate;
+  }
+  .alertOk {
+    color: $col-green;
+    padding: 4px;
+    position: absolute;
+    top: 35px;
+    font-size: .8em;
+    display: inline-block;
+    animation: .5s enterTranslateY;
+    animation-direction: alternate;
+  }
+  .createOk {
+    background-color: lighten($col-green, 20%) !important; //cursor: text;
+  }
+}
+
+
+
+// Delete calendar
+.delete-calendar {
+  color: lighten($col-red, 15%);
+  padding-top: 10px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  border-top: 1px solid $col-grey-70;
+  animation: enterOpacity .5s;
+  cursor: pointer;
+  transition: .3s color;
+
+  &:hover {
+    color: $col-red;
+  }
+}

@@ -12,6 +12,11 @@
         "addCalendar" : "Añadir calendario",
         "nameCalendar" : "Nombre calendario"
       }
+    },
+    "alerts" : {
+      "newCalendarLenght" : "Debe contener entre 2-20 carácteres",
+      "newCalendarExists" : "El calendario ya existe",
+      "newCalendarCreatedOk" : "Calendario creado correctamente"
     }
   },
   "auth" : {
@@ -24,10 +29,28 @@
   },
   "calendars" : {
     "title" : "Calendarios",
+    "titleCalendar" : "Calendario de",
+    "deleteCalendar" : "Eliminar calendario",
     "filter" : {
       "showCountries" : "Países",
       "showCommunities" : "Comunidades",
       "showCities" : "Ciudades"
+    }
+  },
+  "datepicker" : {
+    "monthNames" : {
+      "jan" : "Enero",
+      "feb" : "Febrero",
+      "mar" : "Marzo",
+      "apr" : "Abril",
+      "may" : "Mayo",
+      "jun" : "Junio",
+      "jul" : "Julio",
+      "aug" : "Agosto",
+      "sep" : "Septiembre",
+      "oct" : "Octubre",
+      "nov" : "Noviembre",
+      "dec" : "Diciembre"
     }
   }
 }

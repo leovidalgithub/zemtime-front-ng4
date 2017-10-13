@@ -1,4 +1,23 @@
 
+<!-- Calendar title -->
+<!-- <h2>{{ 'calendars.titleCalendar' | translate }} {{ calendarName }}</h2>
+<!-- Create new calendar form -->
+<form [formGroup]="rForm" (ngSubmit)="saveCalendar(rForm.value, typeViewShowed)">
+
+    <input formControlName="nameNewCalendar" type="text" value="{{ calendarName }}" autofocus ngModel [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre">
+
+    <!-- Lenght alert -->
+    <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
+    <!-- Name exists alert -->
+    <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
+    <!-- Name exists alertOk -->
+    <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
+
+</form>
+
+{{typeViewShowed}}
 
 <!-- Calendars into #months created dynamically with jquery-ui -->
 <div id="months"></div>
+<!-- Delete calendar -->
+<h4 class="mdi mdi-delete delete-calendar">{{ 'calendars.deleteCalendar' | translate }}</h4>

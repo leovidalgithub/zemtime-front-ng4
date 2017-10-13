@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { iCalendars } from '../../../shared';
 
 @Injectable()
-export class GetCalendarsService {
+export class GetCalendarsServices {
 
   constructor() {}
 
@@ -13,6 +13,11 @@ export class GetCalendarsService {
   // }
   getCalendars(): Array<iCalendars> {
     return [
+      {
+        name: 'Text',
+        id: '01',
+        type: 2
+      },
       {
         name: 'España',
         id: '123',
