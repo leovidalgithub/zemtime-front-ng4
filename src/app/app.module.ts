@@ -61,6 +61,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     TranslationService,
     AlwaysAuthGuard,
+    MyServices,
     UserService,
     MyServices,
     GetCalendarsServices,

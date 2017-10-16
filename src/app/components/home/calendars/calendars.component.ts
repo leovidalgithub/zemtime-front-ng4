@@ -47,9 +47,10 @@ export class CalendarsComponent implements OnInit {
 
     constructor(
         private myTranslate:           TranslationService,
+        private myGetCalendarsServices: GetCalendarsServices,
         private myServices:            MyServices,
         private myGetCalendarsService: GetCalendarsServices,
-        private fb:                    FormBuilder
+        private fb:                    FormBuilder,
     ) {
 
       this.rForm = fb.group({
@@ -59,18 +60,18 @@ export class CalendarsComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.myCalendars = this.myGetCalendarsService.getCalendars(); // Recive calendars data
+      this.getCalendars();
     }
 
-    createShow() {
-      this.createCalendarShow = !this.createCalendarShow;
+    // createShow() {
+    //   this.createCalendarShow = !this.createCalendarShow;
 
-      if (this.createCalendarShow) {
-        setTimeout( () => {
-          this.rForm.reset();
-        }, 1);
-      }
-    }
+    //   if (this.createCalendarShow) {
+    //     setTimeout( () => {
+    //       this.rForm.reset();
+    //     }, 1);
+    //   }
+    // }
 
     // // Save a new calendar (rForm onSubmit)
     // saveCalendar(calendar, currentCalendarType) {
@@ -110,9 +111,17 @@ export class CalendarsComponent implements OnInit {
       });
     }
 
-    // Title setter
-    setTitle(calendarName) {
-      this.calendarName = calendarName;
+
+    getCalendars() {
+      this.myGetCalendarsServices.getCalendars()
+          .subscribe(
+          (res: iCalendars[]) => {
+              this.myCalendars = res;
+          },
+          (err) => {
+              console.log('err', err);
+          }
+      );
     }
 
 }

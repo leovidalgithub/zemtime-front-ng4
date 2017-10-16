@@ -62,7 +62,7 @@ export class CalendarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.myCalendars = this.myGetCalendarsService.getCalendars(); // Recive calendars data
+        // this.myCalendars = this.myGetCalendarsService.getCalendars(); // Recive calendars data
         this.myDates = this.myGetCalendarServices.getCalendar(this.calendarId);
         // this.myDates = this.myGetCalendarServices.getCalendar('123');
 

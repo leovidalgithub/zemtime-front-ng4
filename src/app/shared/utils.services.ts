@@ -5,12 +5,11 @@ const PROTOCOL    = window.location.protocol;
 const HOSTNAME    = window.location.hostname;
 let API_base = `${PROTOCOL}//${HOSTNAME}:${SERVER_PORT}/`;
 let API_paths = {
-    testing: 'fill/test'
+    getCalendars: 'calendars/'
 };
 
 @Injectable()
 export class MyServices {
-
     // please, comment what do I do?
     public buildURL = (path) => {
         'use strict';
@@ -18,7 +17,7 @@ export class MyServices {
     }
 
     // Capitalize first letter
-    capitalizeFirstLetter(string) {
+    public capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 }
