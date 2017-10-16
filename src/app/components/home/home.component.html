@@ -1,7 +1,11 @@
-<h2>SIDEBAR</h2>
+<ia-comp-sidebar
+  [generalData]="sidebarData.headSidebar"
+  [itemsData]="sidebarData.dataSidebar"
+></ia-comp-sidebar>
 
-
-<h3>Dashboard's place</h3>
-<router-outlet></router-outlet>
+<!-- app content -->
+<div id="mainWrapper">
+  <router-outlet></router-outlet>
+</div>
 
 

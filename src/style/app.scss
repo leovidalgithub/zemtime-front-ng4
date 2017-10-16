@@ -1,10 +1,110 @@
-@import "icons";
+// *************************************************** //
+// Global App Styles, reset and Lookandfeel imports
+// *************************************************** //
 
-// styles in src/style directory are applied to the whole page
-body {
-    background: #0147A7;
-    color: #fff;
-}
-a {
-    color: #03A9F4;
-}
+
+// LOOKANDFEEL IMPORTS
+  @import "colors";
+  @import "typo";
+  @import "mediaqueries";
+  @import "grid";
+  @import "reset";
+  @import "icons";
+  @import "buttons";
+  @import "extends";
+  @import "mixins";
+
+
+// BASIC RESET STYLES
+// todo borrar reset cuando este el componente de lookAndFeel
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    //max-width: 1440px;
+    //margin: 0 auto;
+  }
+  body {
+    height: auto;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+  }
+  li {
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+// ¡¡ IMPORTANT !!
+// Zemtime App Components has this structure:
+//    <ia-comp-header></ia-comp-header>
+//    <main></main>
+// The main tag will contain all the information of the component so we give this container a padding
+  main {
+    margin-top: 50px;
+    padding: 10px 3%;
+  }
+
+
+
+
+// .month {
+//   text-align: center;
+//   // background-color: tomato;
+// }
+
+// .day_title {
+//   text-align: left;
+//   width: 40px;
+//   height: 40px;
+//   font-size: 15px;
+//   margin: 2px;
+//   padding: 5px;
+//   border-style: solid;
+//   border-width: 2px;
+//   border-color: #c0c0c0;
+//   display: inline-block;
+//   vertical-align: bottom;
+// }
+
+// .day{
+//   text-align: left;
+//   width: 40px;
+//   height: 40px;
+//   font-size: 15px;
+//   margin: 2px;
+//   padding: 5px;
+//   border-style: solid;
+//   border-width: 2px;
+//   border-color: #c0c0c0;
+//   display: inline-block;
+//   vertical-align: bottom;
+// }
+
+
+
+// .empty {
+//   border-color: #e0e0e0;
+// }
+
+// .day_off {
+//   border-color: #ff6666;
+// }
+
+// .day_today {
+//   border-color: #33cc33;
+// }
+
+// /* Test */
+// .testWeek {
+//   color: green;
+// }
