@@ -17,10 +17,11 @@
 <!-- {{calendarName}} -->
 
 <!-- Year selector -->
+<!-- todo everithing depending on if exists or not etc... -->
 <ul class="year-selector">
-  <li (click)="getCalendarByYear(prevYear)">{{prevYear}}</li>
-  <li (click)="getCalendarByYear(currentYear)">{{currentYear}}</li>
-  <li (click)="getCalendarByYear(nextYear)" class="mda mda-plus new-year">{{nextYear}}</li>
+  <li>{{ prevYear }}</li>
+  <li class="year-selected">{{ currentYear }}</li>
+  <li class="mda mda-plus new-year" [title]="('calendars.createNextCal' | translate)+ ' ' + nextYear">{{ nextYear }}</li>
 </ul>
 
 <!-- Calendars into #months created dynamically with jquery-ui -->

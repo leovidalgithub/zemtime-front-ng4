@@ -23,9 +23,9 @@ export class CalendarComponent implements OnInit {
     private nextYear:    number = this.currentYear + 1;
     private myCalendars: Array<iCalendars> = []; // Recive all calendars with interface iCalendar
 
-    private calendarId;
-    private calendarName;
-    private allCalendars;
+    public calendarId;
+    public calendarName;
+    public allCalendars;
 
     // Form variables
     private rForm:             FormGroup;
