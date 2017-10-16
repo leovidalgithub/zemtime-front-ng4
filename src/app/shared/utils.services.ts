@@ -15,4 +15,9 @@ export class MyServices {
         'use strict';
         return API_base + API_paths[path];
     }
+
+    // Capitalize first letter
+    public capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 }

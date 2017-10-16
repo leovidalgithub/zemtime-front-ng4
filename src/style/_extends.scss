@@ -65,7 +65,25 @@
 
 	// TEXT
 		.txt-center{text-align: center !important}
-		.txt-upper{text-transform: uppercase !important}
+    .txt-upper{text-transform: uppercase !important}
+
+  // HEADER DISPLAY WHEN APP USES SIDEBAR
+    // .headerWrapper {
+    //    @extend %headerWrapper;
+    // }
+
+    %headerWrapper {
+      margin-left: 50px;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      transition: all .7s ease;
+
+      @media (min-width: 769px) {
+        margin-left: 200px;
+      }
+    }
 
 
 
@@ -139,4 +157,22 @@
 @keyframes enterOpacity {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+// Entrance animation height
+@keyframes enterHeight {
+  from {height: 0;}
+  to {height: 100%;}
+}
+
+// Entrance animation height / opacity
+@keyframes enterTranslateY {
+  from {
+      opacity:0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity:1;
+      transform: translateY(0);
+  }
 }

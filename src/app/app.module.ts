@@ -1,8 +1,9 @@
+// Modules Import
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APP_ROUTING } from './app.routing';
 
 // COMPONENTS
@@ -15,7 +16,7 @@ import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
 // SERVICES
 import { TranslationService, AlwaysAuthGuard, UserService, MyServices } from './shared';
-import { GetCalendarsServices, GetCalendarServices } from './components';
+import { GetCalendarsServices, GetCalendarServices, GetCalendarLangService } from './components';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     APP_ROUTING,
     TranslateModule.forRoot({
       loader: {
@@ -48,6 +50,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AuthComponent,
     LoginComponent,
     DashboardComponent,
+    CalendarsComponent,
+    CalendarComponent,
     IaCompHeaderComponent,
     IaCompSidebarComponent,
     CalendarsComponent,
@@ -59,8 +63,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AlwaysAuthGuard,
     MyServices,
     UserService,
+    MyServices,
     GetCalendarsServices,
-    GetCalendarServices
+    GetCalendarServices,
+    GetCalendarLangService
   ],
   bootstrap: [AppComponent]
 })

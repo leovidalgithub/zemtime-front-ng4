@@ -1,5 +1,6 @@
 @import "../../../../style/colors";
+@import "../../../../style/extends";
 
-.testColor {
-  color: $col-zemsania;
+.headerWrapper {
+  @extend %headerWrapper;
 }

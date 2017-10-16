@@ -1,13 +1,130 @@
 @import "../../../../../style/colors";
-@import "../../../../../style/typo";
-@import "../../../../../style/icons";
+// @import "../../../../../style/typo";
+// @import "../../../../../style/icons";
 @import "../../../../../style/extends";
+
+
+// Calendar title
+// h2 {
+//   color: $col-grey-20;
+//   padding-bottom: 8px;
+//   border-bottom: 1px solid $col-grey-70;
+//   margin-bottom: 15px;
+//   animation: enterOpacity .5s;
+// }
+
+// Create new calendar form and Calendar title
+form {
+  animation: enterTranslateY .6s;
+  display: block;
+  transition: all .6s;
+  position: relative;
+  border-bottom: 1.3px solid $col-grey-70;
+  // padding-bottom: 8px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+
+  input[type="text"] {
+    width: auto;
+    border: none;
+    text-align: center;
+    // border-bottom: 1px solid lighten($col-orange, 20%);
+    padding: 8px;
+    font-size: 1.4em;
+    color: $col-grey-20;
+    font-weight: bold;
+    outline: none;
+    transition: all .6s;
+
+    &:hover {
+      background-color: $col-grey-80; //cursor: text;
+    }
+    &:focus {
+      // border-bottom: 1.3px solid lighten($col-orange, 20%);
+      background-color: $col-grey-80; //cursor: text;
+    }
+
+  }
+  .alert, .alertOk {
+    padding: 4px;
+    position: absolute;
+    top: 10px;
+    // left: 5px;
+    font-size: .8em;
+    display: inline-block;
+    animation: .5s enterTranslateY;
+    animation-direction: alternate;
+  }
+  .alert {
+    color: $col-red;
+  }
+  .alertOk {
+    color: $col-green;
+  }
+  .createOk {
+    background-color: lighten($col-green, 20%) !important; //cursor: text;
+  }
+}
+
+// Year selector
+.year-selector {
+  margin-bottom: 15px;
+  li {
+    display: inline-block;
+    color: $col-grey-30;
+    font-size: .9em;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: .3s color;
+    cursor: pointer;
+
+    &:hover {
+      color: $col-black;
+    }
+
+    &:last-child, &:first-child {
+      margin: 0;
+    }
+  }
+  .year-selected {
+    font-size: 1em;
+    color: $col-orange;
+  }
+  .new-year {
+    color: $col-grey-60;
+    font-size: .7em;
+    transition: .3s all;
+    position: relative;
+
+    &:hover {
+      color: $col-grey-60;
+      &::after {
+        font-weight: bolder;
+      }
+    }
+
+    &::after {
+      font-size: 1.1em;
+      display: inline;
+      position: absolute;
+      top: -5px;
+      left: 22px;
+      background-color: rgba(255,255,255,.7);
+      color: $col-green;
+      transition: .3s all;
+    }
+  }
+}
+
 
 // DATEPICKER STYLES
 // Datepicker Container
 #months {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
+
+  animation: enterOpacity .5s;
 
   // Calendar container
   .calendar {
@@ -62,6 +179,9 @@
           td {
             width: auto;
             height: auto;
+            &:hover {
+              background-color: $col-grey-80;
+            }
           }
           a {
             display: inline-block;
@@ -82,16 +202,28 @@
 
   }
 
+  .eventDay {
+    background-color: lighten($col-orange, 25%) !important;
 
+    a{
+      color: white !important;
+    }
+  }
 
 }
 
-.activeClass {
-  color: red !important;
+// Delete calendar
+.delete-calendar {
+  color: lighten($col-red, 15%);
+  padding-top: 10px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  border-top: 1px solid $col-grey-70;
+  animation: enterOpacity .5s;
+  cursor: pointer;
+  transition: .3s color;
+
+  &:hover {
+    color: $col-red;
+  }
 }
-.specialDate { background-color: #6F0 !important; }
-
-.vacationDay { background-color: #6F0 !important; }
-.workingDay { background-color: tomato !important; }
-
-.eventDay { background-color: red !important; }
