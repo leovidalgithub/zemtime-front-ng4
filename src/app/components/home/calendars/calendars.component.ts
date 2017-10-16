@@ -15,7 +15,6 @@ enum eCalendarTypeShowed {
     styleUrls: ['./calendars.component.scss']
 })
 export class CalendarsComponent implements OnInit {
-    private myVar: any;
 
     private myCalendars: Array<iCalendars>      = [];
     private newCalendarShowed: Boolean          = false;
@@ -39,21 +38,19 @@ export class CalendarsComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.myCalendars = this.myGetCalendarsServices.getCalendars();
+        this.getCalendars();
     }
 
-    saveNewCalendar(newCalendarName, currentCalendarType) {
-        // tslint:disable-next-line:curly
-        if (!newCalendarName.trim()) {};
-    }
-
-    fn() {
-        this.myGetCalendarsServices.searchCity()
+    getCalendars() {
+        this.myGetCalendarsServices.getCalendars()
             .subscribe(
-                (res) => {
-                    console.log(res[0].id);
-                    this.myVar = res;
-                });
+            (res: iCalendars[]) => {
+                this.myCalendars = res;
+            },
+            (err) => {
+                console.log('err', err);
+            }
+        );
     }
 
 }

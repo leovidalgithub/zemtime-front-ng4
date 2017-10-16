@@ -4,14 +4,10 @@
 </div>
 
 <main>
-    <button (click)="fn()">Go!!!</button>
-    <ul>
-        <li>Here!</li>
-        <li *ngFor="let item of myVar">{{item.id}} / {{item.name}}</li>
-    </ul>
     <!-- Show calendar filter -->
     <div class="filter">
 
+        
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
             <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
