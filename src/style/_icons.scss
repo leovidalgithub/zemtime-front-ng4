@@ -32,6 +32,17 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.mda-set,
+.mda:after {
+    display: inline-block;
+    font: normal normal normal 24px/1 "Material Design Icons";
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 // ICONS CLASSES
   // Edit
   .mdi-pencil:before {
@@ -47,6 +58,10 @@
   }
   // Add
   .mdi-plus:before {
+    content: "\F415";
+  }
+  // Add after
+  .mda-plus:after {
     content: "\F415";
   }
   // Add circle

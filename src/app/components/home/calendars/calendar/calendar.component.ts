@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
+import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GetCalendarServices } from './calendar.services';
 import { GetCalendarsServices } from './../calendars.services';
+import { GetCalendarLangService } from './calendar.translations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
 declare var $: any;
@@ -16,7 +18,9 @@ declare var $: any;
 export class CalendarComponent implements OnInit {
 
     private myDates    = {};
-    private currentYear: number            = new Date().getFullYear();
+    private currentYear: number = new Date().getFullYear();
+    private prevYear:    number = this.currentYear - 1;
+    private nextYear:    number = this.currentYear + 1;
     private myCalendars: Array<iCalendars> = []; // Recive all calendars with interface iCalendar
 
     private calendarId;
@@ -32,36 +36,41 @@ export class CalendarComponent implements OnInit {
 
     constructor(
         private myTranslate:           TranslationService,
+        private translate:             TranslateService,
         private myServices:            MyServices,
         private myGetCalendarServices: GetCalendarServices,
         private myGetCalendarsService: GetCalendarsServices,
+        private myGetCalendarLangService: GetCalendarLangService,
         private activatedRoute:        ActivatedRoute,
         private fb:                    FormBuilder
     ) {
       this.rForm = fb.group({
         'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(20) ]) ]
       });
+
+      // Get calendar id and Calendar name
+      this.allCalendars = this.myGetCalendarsService.getCalendars();
+
+              this.activatedRoute.params.subscribe((params: Params) => {
+                this.calendarId = params['id'];
+
+                this.allCalendars.forEach(element => {
+                  if (element.id === this.calendarId) {
+                    this.calendarName = element.name;
+                  }
+                });
+              });
     }
 
     ngOnInit() {
         this.myCalendars = this.myGetCalendarsService.getCalendars(); // Recive calendars data
         this.myDates = this.myGetCalendarServices.getCalendar(this.calendarId);
         // this.myDates = this.myGetCalendarServices.getCalendar('123');
+
+        $.datepicker.regional[this.translate.currentLang] = this.myGetCalendarLangService.getCalendarLang(this.translate.currentLang);
+        $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
         this.createMonths();
         this.createCalendars();
-
-        this.allCalendars = this.myGetCalendarsService.getCalendars();
-
-        // Get calendar id and Calendar name
-        this.activatedRoute.params.subscribe((params: Params) => {
-          this.calendarId = params['id'];
-
-          this.allCalendars.forEach(element => {
-            if (element.id === this.calendarId) {
-              this.calendarName = element.name;
-            }
-          });
-        });
 
     }
 
@@ -69,31 +78,7 @@ export class CalendarComponent implements OnInit {
     createCalendars() {
         for (let month = 1; month < 13; month++) {
 
-          $.datepicker.regional['es'] = {
-            closeText: 'Cerrar',
-            currentText: 'Hoy',
-            monthNames: [
-              'Enero',
-              'Febrero',
-              'Marzo',
-              'Abril',
-              'Mayo',
-              'Junio',
-              'Julio',
-              'Agosto',
-              'Septiembre',
-              'Octubre',
-              'Noviembre',
-              'Diciembre'
-            ],
-            monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
-            dayNames: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
-            dayNamesShort: ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-            weekHeader: 'Sm',
-          };
 
-          $.datepicker.setDefaults($.datepicker.regional['es']);
 
           $(`#calendar-${month}`).datepicker({
               changeYear: false,
@@ -125,7 +110,6 @@ export class CalendarComponent implements OnInit {
 
         }
     }
-
 
     // Create 12 months to apply calendar
     createMonths() {
@@ -162,6 +146,10 @@ export class CalendarComponent implements OnInit {
           // this.rForm.reset();
         }, 2000);
       }
+    }
+
+    getCalendarByYear(year) {
+      return this.myGetCalendarServices.getCalendarByYear(year);
     }
 
 }

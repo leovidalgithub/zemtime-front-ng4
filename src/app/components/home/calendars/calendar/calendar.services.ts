@@ -25,4 +25,8 @@ export class GetCalendarServices {
     return myDates;
   }
 
+  getCalendarByYear(year) {
+    console.log(year);
+  }
+
 }
