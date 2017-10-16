@@ -50,16 +50,15 @@ export class CalendarComponent implements OnInit {
 
       // Get calendar id and Calendar name
       this.allCalendars = this.myGetCalendarsService.getCalendars();
+        this.activatedRoute.params.subscribe((params: Params) => {
+          this.calendarId = params['id'];
 
-              this.activatedRoute.params.subscribe((params: Params) => {
-                this.calendarId = params['id'];
-
-                this.allCalendars.forEach(element => {
-                  if (element.id === this.calendarId) {
-                    this.calendarName = element.name;
-                  }
-                });
-              });
+          this.allCalendars.forEach(element => {
+            if (element.id === this.calendarId) {
+              this.calendarName = element.name;
+            }
+          });
+        });
     }
 
     ngOnInit() {
@@ -67,18 +66,16 @@ export class CalendarComponent implements OnInit {
         this.myDates = this.myGetCalendarServices.getCalendar(this.calendarId);
         // this.myDates = this.myGetCalendarServices.getCalendar('123');
 
+        // Select calendar language based in the current language and then create months and calendars
         $.datepicker.regional[this.translate.currentLang] = this.myGetCalendarLangService.getCalendarLang(this.translate.currentLang);
         $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
         this.createMonths();
         this.createCalendars();
-
     }
 
     // Create calendars inside each month
     createCalendars() {
         for (let month = 1; month < 13; month++) {
-
-
 
           $(`#calendar-${month}`).datepicker({
               changeYear: false,
@@ -113,13 +110,13 @@ export class CalendarComponent implements OnInit {
 
     // Create 12 months to apply calendar
     createMonths() {
-        $('#months div').remove();
-        for (let i = 1; i < 13; i++) {
-            $(`<div/>`, {
-                id: `calendar-${i}`,
-                class: `calendar`
-            }).appendTo('#months');
-        }
+      $('#months div').remove();
+      for (let i = 1; i < 13; i++) {
+        $(`<div/>`, {
+            id: `calendar-${i}`,
+            class: `calendar`
+        }).appendTo('#months');
+      }
     }
 
     // Save a new calendar (rForm onSubmit)
@@ -148,8 +145,8 @@ export class CalendarComponent implements OnInit {
       }
     }
 
-    getCalendarByYear(year) {
-      return this.myGetCalendarServices.getCalendarByYear(year);
-    }
+    // getCalendarByYear(year) {
+    //   return this.myGetCalendarServices.getCalendarByYear(year);
+    // }
 
 }

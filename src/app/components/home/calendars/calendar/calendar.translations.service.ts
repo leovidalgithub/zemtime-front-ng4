@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-
+// Jquery UI calendar translations service
 @Injectable()
 export class GetCalendarLangService {
 
@@ -11,6 +11,8 @@ export class GetCalendarLangService {
 
   constructor() {
 
+    // This info comes from https://github.com/jquery/jquery-ui/tree/master/ui/i18n
+    // Choose the language you want and erase the 'DateFormat' option (it affects other functionalities), create a property, construct it and add it to the switch cases.
     this.es = {
       closeText: 'Cerrar',
       prevText: '&#x3C;Ant',
@@ -70,7 +72,7 @@ export class GetCalendarLangService {
 
   }
 
-
+  // Depending on the lang that arrives choose one or other language
   getCalendarLang(lang) {
     switch (lang) {
       case 'es':
