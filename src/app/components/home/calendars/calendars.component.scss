@@ -48,6 +48,7 @@
           padding: 5px 8px;
           transition: all .3s;
           animation: enterOpacity .5s;
+          cursor: pointer;
           &:hover {
             color: $col-zemsania;
           }

@@ -23,7 +23,7 @@ export class GetCalendarsServices {
 }
 
 class CalendarClass implements iCalendars  {
-  id: number;
+  id: string;
   type: number;
   name: string;
   years: [

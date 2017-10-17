@@ -1,10 +1,7 @@
-
-<!-- Calendar title -->
-<!-- <h2>{{ 'calendars.titleCalendar' | translate }} {{ calendarName }}</h2>
 <!-- Create new calendar form -->
-<form [formGroup]="rForm" (ngSubmit)="saveCalendar(rForm.value, typeViewShowed)">
+<form [formGroup]="rForm" (ngSubmit)="saveCalendar(calendarName.value)">
 
-    <input formControlName="nameNewCalendar" type="text" value="{{ calendarName }}" autofocus [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre" [(ngModel)]="calendarName">
+    <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre">
 
     <!-- Lenght alert -->
     <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
@@ -14,14 +11,13 @@
     <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
 
 </form>
-<!-- {{calendarName}} -->
 
 <!-- Year selector -->
-<!-- todo everithing depending on if exists or not etc... -->
 <ul class="year-selector">
-  <li>{{ prevYear }}</li>
-  <li class="year-selected">{{ currentYear }}</li>
-  <li class="mda mda-plus new-year" [title]="('calendars.createNextCal' | translate)+ ' ' + nextYear">{{ nextYear }}</li>
+  <li *ngFor="let year of years" (click)="yearSelected = year; refresh()"
+      [ngClass]="{ 'year-selected' : yearSelected === year, 'mda mda-plus new-year' : !amIExist(year)}">
+      {{ year }}
+  </li>
 </ul>
 
 <!-- Calendars into #months created dynamically with jquery-ui -->

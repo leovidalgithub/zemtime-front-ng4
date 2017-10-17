@@ -7,12 +7,12 @@
     <!-- Show calendar filter -->
     <div class="filter">
 
-        
+
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
-            <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
-            <li (click)="typeViewShowed = 2" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
-            <li (click)="typeViewShowed = 3" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="typeViewShowed = 1; currentId = null" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="typeViewShowed = 2; currentId = null" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="typeViewShowed = 3; currentId = null" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
@@ -20,19 +20,19 @@
             <!-- Show countries -->
             <ul *ngSwitchCase="1" class="filtratedList">
                 <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
-                    <a [routerLink]="['calendar', country.id]" routerLinkActive="active-calendar" (click)="setTitle(country.name)">{{ country.name }}</a>
+                    <a (click)="currentId = country.id" [ngClass]="{'active-calendar': country.id === currentId}">{{ country.name }}</a>
                 </li>
             </ul>
             <!-- Show states -->
             <ul *ngSwitchCase="2" class="filtratedList">
                 <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
-                    <a [routerLink]="['calendar', state.id]" routerLinkActive="active-calendar" (click)="setTitle(state.name)">{{ state.name }}</a>
+                    <a (click)="currentId = state.id" [ngClass]="{'active-calendar': state.id === currentId}">{{ state.name }}</a>
                 </li>
             </ul>
             <!-- Show cities -->
             <ul *ngSwitchCase="3" class="filtratedList">
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
-                    <a [routerLink]="['calendar', city.id]" routerLinkActive="active-calendar" (click)="setTitle(city.name)">{{ city.name }}</a>
+                    <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
                 </li>
             </ul>
 
@@ -40,34 +40,18 @@
 
         <!-- Create new calendar button -->
         <li class="createCalendarIcon">
-            <a class="mdi mdi-plus-circle-outline add-calendar" [routerLink]="['calendar', '01']" [title]="'general.buttons.title.addCalendar' | translate"></a>
+            <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
         </li>
-        <!-- <li class="createCalendarIcon">
-            <a [ngClass]="!createCalendarShow ? 'mdi-plus-circle-outline' : 'mdi-arrow-up-drop-circle-outline'" class="mdi add-calendar" (click)="createShow()" [title]="'general.buttons.title.addCalendar' | translate"></a>
-        </li> -->
 
-        <!-- Create new calendar form -->
-        <!-- <form [formGroup]="rForm" (ngSubmit)="saveCalendar(rForm.value, typeViewShowed)" [class.createNew]="createCalendarShow">
-
-            <input formControlName="nameNewCalendar" type="text" placeholder="{{ 'general.buttons.title.nameCalendar' | translate }}" autofocus ngModel [ngClass]="{'createOk': calendarCreatedOk}">
-            <input type="submit" [ngClass]=" rForm.valid ? 'bt-pos' : 'bt-off'" value="{{ 'general.buttons.save' | translate }}" [disabled]="!rForm.valid">
-            <br> -->
-
-            <!-- Lenght alert -->
-            <!-- <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span> -->
-            <!-- Name exists alert -->
-            <!-- <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span> -->
-            <!-- Name exists alertOk -->
-            <!-- <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span> -->
-
-        <!-- </form> -->
-
-        <!-- <h3>{{ rForm.controls['nameNewCalendar'].touched }}</h3> -->
     </div>
 
     <!-- Calendar content -->
-    <div class="choosenCalendar">
-        <router-outlet></router-outlet>
+    <div class="choosenCalendar" *ngIf="currentId">
+        <zem-calendar-selected
+          [currentId]="currentId"
+          [myCalendars]="myCalendars"
+          [calendarType]="typeViewShowed"
+        ></zem-calendar-selected>
     </div>
 
 </main>

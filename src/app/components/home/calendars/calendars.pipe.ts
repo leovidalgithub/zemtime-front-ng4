@@ -9,3 +9,12 @@ export class CalendarsTypesPipe implements PipeTransform {
         return items.filter(item => item.type === myType);
     }
 }
+
+@Pipe({
+  name: 'myCalendarsNamePipe'
+})
+export class CalendarsNamePipe implements PipeTransform {
+  transform(items: Array<iCalendars>, currentId: string): string {
+      return items.find(item => item.id === currentId).name;
+  }
+}
