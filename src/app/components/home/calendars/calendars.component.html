@@ -7,12 +7,8 @@
   <!-- Show calendar filter -->
   <div class="filter">
 
-    <!-- Filter buttons  - main options-->
-    <ul class="filterButtons">
-      <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
-      <li (click)="typeViewShowed = 2" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
-      <li (click)="typeViewShowed = 3" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
-    </ul>
+    <!-- Filter buttons - main options-->
+    
 
     <!-- Filter suboptions -->
     <div [ngSwitch]="typeViewShowed" class="filterOptions">
