@@ -33,9 +33,8 @@
       flex-flow: row wrap;
       align-items: center;
       li {
-        display: inline-block;
-        padding-right: 10px;
         display: flex;
+        padding-right: 10px;
         flex-flow: row wrap;
         align-items: center;
         &:first-child {
@@ -136,7 +135,7 @@
 } // Filter close
 
 .choosenCalendar {
+  margin: 0 auto;
   margin-top: 25px;
   text-align: center;
-  margin: 0 auto;
 }
