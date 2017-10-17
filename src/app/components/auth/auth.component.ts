@@ -12,6 +12,6 @@ export class AuthComponent implements OnInit {
     this.image = require('../../../public/img/logo-vertical.png');
  }
 
- ngOnInit() { }
+  ngOnInit() { }
 
 }

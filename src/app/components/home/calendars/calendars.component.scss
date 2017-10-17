@@ -33,8 +33,9 @@
       flex-flow: row wrap;
       align-items: center;
       li {
-        display: flex;
+        display: inline-block;
         padding-right: 10px;
+        display: flex;
         flex-flow: row wrap;
         align-items: center;
         &:first-child {
@@ -57,7 +58,6 @@
       }
     }
   }
-
   .createCalendarIcon {
     display: inline-block;
     .add-calendar {
@@ -69,6 +69,60 @@
       }
     }
   }
+  // form {
+  //   display: none !important;
+  //   transition: all .6s;
+  //   margin-left: 8px;
+  //   position: relative;
+
+  //   input[type="text"] {
+  //     width: 180px;
+  //     border: 1.3px solid $col-grey-70;
+  //     border-radius: 2px;
+  //     font-size: .8em;
+  //     font-family: 'Roboto', sans-serif;
+  //     font-weight: 300;
+  //     outline: none;
+  //     color: $col-black;
+  //     padding: 4px 2em 4px 10px;
+  //     transition: all .6s;
+  //     &:focus {
+  //       border: 1.3px solid lighten($col-orange, 20%);
+  //       // background-color: $col-grey-80; //cursor: text;
+  //     }
+
+  //   }
+  //   .alert {
+  //     color: $col-red;
+  //     padding: 4px;
+  //     position: absolute;
+  //     top: 35px;
+  //     font-size: .8em;
+  //     display: inline-block;
+  //     animation: .5s enterTranslateY;
+  //     animation-direction: alternate;
+  //   }
+  //   .alertOk {
+  //     color: $col-green;
+  //     padding: 4px;
+  //     position: absolute;
+  //     top: 35px;
+  //     font-size: .8em;
+  //     display: inline-block;
+  //     animation: .5s enterTranslateY;
+  //     animation-direction: alternate;
+  //   }
+  //   .createOk {
+  //     border: 1.3px solid $col-green !important;
+  //   }
+
+  // }
+
+  // .createNew {
+  //   display: block !important;
+  //   animation: enterTranslateY .6s;
+  //   margin-bottom: 25px;
+  // }
 
   .filter-selected {
     border-bottom: 1px solid $col-zemsania !important;
@@ -78,10 +132,11 @@
   .subfilter-selected {
     color: $col-zemsania;
   }
+
 } // Filter close
 
 .choosenCalendar {
-  margin: 0 auto;
   margin-top: 25px;
   text-align: center;
+  margin: 0 auto;
 }
