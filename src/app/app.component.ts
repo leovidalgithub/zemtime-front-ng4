@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component } from '@angular/core';
+import { ApiService } from './shared';
+
 import '../style/app.scss';
 
 @Component({
@@ -7,23 +8,13 @@ import '../style/app.scss';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  // title: string;
+  // image: any;
 
-  constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'ca', 'es']);
-    translate.setDefaultLang('en');
-
-    let browserLang = this.translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ca|es/) ? browserLang : 'en');
+  constructor(private api: ApiService) {
+    // this.title = this.api.title;
+    // this.image = require('../public/img/logo-vertical.png');
   }
-
-  ngOnInit() {
-    // console.log('**********************');
-    // console.log('AppComponent');
-    // console.log(this.translate.getLangs());
-    // console.log(this.translate.currentLang);
-    // console.log('**********************');
-  }
-
 
 }
