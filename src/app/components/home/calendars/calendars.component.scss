@@ -2,8 +2,8 @@
 @import '../../../../style/typo';
 @import '../../../../style/icons';
 @import '../../../../style/extends';
-.header_wrapper {
-  @extend %header_wrapper;
+.header-wrapper {
+  @extend %header-wrapper;
 }
 
 .filter {
@@ -24,9 +24,9 @@
       }
     }
   }
-  .filter_options {
+  .filter-options {
     display: inline-block; // Filtrated list options
-    .filtrated_list {
+    .filtrated-list {
       width: 100%;
       padding: 8px;
       display: flex;
@@ -57,7 +57,7 @@
       }
     }
   }
-  .create_calendarIcon {
+  .create-calendarIcon {
     display: inline-block;
     .add-calendar {
       font-size: 1.3em;
@@ -134,7 +134,7 @@
 
 } // Filter close
 
-.choosen_calendar {
+.choosen-calendar {
   text-align: center;
   margin: 25px auto;
 }

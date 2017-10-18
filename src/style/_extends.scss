@@ -68,11 +68,11 @@
     .txt-upper{text-transform: uppercase ;}
 
   // HEADER DISPLAY WHEN APP USES SIDEBAR
-    // .headerWrapper {
-    //    @extend %headerWrapper;
+    // .header-wrapper {
+    //    @extend %header-wrapper;
     // }
 
-    %header_wrapper {
+    %header-wrapper {
       margin-left: 50px;
       position: fixed;
       width: 100%;
