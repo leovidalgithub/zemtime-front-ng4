@@ -110,12 +110,12 @@ export class CalendarComponent implements OnInit {
 
     // Create 12 months to apply calendar
     createMonths() {
-      $('#months div').remove();
+      $('.months div').remove();
       for (let i = 1; i < 13; i++) {
         $(`<div/>`, {
             id: `calendar-${i}`,
             class: `calendar`
-        }).appendTo('#months');
+        }).appendTo('.months');
       }
     }
 
