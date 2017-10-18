@@ -1,4 +1,4 @@
-<div class="headerWrapper">
+<div class="header_wrapper">
   <ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow"></ia-comp-header>
 </div>
 
@@ -7,28 +7,28 @@
   <div class="filter">
 
     <!-- Filter buttons  - main options-->
-    <ul class="filterButtons">
+    <ul class="filter_buttons">
       <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
       <li (click)="typeViewShowed = 2" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
       <li (click)="typeViewShowed = 3" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
     </ul>
 
     <!-- Filter suboptions -->
-    <div [ngSwitch]="typeViewShowed" class="filterOptions">
+    <div [ngSwitch]="typeViewShowed" class="filter_options">
       <!-- Show countries -->
-      <ul *ngSwitchCase="1" class="filtratedList">
+      <ul *ngSwitchCase="1" class="filtrated_list">
         <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
           <a [routerLink]="['calendar', country.id]" routerLinkActive="active-calendar" (click)="setTitle(country.name)">{{ country.name }}</a>
         </li>
       </ul>
       <!-- Show states -->
-      <ul *ngSwitchCase="2" class="filtratedList">
+      <ul *ngSwitchCase="2" class="filtrated_list">
         <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
           <a [routerLink]="['calendar', state.id]" routerLinkActive="active-calendar" (click)="setTitle(state.name)">{{ state.name }}</a>
         </li>
       </ul>
       <!-- Show cities -->
-      <ul *ngSwitchCase="3" class="filtratedList">
+      <ul *ngSwitchCase="3" class="filtrated_list">
         <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
           <a [routerLink]="['calendar', city.id]" routerLinkActive="active-calendar" (click)="setTitle(city.name)">{{ city.name }}</a>
         </li>
@@ -37,14 +37,14 @@
 
     <!-- Create new calendar button -->
     <ul>
-      <li class="createCalendarIcon">
+      <li class="create_calendarIcon">
         <a class="mdi mdi-plus-circle-outline add-calendar" [routerLink]="['calendar', '01']" [title]="'general.buttons.title.addCalendar' | translate"></a>
       </li>
     </ul>
   </div>
 
   <!-- Calendar content -->
-  <div class="choosenCalendar">
+  <div class="choosen_calendar">
     <router-outlet></router-outlet>
   </div>
 
