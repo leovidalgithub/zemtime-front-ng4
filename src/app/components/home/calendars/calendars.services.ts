@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { MyServices, iCalendars } from '../../../shared';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class GetCalendarsServices {
 }
 
 class CalendarClass implements iCalendars  {
-  id: number;
+  id: string;
   type: number;
   name: string;
   years: [
