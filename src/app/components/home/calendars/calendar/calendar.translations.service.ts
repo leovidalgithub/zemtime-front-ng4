@@ -19,9 +19,9 @@ export class GetCalendarLangService {
       nextText: 'Sig&#x3E;',
       currentText: 'Hoy',
       monthNames: [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ],
+        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ],
       monthNamesShort: [ 'ene', 'feb', 'mar', 'abr', 'may', 'jun',
-       'jul', 'ago', 'sep', 'oct', 'nov', 'dic' ],
+        'jul', 'ago', 'sep', 'oct', 'nov', 'dic' ],
       dayNames: [ 'domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado' ],
       dayNamesShort: [ 'dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb' ],
       dayNamesMin: [ 'Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá' ],
@@ -38,9 +38,9 @@ export class GetCalendarLangService {
       nextText: 'Següent',
       currentText: 'Avui',
       monthNames: [ 'Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny',
-      'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre' ],
+        'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre' ],
       monthNamesShort: [ 'gen', 'feb', 'març', 'abr', 'maig', 'juny',
-      'jul', 'ag', 'set', 'oct', 'nov', 'des' ],
+        'jul', 'ag', 'set', 'oct', 'nov', 'des' ],
       dayNames: [ 'diumenge', 'dilluns', 'dimarts', 'dimecres', 'dijous', 'divendres', 'dissabte' ],
       dayNamesShort: [ 'dg', 'dl', 'dt', 'dc', 'dj', 'dv', 'ds' ],
       dayNamesMin: [ 'Dg', 'Dl', 'Dt', 'Dc', 'Dj', 'Dv', 'Ds' ],
@@ -53,21 +53,21 @@ export class GetCalendarLangService {
 
     this.en = {
       closeText: 'Done',
-        prevText: 'Prev',
-        nextText: 'Next',
-        currentText: 'Today',
-        monthNames: [ 'January', 'February', 'March', 'April', 'May', 'June',
+      prevText: 'Prev',
+      nextText: 'Next',
+      currentText: 'Today',
+      monthNames: [ 'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December' ],
-        monthNamesShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      monthNamesShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
-        dayNames: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
-        dayNamesShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
-        dayNamesMin: [ 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' ],
-        weekHeader: 'Wk',
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
+      dayNames: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+      dayNamesShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
+      dayNamesMin: [ 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' ],
+      weekHeader: 'Wk',
+      firstDay: 1,
+      isRTL: false,
+      showMonthAfterYear: false,
+      yearSuffix: ''
     };
 
   }
@@ -87,53 +87,5 @@ export class GetCalendarLangService {
     }
     return this.language;
   }
-
-
 }
-
-
-
-
-// {
-//   'calendarLang' : {
-//     'es' : {
-//       'closeText': 'Cerrar',
-//       'prevText': '&#x3C;Ant',
-//       'nextText': 'Sig&#x3E;',
-//       'currentText': 'Hoy',
-//       'monthNames': [ 'enero','febrero','marzo','abril','mayo','junio',
-//       'julio','agosto','septiembre','octubre','noviembre','diciembre' ],
-//       'monthNamesShort': [ 'ene','feb','mar','abr','may','jun',
-//       'jul','ago','sep','oct','nov','dic' ],
-//       'dayNames': [ 'domingo','lunes','martes','miércoles','jueves','viernes','sábado' ],
-//       'dayNamesShort': [ 'dom','lun','mar','mié','jue','vie','sáb' ],
-//       'dayNamesMin': [ 'D','L','M','X','J','V','S' ],
-//       'weekHeader': 'Sm',
-//       'dateFormat': 'dd/mm/yy',
-//       'firstDay': 1,
-//       'isRTL': false,
-//       'showMonthAfterYear': false,
-//       'yearSuffix': ''
-//     },
-//     'en' : {
-//       'closeText': 'Done',
-//       'prevText': 'Prev',
-//       'nextText': 'Next',
-//       'currentText': 'Today',
-//       'monthNames': [ 'January','February','March','April','May','June',
-//       'July','August','September','October','November','December' ],
-//       'monthNamesShort': [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-//       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
-//       'dayNames': [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
-//       'dayNamesShort': [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
-//       'dayNamesMin': [ 'Su','Mo','Tu','We','Th','Fr','Sa' ],
-//       'weekHeader': 'Wk',
-//       'dateFormat': 'dd/mm/yy',
-//       'firstDay': 1,
-//       'isRTL': false,
-//       'showMonthAfterYear': false,
-//       'yearSuffix': ''
-//     }
-//   }
-// }
 
