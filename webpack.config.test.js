@@ -126,7 +126,6 @@ module.exports = function makeWebpackConfig() {
       {test: /\.(scss|sass)$/, exclude: root('src', 'style'), loader: 'raw-loader!postcss-loader!sass-loader'},
 
       // support for .html as raw text
-      // todo: change the loader to something that adds a hash to images
       {test: /\.html$/, loader: 'raw-loader',  exclude: root('src', 'public')}
     ]
   };

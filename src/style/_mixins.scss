@@ -7,14 +7,12 @@
 	// FONTS AND TYPO
 // *************************************************** //
 
-	// FONT PX TO EM
-		// Usage
-		// 	h1 { font-size: em(32) }
-		$browser-context: 14; // Default
-		@function em($pixels, $context: $browser-context) {
-		  @return #{$pixels/$context}em;
-		}
-
+// FONT PX TO EM
+  // Usage
+  $browser-context: 14; // Default
+  @function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+  }
 
 // ----------------------------------------------------------------
 // !!!REVISAR!!!
