@@ -17,7 +17,7 @@
 			align-items: center;
 		}
 		.ext_cellColor {
-			background-image :none ;
+			background-image: none;
 			color: #ffffff ;
 		}
 
@@ -119,15 +119,11 @@
 				/* Use half of the width (120/2 = 60), to center the tooltip */
 		        margin-left: -70px;
 
-		        // opacity: 0;
-		        // transition: opacity 1.5s;
-
 				/* The animation code */
 				@keyframes tooltip {
 				    from   {opacity: 0; visibility: hidden;}
 				    to  {opacity: 1; visibility: visible;}
 				}
-
 		        &::after {
 		            content: " ";
 		            position: absolute;
