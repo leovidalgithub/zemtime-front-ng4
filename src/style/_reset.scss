@@ -19,7 +19,7 @@ html, body {
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
@@ -29,26 +29,4 @@ a {
     color: #fff;
     background-color: $col-grey-20;
 }
-
-
-
-// [data-tooltip]::after{
-//     content: attr(data-tooltip);
-// 	background-color: tomato;
-// 	color: white;
-// 	padding: 5px;
-// 	position: absolute;
-// 	// margin-top: 10px;
-// 	margin-left: 10px;
-// 	opacity: 0;
-// 	visibility: hidden;
-// 	white-space: nowrap;
-// 	transition: .6s all ease;
-// }
-// button:hover::after, a:hover::after{
-// 	// display: block;
-//     cursor: default;
-// 	visibility: visible;
-// 	opacity: 1;
-// }
 
