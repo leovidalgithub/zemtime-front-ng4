@@ -147,7 +147,7 @@
 			}
 			.bt-off{
 				@include bt-background($col-btn-base-off);
-				cursor: default !important;
+				cursor: default;
 			}
 
 		// ICON + BACKGROUND BUTTON
@@ -174,7 +174,7 @@
 			.bt-ico-off{
 				// @extend %bt-ico-btn;
 				@include bt-background($col-btn-base-off);
-				cursor: default !important;
+				cursor: default;
 			}
 
 		// OUTLINE BUTTON
@@ -269,5 +269,5 @@
 			}
 			.link-off{
 				@include bt-link($col-grey-20);
-				cursor: default !important;
+				cursor: default;
 			}
