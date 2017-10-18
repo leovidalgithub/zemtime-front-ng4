@@ -8,24 +8,10 @@
 	// EXTENDS
 // *************************************************** //
 
-	// FOR DAYTYPES-LEYEND AT 'IMPUTE' AND 'CALENDAR'
-		.ext_flex-start_ {
-			margin-top: 5px;
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: flex-start;
-			align-items: center;
-		}
-		.ext_cellColor {
-			background-image: none;
-			color: #ffffff ;
-		}
-
 	// SECTION SUBTITLES
-		%sectionSubtitle {
+		%section-subtitle {
 			font-size: 1.2rem ;
 		}
-
 
 // *************************************************** //
 	// ADDITIONAL CLASSES TO USE IN SOME PARTICULAR CASES

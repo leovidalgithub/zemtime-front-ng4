@@ -19,7 +19,7 @@
 // ----------------------------------------------------------------
 
 // FOR DAYTYPES-LEYEND AT 'IMPUTE' AND 'CALENDAR'
-	@mixin myLeyend( $boxWidth, $borderWidth ) {
+	@mixin my-leyend( $boxWidth, $borderWidth ) {
     border: solid $borderWidth #6c6c6c;
     border-radius: 5px;
     background-color: #fbfbfb;
@@ -28,7 +28,7 @@
     text-align: left;
     padding: 10px;
 	}
-	@mixin myLeyendBox( $boxHeight, $boxWidth ) {
+	@mixin my-leyendBox( $boxHeight, $boxWidth ) {
     height: $boxHeight;
     width: $boxWidth;
     border-radius: 2px;
