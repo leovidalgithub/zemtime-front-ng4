@@ -9,7 +9,7 @@ import { APP_ROUTING } from './app.routing';
 // COMPONENTS
 import { AppComponent } from './app.component';
 import { LoginComponent, AuthComponent, HomeComponent, DashboardComponent,
-          CalendarComponent, CalendarsComponent, CalendarsTypesPipe, CalendarsNamePipe } from './components';
+          CalendarComponent, CalendarsComponent, CalendarsTypesPipe, CalendarsNamePipe, CapitalizeFirstPipe } from './components';
 // ia-components
 import { IaCompHeaderComponent } from 'ia-comp-header';
 import { IaCompSidebarComponent } from 'ia-comp-sidebar';
@@ -57,7 +57,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CalendarsComponent,
     CalendarComponent,
     CalendarsTypesPipe,
-    CalendarsNamePipe
+    CalendarsNamePipe,
+    CapitalizeFirstPipe
   ],
   providers: [
     TranslationService,

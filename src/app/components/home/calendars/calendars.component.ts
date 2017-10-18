@@ -16,8 +16,8 @@ enum eCalendarTypeShowed {
 })
 export class CalendarsComponent implements OnInit {
 
-    private myCalendars:         Array<iCalendars>   = []; // Recive all calendars with interface iCalendar
-    private typeViewShowed:      eCalendarTypeShowed = 1; // Initialize in 'Country' by default
+    private myCalendars: Array<iCalendars>   = []; // Recive all calendars with interface iCalendar
+    private currentType: eCalendarTypeShowed = 1; // Initialize in 'Country' by default
 
     // Header data
     private headerData: object = {
@@ -53,6 +53,13 @@ export class CalendarsComponent implements OnInit {
               console.log('err', err);
           }
         );
+    }
+
+    createCalendar() {
+      let newCalendar: object = {
+        name: 'New calendar name',
+        type : this.currentType
+      };
     }
 
   }

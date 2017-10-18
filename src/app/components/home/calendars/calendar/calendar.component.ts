@@ -1,10 +1,8 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
-// import { Router, ActivatedRoute, Params } from '@angular/router';
-// import { GetCalendarServices } from './calendar.services';
-// import { GetCalendarsServices } from './../calendars.services';
 import { GetCalendarLangService } from './calendar.translations.service';
+import { CapitalizeFirstPipe } from '../calendars.pipe';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
 declare var $: any;
@@ -18,7 +16,7 @@ declare var $: any;
 export class CalendarComponent implements OnInit, OnChanges {
 
   @Input('currentId') currentId:     string;
-  @Input('calendarType') calendarType: number;
+  @Input('currentType') currentType: number;
   @Input('myCalendars') myCalendars: Array<iCalendars>;
 
   private years = [
@@ -32,6 +30,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   // Form variables
   private rForm:             FormGroup;
   private calendarCreatedOk: Boolean = false;
+  private calendarExists:    Boolean = false;
 
   private myCalendar: object;
   private myDates: Array<number>;
@@ -123,47 +122,43 @@ export class CalendarComponent implements OnInit, OnChanges {
     }
   }
 
-  // Save a new calendar (rForm onSubmit)
+  // Save a new calendar (rForm onSubmit or input blur)
   saveCalendar(calendarName) {
     // if form is correct
     if ( this.rForm.valid ) {
-      this.myCalendar[0].name = this.myServices.capitalizeFirstLetter(calendarName);
-      console.log('currentType: ' + this.calendarType);
-      console.log('CalendarName: ' + this.myServices.capitalizeFirstLetter(calendarName));
-      console.log( this.myCalendar );
+
+      // Check if exists this name in the same type
+      let calsForType = this.myCalendars.filter( calendar => calendar.type === this.currentType );
+      // let calMatchName = calsForType.filter( name => name.name === this.myServices.capitalizeFirstLetter(calendarName) );
+      if ( calsForType.some( name => name.name.toLowerCase() === calendarName.toLowerCase().trim() )) {
+        this.showAlert();
+      } else {
+        // It sends [ this.currentType, capitalizedFirst calendarName ]
+        this.myCalendar[0].name = this.myServices.capitalizeFirstLetter(calendarName).trim();
+        this.showMsg();
+      }
+
     } else {
+
       console.log('not correct');
+
     }
-
-    // // this.nameNewCalendar = this.myServices.capitalizeFirstLetter(calendar.nameNewCalendar); // New calendar name
-    // this.newcurrentType = currentcurrentType; // New calendar type
-
-    // Check if new calendars name already exists in BBDD and show/notShow error message
-    // tslint:disable-next-line:no-shadowed-variable
-    // this.myCalendars.forEach(calendar => {
-    //   if (calendar.name.toLocaleLowerCase() === this.nameNewCalendar.toLocaleLowerCase()) {
-    //     this.calendarExists = true;
-    //   }
-    // });
-
-    // if (this.calendarExists) {
-    //   setTimeout( () => {
-    //     this.calendarExists = false;
-    //   }, 1500);
-    // } else {
-    //   this.calendarCreatedOk = true;
-    //   setTimeout( () => {
-    //     this.calendarCreatedOk = false;
-    //     // this.rForm.reset();
-    //   }, 2000);
-    // }
-
-    // console.log(currentcurrentType);
 
   }
 
-  // getCalendarByYear(year) {
-  //   return this.myGetCalendarServices.getCalendarByYear(year);
-  // }
+  showMsg() {
+    // Show msg
+    this.calendarCreatedOk = true;
+    setTimeout( () => {
+      this.calendarCreatedOk = false;
+    }, 2000);
+  }
+
+  showAlert() {
+    this.calendarExists = true;
+    setTimeout( () => {
+      this.calendarExists = false;
+    }, 1500);
+  }
 
 }

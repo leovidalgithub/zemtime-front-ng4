@@ -1,7 +1,7 @@
 <!-- Create new calendar form -->
 <form [formGroup]="rForm" (ngSubmit)="saveCalendar(calendarName.value)">
 
-    <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre">
+    <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre" (blur)="saveCalendar(calendarName.value)">
 
     <!-- Lenght alert -->
     <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>

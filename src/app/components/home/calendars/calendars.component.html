@@ -10,13 +10,13 @@
 
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
-            <li (click)="typeViewShowed = 1; currentId = null" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
-            <li (click)="typeViewShowed = 2; currentId = null" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
-            <li (click)="typeViewShowed = 3; currentId = null" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="currentType = 1; currentId = null" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="currentType = 2; currentId = null" [class.filter-selected]="currentType === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="currentType = 3; currentId = null" [class.filter-selected]="currentType === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
-        <div [ngSwitch]="typeViewShowed" class="filterOptions">
+        <div [ngSwitch]="currentType" class="filterOptions">
             <!-- Show countries -->
             <ul *ngSwitchCase="1" class="filtratedList">
                 <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
@@ -50,7 +50,7 @@
         <zem-calendar-selected
           [currentId]="currentId"
           [myCalendars]="myCalendars"
-          [calendarType]="typeViewShowed"
+          [currentType]="currentType"
         ></zem-calendar-selected>
     </div>
 
