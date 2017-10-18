@@ -7,7 +7,7 @@
   <div class="filter">
 
     <!-- Filter buttons  - main options-->
-    <ul class="filter_buttons">
+    <ul class="filter-buttons">
       <li (click)="typeViewShowed = 1" [class.filter-selected]="typeViewShowed === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
       <li (click)="typeViewShowed = 2" [class.filter-selected]="typeViewShowed === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
       <li (click)="typeViewShowed = 3" [class.filter-selected]="typeViewShowed === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
@@ -37,7 +37,7 @@
 
     <!-- Create new calendar button -->
     <ul>
-      <li class="create-calendarIcon">
+      <li class="create-calendar-icon">
         <a class="mdi mdi-plus-circle-outline add-calendar" [routerLink]="['calendar', '01']" [title]="'general.buttons.title.addCalendar' | translate"></a>
       </li>
     </ul>

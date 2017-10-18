@@ -1,13 +1,13 @@
 <!-- Create new calendar form -->
 <form [formGroup]="rForm" (ngSubmit)="saveCalendar(rForm.value, typeViewShowed)">
-  <input formControlName="nameNewCalendar" type="text" value="{{ calendarName }}" autofocus [ngClass]="{'createOk': calendarCreatedOk}"
+  <input formControlName="nameNewCalendar" type="text" value="{{ calendarName }}" autofocus [ngClass]="{'create-ok': calendarCreatedOk}"
     title="Editar nombre" [(ngModel)]="calendarName">
   <!-- Lenght alert -->
   <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
   <!-- Name exists alert -->
   <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
-  <!-- Name exists alertOk -->
-  <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
+  <!-- Name exists alert-ok -->
+  <span class="alert-ok" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
 </form>
 
 <!-- Year selector -->
