@@ -32,6 +32,7 @@
     "titleCalendar" : "Calendario de",
     "deleteCalendar" : "Eliminar calendario",
     "createNextCal" : "Crear calendario de",
+    "newCalendarName" : "Calendario Nuevo",
     "filter" : {
       "showCountries" : "Países",
       "showCommunities" : "Comunidades",

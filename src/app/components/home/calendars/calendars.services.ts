@@ -20,6 +20,20 @@ export class GetCalendarsServices {
         });
       });
   }
+
+  createNewCalendar(newCalendarData): Observable<CalendarClass[]> {
+    return this.http.post(this.ms.buildURL('createCalendar'), newCalendarData)
+      .map(res => {
+        return res.json().map(item => {
+          return new CalendarClass(
+            item._id,
+            item.type,
+            item.name,
+            item.years
+          );
+        });
+      });
+  }
 }
 
 class CalendarClass implements iCalendars  {
