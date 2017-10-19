@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-// import { Observable } from 'rxjs/Observable';
+import { Http, Headers, Response } from '@angular/http';
+//import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map'
+
 
 @Injectable()
 export class GetCalendarServices {
 
-  constructor() { }
-
+  constructor(private http: Http) {}
   // getCalendar(id): Observable<string> {
   // return this.translate.get(value)
   // .map(thisValue => thisValue.toUpperCase());
   // }
   getCalendar(id): object {
+    console.log(id);
     let myDates: object = {};
     for (let i = 1; i < 20; i++) {
       let dayNumber = Math.floor((Math.random() * 30) + 1);
@@ -25,8 +28,11 @@ export class GetCalendarServices {
     return myDates;
   }
 
-  getCalendarByYear(year) {
-    console.log(year);
-  }
-
+   getTranslationJSON(lang){
+      return this.http.get(`../../../public/localeCalendar/translationsCalendar/${lang}.json`)
+        .map( (response: Response) => {
+          console.log(response.json());
+          return response.json();
+        });
+    }
 }
