@@ -15,7 +15,7 @@
 
 // Create new calendar form and Calendar title
 form {
-  animation: enterTranslateY .6s;
+  animation: enterTranslateYdown .6s;
   // display: block;
   transition: all .6s;
   position: relative;
@@ -42,11 +42,17 @@ form {
     transition: all .6s;
 
     &:hover {
-      background-color: $col-grey-80; //cursor: text;
+      background-color: $col-grey-80;
     }
     &:focus {
       // border-bottom: 1.3px solid lighten($col-orange, 20%);
-      background-color: $col-grey-80; //cursor: text;
+      background-color: $col-grey-80;
+    }
+    &.calendarKo {
+      background-color: lighten($col-red, 20%);
+    }
+    &.createOk {
+      background-color: lighten($col-green, 25%);
     }
 
   }
@@ -73,9 +79,7 @@ form {
   .alertOk {
     color: $col-green;
   }
-  .createOk {
-    background-color: lighten($col-green, 20%) !important; //cursor: text;
-  }
+
 }
 
 // Year selector

@@ -17,9 +17,9 @@
       }
     },
     "alerts" : {
-      "newCalendarLenght" : "Debe contener entre 2-20 carácteres",
+      "newCalendarLenght" : "¡ Debe contener mínimo 2 letras. No puede contener caracteres extraños !",
       "newCalendarExists" : "El calendario ya existe",
-      "newCalendarCreatedOk" : "Calendario creado correctamente"
+      "newCalendarUpdatedOk" : "Calendario actualizado correctamente"
     }
   },
   "auth" : {
@@ -33,6 +33,7 @@
   "calendars" : {
     "title" : "Calendarios",
     "titleCalendar" : "Calendario de",
+    "titleInput" : "Editar nombre",
     "deleteCalendar" : "Eliminar calendario",
     "createNextCal" : "Crear calendario de",
     "newCalendarName" : "Calendario Nuevo",

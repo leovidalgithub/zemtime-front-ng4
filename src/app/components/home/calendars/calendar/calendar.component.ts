@@ -45,7 +45,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       private myCalendarsServices:   CalendarsServices
   ) {
     this.rForm = fb.group({
-      'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(21) ]) ]
+      'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(21), Validators.pattern('[a-zA-Z ]*') ]) ]
     });
   }
 
@@ -146,13 +146,12 @@ export class CalendarComponent implements OnInit, OnChanges {
     this.myCalendarsServices.updateCalendar(this.myCalendar)
     .subscribe(
       (res: iCalendars[]) => {
-        this.showMsg();
+        console.log('Correctly updated');
       },
       (err) => {
         console.log('err', err);
       }
-      );
-
+    );
   }
 
   // Show msg positive

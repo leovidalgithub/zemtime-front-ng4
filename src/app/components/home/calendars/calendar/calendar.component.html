@@ -1,14 +1,14 @@
   <!-- Create new calendar form -->
-  <form [formGroup]="rForm" (ngSubmit)="updateNameCalendar(calendarName.value)">
+  <form [formGroup]="rForm" (ngSubmit)="updateNameCalendar(calendarName.value); showMsg()">
 
-      <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre">
+      <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{ 'createOk': calendarCreatedOk, 'calendarKo' : !rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty }" title="{{ 'calendars.titleInput' | translate }}">
 
       <!-- Lenght alert -->
       <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
       <!-- Name exists alert -->
       <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
       <!-- Name exists alertOk -->
-      <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
+      <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarUpdatedOk' | translate }}</span>
 
       <span class="daysCounter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
 

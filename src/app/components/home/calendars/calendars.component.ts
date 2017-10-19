@@ -73,6 +73,7 @@ export class CalendarsComponent implements OnInit {
     }
 
      createCalendar() {
+       this.currentId = null;
         this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
             let newCalendarData: object = {
                 name: newDefaultName,

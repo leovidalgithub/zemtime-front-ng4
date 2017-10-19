@@ -97,12 +97,15 @@
   margin-bottom: 55px;
   margin-top: 15px;
   border-top: 1px solid $col-grey-70;
-  animation: enterOpacity .5s;
   cursor: pointer;
   transition: .3s all;
 
   &:hover {
     color: $col-red;
     border-top: 1px solid lighten($col-red, 10%);
+  }
+
+  .delete-confirm {
+    animation: .5s enterTranslateYdown;
   }
 }

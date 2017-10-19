@@ -61,13 +61,12 @@
         <div class="delete-calendar">
           <h4 *ngIf="!deleteConfirm" class="mdi mdi-delete" (click)="deleteConfirm = true">{{ 'calendars.deleteCalendar' | translate }}</h4>
 
-          <div *ngIf="deleteConfirm">
+          <div *ngIf="deleteConfirm" class="delete-confirm">
             <h4>{{ 'general.buttons.title.sureToDelete' | translate }} {{ myCalendars | myCalendarsNamePipe:currentId }}?</h4>
             <button class="bt bt-pos" (click)="deleteCalendar()">{{ 'general.buttons.confirm' | translate }}</button>
             <button class="bt bt-neg" (click)="deleteConfirm = false">{{ 'general.buttons.cancel' | translate }}</button>
           </div>
         </div>
-        <!-- <button (click)="fn()">NULL</button> -->
     </div>
 
 </main>
