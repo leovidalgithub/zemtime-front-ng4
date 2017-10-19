@@ -27,7 +27,6 @@ export class GetCalendarServices {
   getTranslationJSON(lang): Observable<any> {
     return this.http.get(`../../../../../assets/locale/translationsCalendar/${lang}.json`)
       .map( (response: any) => {
-        console.log(response.json());
         return response.json();
       });
   }
