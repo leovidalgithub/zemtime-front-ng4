@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslationService, iCalendars, MyServices } from '../../../shared';
-import { GetCalendarsServices } from './calendars.services';
+import { Component, OnInit } from "@angular/core";
+import { TranslationService, iCalendars, MyServices } from "../../../shared";
+import { GetCalendarsServices } from "./calendars.services";
 
 // Filter calendar types
 enum eCalendarTypeShowed {
@@ -57,6 +57,13 @@ export class CalendarsComponent implements OnInit {
             );
     }
 
+    // Delete calendar
+    // deleteCalendar() {
+    //     console.log(this.currentId);
+    //     this.deleteConfirm = false;
+    //     this.currentId = null;
+    // }
+
     createCalendar() {
         this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
             let newCalendarData: object = {
@@ -65,7 +72,7 @@ export class CalendarsComponent implements OnInit {
                 year: new Date().getFullYear()
             };
             this.myGetCalendarsServices.createNewCalendar(newCalendarData)
-                .subscribe(
+            .subscribe(
                 (res: iCalendars[]) => {
                     this.myCalendars.push(res[0]);
                     this.currentId = res[0].id;
@@ -73,7 +80,7 @@ export class CalendarsComponent implements OnInit {
                 (err) => {
                     console.log('err', err);
                 }
-                );
+            );
         });
     }
 

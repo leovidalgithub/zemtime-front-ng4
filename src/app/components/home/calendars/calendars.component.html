@@ -7,7 +7,6 @@
     <!-- Show calendar filter -->
     <div class="filter">
 
-
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
             <li (click)="currentType = 1; currentId = null" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
@@ -22,35 +21,53 @@
                 <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
                     <a (click)="currentId = country.id" [ngClass]="{'active-calendar': country.id === currentId}">{{ country.name }}</a>
                 </li>
+                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
             <!-- Show states -->
             <ul *ngSwitchCase="2" class="filtratedList">
                 <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
                     <a (click)="currentId = state.id" [ngClass]="{'active-calendar': state.id === currentId}">{{ state.name }}</a>
                 </li>
+                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
             <!-- Show cities -->
             <ul *ngSwitchCase="3" class="filtratedList">
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
                     <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
                 </li>
+                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
-        </div>
 
-        <!-- Create new calendar button -->
-        <li class="createCalendarIcon">
-            <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
-        </li>
+            <!-- Create new calendar button -->
+            <ng-template #newCalendarButton>
+              <li class="createCalendarIcon">
+                  <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
+              </li>
+            </ng-template>
+        </div>
 
     </div>
 
     <!-- Calendar content -->
     <div class="choosenCalendar" *ngIf="currentId">
+
         <zem-calendar-selected
           [currentId]="currentId"
           [myCalendars]="myCalendars"
           [currentType]="currentType"
         ></zem-calendar-selected>
+
+        <!-- Delete calendar -->
+        <div class="delete-calendar">
+          <h4 *ngIf="!deleteConfirm" class="mdi mdi-delete" (click)="deleteConfirm = true">{{ 'calendars.deleteCalendar' | translate }}</h4>
+
+          <div *ngIf="deleteConfirm">
+            <h4>{{ 'general.buttons.title.sureToDelete' | translate }} {{ myCalendars | myCalendarsNamePipe:currentId }}?</h4>
+            <button class="bt bt-pos" (click)="deleteCalendar()">{{ 'general.buttons.confirm' | translate }}</button>
+            <button class="bt bt-neg" (click)="deleteConfirm = false">{{ 'general.buttons.cancel' | translate }}</button>
+          </div>
+        </div>
+        <!-- <button (click)="fn()">NULL</button> -->
     </div>
 
 </main>
