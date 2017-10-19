@@ -81,7 +81,7 @@ export class CalendarComponent implements OnInit {
         changeYear: false,
         changeMonth: false,
         stepMonths: 0,
-        defaultDate: new Date(`${month}/01/${this.currentYear}`),
+        defaultDate: new Date(month + '/01/' + this.currentYear),
         showMonthAfterYear: false,
         firstDay: 1,
         inline: true,
