@@ -1,4 +1,6 @@
-
+<div class="header-wrapper">
+  <ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow"></ia-comp-header>
+</div>
 
 <main>
     <!-- Show calendar filter -->
@@ -37,11 +39,9 @@
 
             <!-- Create new calendar button -->
               <ng-template #newCalendarButton>
-                <ul>
-                  <li class="create-calendar-icon">
+                  <span class="create-calendar-icon">
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
-                  </li>
-                </ul>
+                  </span>
               </ng-template>
         </div>
 
