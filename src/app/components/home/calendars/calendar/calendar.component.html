@@ -1,26 +1,28 @@
-<!-- Create new calendar form -->
-<form [formGroup]="rForm" (ngSubmit)="saveCalendar(calendarName.value)">
+  <!-- Create new calendar form -->
+  <form [formGroup]="rForm" (ngSubmit)="saveCalendar(calendarName.value)">
 
-    <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre" (blur)="saveCalendar(calendarName.value)">
+      <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{'createOk': calendarCreatedOk}" title="Editar nombre" (blur)="saveCalendar(calendarName.value)">
 
-    <!-- Lenght alert -->
-    <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
-    <!-- Name exists alert -->
-    <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
-    <!-- Name exists alertOk -->
-    <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
+      <!-- Lenght alert -->
+      <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
+      <!-- Name exists alert -->
+      <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
+      <!-- Name exists alertOk -->
+      <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
 
-</form>
+      <span class="daysCounter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
 
-<!-- Year selector -->
-<ul class="year-selector">
-  <li *ngFor="let year of years" (click)="yearSelected = year; refresh()"
-      [ngClass]="{ 'year-selected' : yearSelected === year, 'mda mda-plus new-year' : !amIExist(year)}">
-      {{ year }}
-  </li>
-</ul>
+  </form>
 
-<!-- Calendars into #months created dynamically with jquery-ui -->
-<div id="months"></div>
-<!-- Delete calendar -->
-<h4 class="mdi mdi-delete delete-calendar">{{ 'calendars.deleteCalendar' | translate }}</h4>
+  <!-- Year selector -->
+  <ul class="year-selector">
+    <li *ngFor="let year of years" (click)="yearSelected = year; refresh()"
+        [ngClass]="{ 'year-selected' : yearSelected === year, 'mda mda-plus new-year' : !amIExist(year)}">
+        {{ year }}
+    </li>
+  </ul>
+
+  <!-- Calendars into #months created dynamically with jquery-ui -->
+  <div id="months"></div>
+
+
