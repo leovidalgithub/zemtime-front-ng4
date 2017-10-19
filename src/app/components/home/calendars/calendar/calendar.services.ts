@@ -24,6 +24,7 @@ export class GetCalendarServices {
     return myDates;
   }
 
+  // Depending on the lang that arrives choose one or other language
   getTranslationJSON(lang): Observable<any> {
     return this.http.get(`../../../../../assets/locale/translationsCalendar/${lang}.json`)
       .map( (response: any) => {

@@ -16,7 +16,7 @@ import { IaCompSidebarComponent } from 'ia-comp-sidebar';
 
 // SERVICES
 import { TranslationService, AlwaysAuthGuard, UserService, MyServices } from './shared';
-import { GetCalendarsServices, GetCalendarServices, GetCalendarLangService } from './components';
+import { GetCalendarsServices, GetCalendarServices } from './components';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -67,8 +67,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UserService,
     MyServices,
     GetCalendarsServices,
-    GetCalendarServices,
-    GetCalendarLangService
+    GetCalendarServices
   ],
   bootstrap: [AppComponent]
 })

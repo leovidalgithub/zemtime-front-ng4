@@ -1,9 +1,9 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
-import { GetCalendarLangService } from './calendar.translations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
+import { GetCalendarServices } from './calendar.services';
 declare var $: any;
 
 @Component({
@@ -44,7 +44,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       private myTranslate:              TranslationService,
       private translate:                TranslateService,
       private myServices:               MyServices,
-      private myGetCalendarLangService: GetCalendarLangService,
+      private myGetCalendarLangService: GetCalendarServices,
       private fb:                       FormBuilder
   ) {
     this.rForm = fb.group({
@@ -54,8 +54,12 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   ngOnInit() {
       // Select calendar language based in the current language and then create months and calendars
-      $.datepicker.regional[this.translate.currentLang] = this.myGetCalendarLangService.getCalendarLang(this.translate.currentLang);
-      $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
+    this.myGetCalendarLangService.getTranslationJSON(this.translate.currentLang)
+      .subscribe( (value) => {
+        $.datepicker.regional[this.translate.currentLang] = value;
+        $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
+      });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
