@@ -1,13 +1,15 @@
-<div class="header-wrapper">
-  <ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow"></ia-comp-header>
-</div>
+
 
 <main>
     <!-- Show calendar filter -->
     <div class="filter">
 
         <!-- Filter buttons  - main options-->
-        
+        <ul class="filter-buttons">
+            <li (click)="currentType = 1; currentId = null" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="currentType = 2; currentId = null" [class.filter-selected]="currentType === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="currentType = 3; currentId = null" [class.filter-selected]="currentType === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
+        </ul>
 
         <!-- Filter suboptions -->
         <div [ngSwitch]="currentType" class="filter-options">
