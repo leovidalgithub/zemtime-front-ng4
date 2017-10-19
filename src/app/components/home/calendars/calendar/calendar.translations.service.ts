@@ -10,7 +10,10 @@ export class GetCalendarLangService {
   getCalendarLang(lang) {
     this.ms.getTranslationJSON(lang)
       .subscribe(
-        (value) => { console.log(value); },
+        (value) => {
+          console.log(value);
+          return value;
+        },
         (err) => { console.error(err); },
         () => {}
       );
