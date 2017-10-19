@@ -20,29 +20,30 @@
                 <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
                     <a (click)="currentId = country.id" [ngClass]="{'active-calendar': country.id === currentId}">{{ country.name }}</a>
                 </li>
-                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
+
             </ul>
             <!-- Show states -->
             <ul *ngSwitchCase="2" class="filtrated-list">
                 <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
                     <a (click)="currentId = state.id" [ngClass]="{'active-calendar': state.id === currentId}">{{ state.name }}</a>
                 </li>
-                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
+
             </ul>
             <!-- Show cities -->
             <ul *ngSwitchCase="3" class="filtrated-list">
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
                     <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
                 </li>
-                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
+
             </ul>
 
             <!-- Create new calendar button -->
-              <ng-template #newCalendarButton>
-                  <span class="create-calendar-icon">
+              <ul>
+                  <li class="create-calendar-icon">
                     <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
-                  </span>
-              </ng-template>
+                  </li>
+              </ul>
+
         </div>
 
     </div>
