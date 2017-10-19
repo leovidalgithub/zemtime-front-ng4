@@ -4,11 +4,11 @@ import { Http } from '@angular/http';
 import { MyServices, iCalendars } from '../../../shared';
 
 @Injectable()
-export class GetCalendarsServices {
-  constructor(private http: Http, private ms: MyServices) { }
+export class CalendarsServices {
+  constructor(private http: Http, private msUtils: MyServices) { }
 
   getCalendars(): Observable<CalendarClass[]> {
-    return this.http.get(this.ms.buildURL('getCalendars'))
+    return this.http.get(this.msUtils.buildURL('getCalendars'))
       .map(res => {
         return res.json().map(item => {
           return new CalendarClass(
@@ -22,7 +22,7 @@ export class GetCalendarsServices {
   }
 
   createNewCalendar(newCalendarData): Observable<CalendarClass[]> {
-    return this.http.post(this.ms.buildURL('createCalendar'), newCalendarData)
+    return this.http.post(this.msUtils.buildURL('createCalendar'), newCalendarData)
       .map(res => {
         return res.json().map(item => {
           return new CalendarClass(
@@ -34,6 +34,15 @@ export class GetCalendarsServices {
         });
       });
   }
+
+  deleteCalendar(calendarId): Observable<any> {
+    return this.http.get(this.msUtils.buildURL('deleteCalendar') + calendarId);
+  }
+
+  updateCalendar(calendar): Observable<any> {
+    return this.http.post(this.msUtils.buildURL('updateCalendar'), calendar);
+  }
+
 }
 
 class CalendarClass implements iCalendars  {

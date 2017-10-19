@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { TranslationService, iCalendars, MyServices } from "../../../shared";
-import { GetCalendarsServices } from "./calendars.services";
+import { Component, OnInit } from '@angular/core';
+import { TranslationService, iCalendars, MyServices } from '../../../shared';
+import { CalendarsServices } from './calendars.services';
 
 // Filter calendar types
 enum eCalendarTypeShowed {
@@ -19,10 +19,10 @@ export class CalendarsComponent implements OnInit {
     private myCalendars: Array<iCalendars> = []; // Recive all calendars with interface iCalendar
     private currentType: eCalendarTypeShowed = 1; // Initialize in 'Country' by default
     private currentId: string = null;
-
     private deleteConfirm: Boolean = false;
 
-    // Header data
+    // HEADER DATA
+    // tslint:disable-next-line:no-unused-variable
     private headerData: object = {
         sectionData: {
             title: this.myTranslate.getTranslation('calendars.title'),
@@ -37,9 +37,8 @@ export class CalendarsComponent implements OnInit {
 
     constructor(
         private myTranslate: TranslationService,
-        private myGetCalendarsServices: GetCalendarsServices,
+        private myCalendarsServices: CalendarsServices,
         private myServices: MyServices,
-        private myGetCalendarsService: GetCalendarsServices
     ) { }
 
     ngOnInit() {
@@ -47,7 +46,7 @@ export class CalendarsComponent implements OnInit {
     }
 
     getCalendars() {
-        this.myGetCalendarsServices.getCalendars()
+        this.myCalendarsServices.getCalendars()
             .subscribe(
             (res: iCalendars[]) => {
                 this.myCalendars = res;
@@ -57,32 +56,40 @@ export class CalendarsComponent implements OnInit {
             }
             );
     }
-    createCalendar() {
-      this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
-          let newCalendarData: object = {
-              name: newDefaultName,
-              type: this.currentType,
-              year: new Date().getFullYear()
-          };
-          this.myGetCalendarsServices.createNewCalendar(newCalendarData)
-              .subscribe(
-              (res: iCalendars[]) => {
-                  this.myCalendars.push(res[0]);
-                  this.currentId = res[0].id;
-              },
-              (err) => {
-                  console.log('err', err);
-              }
-              );
-      });
-   }
 
-    // Delete calendar
     deleteCalendar() {
-      console.log(this.currentId);
-      this.deleteConfirm = false;
-      this.currentId = null;
+        this.myCalendarsServices.deleteCalendar(this.currentId)
+            .subscribe(
+            (res) => {
+                let indexToRemove = this.myCalendars.findIndex((elm) => elm.id === this.currentId);
+                this.myCalendars.splice(indexToRemove, 1);
+                this.deleteConfirm = false;
+                this.currentId = null;
+            },
+            (err) => {
+                alert('error while deleting calendar');
+            }
+            );
     }
 
-  };
+     createCalendar() {
+        this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
+            let newCalendarData: object = {
+                name: newDefaultName,
+                type: this.currentType,
+                year: new Date().getFullYear()
+            };
+            this.myCalendarsServices.createNewCalendar(newCalendarData)
+            .subscribe(
+                (res: iCalendars[]) => {
+                    this.myCalendars.push(res[0]);
+                    this.currentId = res[0].id;
+                },
+                (err) => {
+                    console.log('err', err);
+                }
+            );
+        });
+    }
 
+}

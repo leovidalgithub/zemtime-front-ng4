@@ -35,8 +35,8 @@
     "titleCalendar" : "Calendario de",
     "deleteCalendar" : "Eliminar calendario",
     "createNextCal" : "Crear calendario de",
-    "holidays": "festivos",
     "newCalendarName" : "Calendario Nuevo",
+    "holidays": "festivos",
     "filter" : {
       "showCountries" : "Países",
       "showCommunities" : "Comunidades",
