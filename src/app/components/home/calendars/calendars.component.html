@@ -38,21 +38,23 @@
             </ul>
 
             <!-- Create new calendar button -->
-              
+              <ng-template #newCalendarButton>
+                <ul>
+                  <li class="create-calendar-icon">
+                    <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
+                  </li>
+                </ul>
+              </ng-template>
         </div>
 
     </div>
 
-    <!-- Calendar content -->
+    <!-- Calendar content
     <div class="choosen-calendar" *ngIf="currentId">
 
-        <zem-calendar-selected
-          [currentId]="currentId"
-          [myCalendars]="myCalendars"
-          [currentType]="currentType"
-        ></zem-calendar-selected>
+        <zem-calendar-selected [currentId]="currentId" [myCalendars]="myCalendars" [currentType]="currentType"></zem-calendar-selected>
 
-        <!-- Delete calendar -->
+
         <div class="delete-calendar">
           <h4 *ngIf="!deleteConfirm" class="mdi mdi-delete" (click)="deleteConfirm = true">{{ 'calendars.deleteCalendar' | translate }}</h4>
 
@@ -62,6 +64,6 @@
             <button class="bt bt-neg" (click)="deleteConfirm = false">{{ 'general.buttons.cancel' | translate }}</button>
           </div>
         </div>
-        <!-- <button (click)="fn()">NULL</button> -->
+        <button (click)="fn()">NULL</button> -->
     </div>
 </main>
