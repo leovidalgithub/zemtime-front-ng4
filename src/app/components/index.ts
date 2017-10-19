@@ -8,7 +8,6 @@ export * from './home/home.component';
   export * from './home/calendars/calendars.pipe';
     // Calendar
     export * from './home/calendars/calendar/calendar.component';
-    export * from './home/calendars/calendar/calendar.services';
     export * from './home/calendars/calendar/calendar.translations.service';
 
 // AUTH

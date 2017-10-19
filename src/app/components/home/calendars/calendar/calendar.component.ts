@@ -1,9 +1,11 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
-import { GetCalendarLangService } from './calendar.translations.service';
+import { CalendarLangService } from './calendar.translations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
+import { CalendarsServices } from '../calendars.services';
+
 declare var $: any;
 
 @Component({
@@ -24,27 +26,23 @@ export class CalendarComponent implements OnInit, OnChanges {
     new Date().getFullYear() + 1
   ];
 
-
   // Form props
   private rForm:             FormGroup;
   private calendarCreatedOk: Boolean = false;
-  private calendarExists:    Boolean = false;
   private holidays:          number;
 
   // Calendar props
-  private myCalendar:        object;
+  private myCalendar:        iCalendars;
   private myDates:           Array<number>;
   private yearSelected:      number  = this.years[1];
 
-  // Delete props
-  private deleteConfirm:     Boolean = false;
-
   constructor(
-      private myTranslate:              TranslationService,
-      private translate:                TranslateService,
-      private myServices:               MyServices,
-      private myGetCalendarLangService: GetCalendarLangService,
-      private fb:                       FormBuilder
+      private myTranslate:           TranslationService,
+      private translate:             TranslateService,
+      private myServices:            MyServices,
+      private fb:                    FormBuilder,
+      private myCalendarLangService: CalendarLangService,
+      private myCalendarsServices:   CalendarsServices
   ) {
     this.rForm = fb.group({
       'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(21) ]) ]
@@ -53,7 +51,7 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   ngOnInit() {
       // Select calendar language based in the current language and then create months and calendars
-      $.datepicker.regional[this.translate.currentLang] = this.myGetCalendarLangService.getCalendarLang(this.translate.currentLang);
+      $.datepicker.regional[this.translate.currentLang] = this.myCalendarLangService.getCalendarLang(this.translate.currentLang);
       $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
   }
 
@@ -64,21 +62,26 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   refresh() {
-    this.myCalendar = this.myCalendars.filter( calendar => calendar.id === this.currentId );
+    this.myCalendar = this.myCalendars.find( calendar => calendar.id === this.currentId );
 
     // If there is a calendar with this year create myDates and turn true variable
-    if (this.myCalendar[0].years.some( years => years.year === this.yearSelected )) {
-      this.myDates = this.myCalendar[0].years.find( years => years.year === this.yearSelected ).days;
-    } else {
-      this.myDates = [];
+    if (!this.myCalendar.years.some( years => years.year === this.yearSelected )) {
+      let newYear = {
+        'year': this.yearSelected,
+        'days': []
+      };
+      this.myCalendar.years.push(newYear);
+      this.updateCalendar();
     }
+
+    this.myDates = this.myCalendar.years.find( years => years.year === this.yearSelected ).days;
     this.createMonths();
     this.createCalendars(this.myDates);
     this.holidays = this.myDates.length;
   }
 
   amIExist(year): boolean {
-    return this.myCalendar[0].years.some( years => years.year === year );
+    return this.myCalendar.years.some( years => years.year === year );
   }
 
   // Create calendars inside each month
@@ -94,16 +97,16 @@ export class CalendarComponent implements OnInit, OnChanges {
             firstDay: 1,
             inline: true,
             onSelect: (date, inst) => {
-                let thisDate = new Date(date).getTime();
-                let dateIndex = myDates.indexOf(thisDate);
+                date = new Date(date).getTime();
+                let dateIndex = myDates.indexOf(date);
                 if (  dateIndex !== -1 ) {
                   myDates.splice(dateIndex, 1);
                 } else {
-                  myDates.push(thisDate);
+                  myDates.push(date);
                 }
                 this.createCalendars(myDates);
                 this.holidays = this.myDates.length;
-                console.log(myDates);
+                this.updateCalendar();
             },
             beforeShowDay: (date) => {
                 date = new Date(date).getTime();
@@ -129,15 +132,27 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   // Save a new calendar (rForm onSubmit or input blur)
-  saveCalendar(calendarName) {
-    // if form is correct
+  updateNameCalendar(calendarName) {
     if ( this.rForm.valid ) {
       // Returns calendar name 'Capitalized'
-      this.myCalendar[0].name = this.myServices.capitalizeFirstLetter(calendarName.toLowerCase()).trim();
-      this.showMsg();
+      this.myCalendar.name = this.myServices.capitalizeFirstLetter(calendarName.toLowerCase()).trim();
+      this.updateCalendar();
     } else {
       console.log('Form not filled correctly');
     }
+  }
+
+  updateCalendar() {
+    this.myCalendarsServices.updateCalendar(this.myCalendar)
+    .subscribe(
+      (res: iCalendars[]) => {
+        this.showMsg();
+      },
+      (err) => {
+        console.log('err', err);
+      }
+      );
+
   }
 
   // Show msg positive
@@ -147,13 +162,5 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.calendarCreatedOk = false;
     }, 2000);
   }
-
-  // Show alert negative
-  // showAlert() {
-  //   this.calendarExists = true;
-  //   setTimeout( () => {
-  //     this.calendarExists = false;
-  //   }, 1500);
-  // }
 
 }

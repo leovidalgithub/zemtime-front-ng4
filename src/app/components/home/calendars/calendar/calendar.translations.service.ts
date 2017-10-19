@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // Jquery UI calendar translations service
 @Injectable()
-export class GetCalendarLangService {
+export class CalendarLangService {
 
   private language;
   private es: Object;
