@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { TranslationService, iCalendars, MyServices } from "../../../shared";
-import { GetCalendarsServices } from "./calendars.services";
+import { Component, OnInit } from '@angular/core';
+import { TranslationService, iCalendars, MyServices } from '../../../shared';
+import { GetCalendarsServices } from './calendars.services';
 
 // Filter calendar types
 enum eCalendarTypeShowed {
@@ -10,9 +10,9 @@ enum eCalendarTypeShowed {
 }
 
 @Component({
-  selector: "zem-calendars",
-  templateUrl: "./calendars.component.html",
-  styleUrls: ["./calendars.component.scss"]
+  selector: 'zem-calendars',
+  templateUrl: './calendars.component.html',
+  styleUrls: ['./calendars.component.scss']
 })
 export class CalendarsComponent implements OnInit {
   // Calendar props
@@ -54,14 +54,14 @@ export class CalendarsComponent implements OnInit {
         this.myCalendars = res;
       },
       err => {
-        console.log("err", err);
+        console.log('err', err);
       }
     );
   }
 
   createCalendar() {
     let newCalendar: object = {
-      name: "New calendar name",
+      name: 'New calendar name',
       type: this.currentType
     };
   }

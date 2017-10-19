@@ -3,16 +3,6 @@
 // @import "../../../../../style/icons";
 @import '../../../../../style/extends';
 
-
-// Calendar title
-// h2 {
-//   color: $col-grey-20;
-//   padding-bottom: 8px;
-//   border-bottom: 1px solid $col-grey-70;
-//   margin-bottom: 15px;
-//   animation: enterOpacity .5s;
-// }
-
 // Create new calendar form and Calendar title
 form {
   animation: enterTranslateY .6s;
@@ -28,7 +18,7 @@ form {
   justify-content: center;
   align-items: center;
 
-  input[type="text"] {
+  input[type='text'] {
     width: auto;
     border: none;
     text-align: center;
@@ -50,7 +40,7 @@ form {
 
   }
 
-  .daysCounter {
+  .days-counter {
     position: absolute;
     right: 8px;
     bottom: 8px;

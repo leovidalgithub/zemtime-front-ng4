@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 // import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -24,12 +24,11 @@ export class GetCalendarServices {
     return myDates;
   }
 
-  getTranslationJSON(lang): Observable<any>{
-    console.log(lang);
-    return this.http.get(`../../../../../public/locale/translationsCalendar/${lang}.json`)
+  getTranslationJSON(lang): Observable<any> {
+    return this.http.get(`../../../../../assets/locale/translationsCalendar/${lang}.json`)
       .map( (response: any) => {
         console.log(response.json());
         return response.json();
-      })
+      });
   }
 }

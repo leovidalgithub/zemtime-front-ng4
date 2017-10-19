@@ -25,12 +25,12 @@
     }
   }
 
-  .filterOptions {
+  .filter-options {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
 
-    .filtratedList {
+    .filtrated-list {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
@@ -58,7 +58,7 @@
         }
       }
 
-      .createCalendarIcon {
+      .create-calendar-icon {
         display: inline-block;
         padding: 0;
         .add-calendar {

@@ -8,9 +8,9 @@
       <!-- Name exists alert -->
       <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
       <!-- Name exists alertOk -->
-      <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
+      <span class="alert-ok" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarCreatedOk' | translate }}</span>
 
-      <span class="daysCounter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
+      <span class="days-counter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
 
   </form>
 
@@ -23,5 +23,5 @@
   </ul>
 
   <!-- Calendars into #months created dynamically with jquery-ui -->
-  <div id="months"></div>
+  <div class="months"></div>
 

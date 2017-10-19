@@ -109,7 +109,7 @@ export class CalendarComponent implements OnInit, OnChanges {
             beforeShowDay: (date) => {
                 date = new Date(date).getTime();
                 if ( myDates.indexOf(date) !== -1 ) {
-                    return [true, 'eventDay', 'eventDay'];
+                    return [true, 'event-day', 'event-day'];
                 } else {
                     return [true, '', 'holiday'];
                 }
@@ -120,12 +120,12 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   // Create 12 months to apply calendar
   createMonths() {
-    $('#months div').remove();
+    $('.months div').remove();
     for (let i = 1; i < 13; i++) {
       $(`<div/>`, {
           id: `calendar-${i}`,
-          class: `calendar`
-      }).appendTo('#months');
+          class: 'calendar'
+      }).appendTo('.months');
     }
   }
 
@@ -148,13 +148,5 @@ export class CalendarComponent implements OnInit, OnChanges {
       this.calendarCreatedOk = false;
     }, 2000);
   }
-
-  // Show alert negative
-  // showAlert() {
-  //   this.calendarExists = true;
-  //   setTimeout( () => {
-  //     this.calendarExists = false;
-  //   }, 1500);
-  // }
 
 }

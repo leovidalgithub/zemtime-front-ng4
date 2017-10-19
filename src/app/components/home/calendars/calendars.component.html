@@ -7,30 +7,30 @@
     <div class="filter">
 
         <!-- Filter buttons  - main options-->
-        <ul class="filterButtons">
+        <ul class="filter-buttons">
             <li (click)="currentType = 1; currentId = null" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
             <li (click)="currentType = 2; currentId = null" [class.filter-selected]="currentType === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
             <li (click)="currentType = 3; currentId = null" [class.filter-selected]="currentType === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
-        <div [ngSwitch]="currentType" class="filterOptions">
+        <div [ngSwitch]="currentType" class="filter-options">
             <!-- Show countries -->
-            <ul *ngSwitchCase="1" class="filtratedList">
+            <ul *ngSwitchCase="1" class="filtrated-list">
                 <li *ngFor="let country of myCalendars | myCalendarsTypesPipe:1">
                     <a (click)="currentId = country.id" [ngClass]="{'active-calendar': country.id === currentId}">{{ country.name }}</a>
                 </li>
                 <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
             <!-- Show states -->
-            <ul *ngSwitchCase="2" class="filtratedList">
+            <ul *ngSwitchCase="2" class="filtrated-list">
                 <li *ngFor="let state of (myCalendars | myCalendarsTypesPipe:2)">
                     <a (click)="currentId = state.id" [ngClass]="{'active-calendar': state.id === currentId}">{{ state.name }}</a>
                 </li>
                 <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
             <!-- Show cities -->
-            <ul *ngSwitchCase="3" class="filtratedList">
+            <ul *ngSwitchCase="3" class="filtrated-list">
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
                     <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
                 </li>
@@ -39,7 +39,7 @@
 
             <!-- Create new calendar button -->
             <ng-template #newCalendarButton>
-              <li class="createCalendarIcon">
+              <li class="create-calendar-icon">
                   <a class="mdi mdi-plus-circle-outline add-calendar" [title]="'general.buttons.title.addCalendar' | translate" (click)="createCalendar()"></a>
               </li>
             </ng-template>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- Calendar content -->
-    <div class="choosenCalendar" *ngIf="currentId">
+    <div class="choosen-calendar" *ngIf="currentId">
 
         <zem-calendar-selected
           [currentId]="currentId"
