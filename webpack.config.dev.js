@@ -53,7 +53,8 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        ENV: JSON.stringify(process.env.NODE_ENV)
+        ENV: JSON.stringify(process.env.NODE_ENV),
+        SERVER_PORT: JSON.stringify(process.env.SERVER_PORT)
       }
     }),
     // Tslint configuration for webpack 2

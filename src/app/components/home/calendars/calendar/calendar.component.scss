@@ -16,15 +16,19 @@
 // Create new calendar form and Calendar title
 form {
   animation: enterTranslateY .6s;
-  display: block;
+  // display: block;
   transition: all .6s;
   position: relative;
   border-bottom: 1.3px solid $col-grey-70;
   // padding-bottom: 8px;
   margin-bottom: 15px;
   margin-top: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 
-  input[type='text'] {
+  input[type="text"] {
     width: auto;
     border: none;
     text-align: center;
@@ -45,15 +49,22 @@ form {
     }
 
   }
-  .alert, .alert-ok {
+
+  .daysCounter {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    font-size: .9em;
+    color: $col-orange;
+  }
+
+  .alert, .alertOk {
     padding: 4px;
     position: absolute;
-    top: 10px;
-    // left: 5px;
+    bottom: 100%;
     font-size: .8em;
     display: inline-block;
-    animation: .5s enterTranslateY;
-    animation-direction: alternate;
+    animation: .5s enterTranslateYdown;
   }
   .alert {
     color: $col-red;
@@ -73,8 +84,8 @@ form {
     display: inline-block;
     color: $col-grey-30;
     font-size: .9em;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     transition: .3s color;
     cursor: pointer;
 
@@ -108,10 +119,12 @@ form {
       display: inline;
       position: absolute;
       top: -5px;
-      left: 22px;
       background-color: rgba(255,255,255,.7);
       color: $col-green;
       transition: .3s all;
+    }
+    &::after{
+      left: 18px;
     }
   }
 }
@@ -214,16 +227,18 @@ form {
 
 // Delete calendar
 .delete-calendar {
-  color: lighten($col-red, 15%);
+  display: block;
+  color: lighten($col-red, 10%);
   padding-top: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 55px;
   margin-top: 15px;
   border-top: 1px solid $col-grey-70;
   animation: enterOpacity .5s;
   cursor: pointer;
-  transition: .3s color;
+  transition: .3s all;
 
   &:hover {
     color: $col-red;
+    border-top: 1px solid lighten($col-red, 10%);
   }
 }

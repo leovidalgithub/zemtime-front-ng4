@@ -8,9 +8,12 @@
     "buttons" : {
       "send" : "Enviar",
       "save" : "Guardar",
+      "confirm" : "Confirmar",
+      "cancel" : "Cancelar",
       "title": {
         "addCalendar" : "Añadir calendario",
-        "nameCalendar" : "Nombre calendario"
+        "nameCalendar" : "Nombre calendario",
+        "sureToDelete" : "¿Desea eliminar el calendario de"
       }
     },
     "alerts" : {
@@ -32,6 +35,7 @@
     "titleCalendar" : "Calendario de",
     "deleteCalendar" : "Eliminar calendario",
     "createNextCal" : "Crear calendario de",
+    "holidays": "festivos",
     "filter" : {
       "showCountries" : "Países",
       "showCommunities" : "Comunidades",

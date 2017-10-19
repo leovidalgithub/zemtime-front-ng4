@@ -24,22 +24,23 @@
       }
     }
   }
-  .filter-options {
-    display: inline-block; // Filtrated list options
-    .filtrated-list {
-      width: 100%;
-      padding: 8px;
+
+  .filterOptions {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    .filtratedList {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
+      padding: 8px 0;
+
       li {
-        display: flex;
+        display: inline-block;
         padding-right: 10px;
-        flex-flow: row wrap;
-        align-items: center;
-        &:first-child {
-          margin-left: -6px;
-        }
+        margin-bottom: 8px;
+
         a {
           color: $col-grey-30;
           font-size: .9em;
@@ -47,6 +48,7 @@
           padding: 5px 8px;
           transition: all .3s;
           animation: enterOpacity .5s;
+          cursor: pointer;
           &:hover {
             color: $col-zemsania;
           }
@@ -55,73 +57,21 @@
           color: $col-orange; // @extend %fw-bold;
         }
       }
-    }
-  }
-  .create-calendar-icon {
-    display: inline-block;
-    .add-calendar {
-      font-size: 1.3em;
-      color: lighten($col-green, 15%);
-      cursor: pointer;
-      &:hover {
-        color: $col-green;
+
+      .createCalendarIcon {
+        display: inline-block;
+        padding: 0;
+        .add-calendar {
+          font-size: 1.5em;
+          color: lighten($col-green, 15%);
+          cursor: pointer;
+          &:hover {
+            color: $col-green;
+          }
+        }
       }
     }
   }
-  // form {
-  //   display: none !important;
-  //   transition: all .6s;
-  //   margin-left: 8px;
-  //   position: relative;
-
-  //   input[type="text"] {
-  //     width: 180px;
-  //     border: 1.3px solid $col-grey-70;
-  //     border-radius: 2px;
-  //     font-size: .8em;
-  //     font-family: 'Roboto', sans-serif;
-  //     font-weight: 300;
-  //     outline: none;
-  //     color: $col-black;
-  //     padding: 4px 2em 4px 10px;
-  //     transition: all .6s;
-  //     &:focus {
-  //       border: 1.3px solid lighten($col-orange, 20%);
-  //       // background-color: $col-grey-80; //cursor: text;
-  //     }
-
-  //   }
-  //   .alert {
-  //     color: $col-red;
-  //     padding: 4px;
-  //     position: absolute;
-  //     top: 35px;
-  //     font-size: .8em;
-  //     display: inline-block;
-  //     animation: .5s enterTranslateY;
-  //     animation-direction: alternate;
-  //   }
-  //   .alert-ok {
-  //     color: $col-green;
-  //     padding: 4px;
-  //     position: absolute;
-  //     top: 35px;
-  //     font-size: .8em;
-  //     display: inline-block;
-  //     animation: .5s enterTranslateY;
-  //     animation-direction: alternate;
-  //   }
-  //   .create-ok {
-  //     border: 1.3px solid $col-green !important;
-  //   }
-
-  // }
-
-  // .createNew {
-  //   display: block !important;
-  //   animation: enterTranslateY .6s;
-  //   margin-bottom: 25px;
-  // }
 
   .filter-selected {
     border-bottom: 1px solid $col-zemsania !important;
@@ -137,4 +87,23 @@
 .choosen-calendar {
   text-align: center;
   margin: 25px auto;
+}
+
+
+// Delete calendar
+.delete-calendar {
+  display: block;
+  color: lighten($col-red, 10%);
+  padding-top: 10px;
+  margin-bottom: 55px;
+  margin-top: 15px;
+  border-top: 1px solid $col-grey-70;
+  animation: enterOpacity .5s;
+  cursor: pointer;
+  transition: .3s all;
+
+  &:hover {
+    color: $col-red;
+    border-top: 1px solid lighten($col-red, 10%);
+  }
 }

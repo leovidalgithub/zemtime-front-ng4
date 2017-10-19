@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent, AuthComponent, LoginComponent, DashboardComponent, CalendarsComponent, CalendarComponent } from './components';
+import { HomeComponent, AuthComponent, LoginComponent, DashboardComponent, CalendarsComponent } from './components';
 import { AlwaysAuthGuard } from './shared';
 
 const APP_ROUTES: Routes = [
@@ -16,12 +16,7 @@ const APP_ROUTES: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      {
-        path: 'calendars', component: CalendarsComponent,
-        children: [
-          { path: 'calendar/:id', component: CalendarComponent }
-        ]
-      }
+      { path: 'calendars', component: CalendarsComponent }
     ]
   },
   { path: '**', redirectTo: 'auth', pathMatch: 'full' }
