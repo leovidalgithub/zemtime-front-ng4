@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { MyServices, iCalendars } from '../../../shared';
 
 @Injectable()
@@ -9,6 +9,20 @@ export class GetCalendarsServices {
 
   getCalendars(): Observable<CalendarClass[]> {
     return this.http.get(this.ms.buildURL('getCalendars'))
+      .map(res => {
+        return res.json().map(item => {
+          return new CalendarClass(
+            item._id,
+            item.type,
+            item.name,
+            item.years
+          );
+        });
+      });
+  }
+
+  createNewCalendar(newCalendarData): Observable<CalendarClass[]> {
+    return this.http.post(this.ms.buildURL('createCalendar'), newCalendarData)
       .map(res => {
         return res.json().map(item => {
           return new CalendarClass(

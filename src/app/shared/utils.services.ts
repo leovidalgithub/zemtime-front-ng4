@@ -5,7 +5,8 @@ const PROTOCOL    = window.location.protocol;
 const HOSTNAME    = window.location.hostname;
 let API_base = `${PROTOCOL}//${HOSTNAME}:${SERVER_PORT}/`;
 let API_paths = {
-    getCalendars: 'calendars/'
+    getCalendars: 'calendars/calendars',
+    createCalendar: 'calendars/createCalendar/'
 };
 
 @Injectable()
