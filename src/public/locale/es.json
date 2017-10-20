@@ -35,7 +35,9 @@
     "titleCalendar" : "Calendario de",
     "titleInput" : "Editar nombre",
     "deleteCalendar" : "Eliminar calendario",
-    "createNextCal" : "Crear calendario de",
+    "createNextCal" : "Crear calendario",
+    "checkDay": "Marcar festivo",
+    "uncheckDay": "Desmarcar festivo",
     "newCalendarName" : "Calendario Nuevo",
     "holidays": "festivos",
     "filter" : {

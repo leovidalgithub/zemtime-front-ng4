@@ -1,17 +1,6 @@
 @import "../../../../../style/colors";
-// @import "../../../../../style/typo";
-// @import "../../../../../style/icons";
 @import "../../../../../style/extends";
 
-
-// Calendar title
-// h2 {
-//   color: $col-grey-20;
-//   padding-bottom: 8px;
-//   border-bottom: 1px solid $col-grey-70;
-//   margin-bottom: 15px;
-//   animation: enterOpacity .5s;
-// }
 
 // Create new calendar form and Calendar title
 form {
@@ -69,7 +58,7 @@ form {
     padding: 4px;
     position: absolute;
     bottom: 100%;
-    font-size: .8em;
+    font-size: .9em;
     display: inline-block;
     animation: .5s enterTranslateYdown;
   }
@@ -146,21 +135,17 @@ form {
 
   // Calendar container
   .calendar {
-    // display: inline-block;
     font-family: 'Roboto', sans-serif;
-    // animation: enterOpacity .5s;
 
     // Datepicker container
     .ui-datepicker-inline, .ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all {
       background-color: white;
       margin: 10px;
-      // border: 1px solid $col-grey-80;
       min-width: 180px;
       text-align: center;
 
       // Datepicker header
       .ui-datepicker-header, .ui-widget-header, .ui-helper-clearfix, .ui-corner-all {
-        // background-color: $col-grey-80;
         padding: 10px 15px 6px 15px;
         margin: 0;
         text-align: center;
@@ -207,7 +192,6 @@ form {
             height: 30px;
             line-height: 30px;
             color: $col-grey-40;
-            // background-color: white;
             transition: all .3s;
 
             &:hover {
@@ -219,8 +203,8 @@ form {
     }
 
   }
-
-  .eventDay {
+  // Calendar date holiday
+  .holiday {
     background-color: lighten($col-orange, 25%) !important;
 
     a{
