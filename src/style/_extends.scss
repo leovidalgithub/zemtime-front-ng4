@@ -50,8 +50,9 @@
 		.fw-700{font-weight: 700;}
 
 	// TEXT
-		.txt-center{text-align: center ;}
-    .txt-upper{text-transform: uppercase ;}
+
+		.txt-center{text-align: center;}
+    .txt-upper{text-transform: uppercase;}
 
   // HEADER DISPLAY WHEN APP USES SIDEBAR
     // .header-wrapper {
@@ -151,11 +152,11 @@
 @keyframes enterTranslateYup {
   from {
       opacity:0;
-      transform: translateY(0);
+      transform: translateY(20px);
   }
   to {
       opacity:1;
-      transform: translateY(-20px);
+      transform: translateY(0px);
   }
 }
 

@@ -28,7 +28,6 @@
 			letter-spacing: .1em;
 			font-weight: 400;
 			border-radius: 2px;
-			// text-transform: uppercase;
 			transition: all .4s;
 			@media #{$tablet}{
 				font-size: .85em;
@@ -50,7 +49,7 @@
 				@extend %bt;
 				background-color: lighten($bg, 10%);
 				box-shadow: 0 0 3px lighten($bg, 20%);
-				color: $color !important;
+				color: $color;
 				&:hover{
 					@if $bg != $col-btn-base-off {
 						background-color: $bg;
@@ -174,6 +173,7 @@
 			.bt-ico-off{
 				// @extend %bt-ico-btn;
 				@include bt-background($col-btn-base-off);
+
 				cursor: default;
 			}
 
@@ -195,7 +195,7 @@
 			}
 			.bt-off-out{
 				@include bt-outline($col-btn-base-off);
-				cursor: default !important;
+				cursor: default ;
 			}
 			.bt-t-neg-out{
 				@include bt-outline($col-btn-act-neg, $col-btn-transp);

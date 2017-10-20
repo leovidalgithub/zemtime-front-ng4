@@ -3,8 +3,10 @@ import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
-import { GetCalendarServices } from './calendar.services';
-declare var $: any;
+import { CalendarsServices } from '../calendars.services';
+
+declare var $: any; // Jquery
+
 
 @Component({
   selector: 'zem-calendar-selected',
@@ -25,68 +27,81 @@ export class CalendarComponent implements OnInit, OnChanges {
     new Date().getFullYear() + 1
   ];
 
-
   // Form props
-  private rForm:             FormGroup;
-  private calendarCreatedOk: Boolean = false;
-  private calendarExists:    Boolean = false;
-  private holidays:          number;
+  private rForm:             FormGroup; // Input calendar title
+  private calendarCreatedOk: Boolean = false; // Positive msg
+  private holidays:          number; // Vacation counter
 
   // Calendar props
-  private myCalendar:        object;
-  private myDates:           Array<number>;
-  private yearSelected:      number  = this.years[1];
-
-  // Delete props
-  private deleteConfirm:     Boolean = false;
+  private myCalendar:   iCalendars; // Selected calendar. Uses iCalendar interface
+  private myDates:      Array<number>; // Array containing vacation dates
+  private yearSelected: number = this.years[1]; // Onload always year selected is current year
+  private checkTitle:   string; // Title for selecting vacation dates
+  private uncheckTitle: string; // Title for diselecting vacation dates
 
   constructor(
-      private myTranslate:              TranslationService,
-      private translate:                TranslateService,
-      private myServices:               MyServices,
-      private myGetCalendarLangService: GetCalendarServices,
-      private fb:                       FormBuilder
+      private myTranslate:           TranslationService,
+      private translate:             TranslateService,
+      private myServices:            MyServices,
+      private fb:                    FormBuilder,
+      private myCalendarsServices:   CalendarsServices
   ) {
+    // Input calendar title
     this.rForm = fb.group({
       'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(21) ]) ]
     });
+
+    // Translations for check uncheck holidays titles
+    myTranslate.getTranslation('calendars.checkDay').subscribe(
+      (value) => { this.checkTitle = value; }
+    );
+    myTranslate.getTranslation('calendars.uncheckDay').subscribe(
+      (value) => { this.uncheckTitle = value; }
+    );
   }
 
   ngOnInit() {
-      // Select calendar language based in the current language and then create months and calendars
-    this.myGetCalendarLangService.getTranslationJSON(this.translate.currentLang)
+    // Select calendar language based in the current language and then create months and calendars
+    this.myCalendarsServices.getTranslationJSON(this.translate.currentLang)
       .subscribe( (value) => {
         $.datepicker.regional[this.translate.currentLang] = value;
         $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
       });
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    // Check always if there is a change with the current id
     if ( changes.currentId.currentValue ) {
       this.refresh();
     }
   }
 
   refresh() {
-    this.myCalendar = this.myCalendars.filter( calendar => calendar.id === this.currentId );
-
+    // Get current calendar object by id
+    this.myCalendar = this.myCalendars.find( calendar => calendar.id === this.currentId );
     // If there is a calendar with this year create myDates and turn true variable
-    if (this.myCalendar[0].years.some( years => years.year === this.yearSelected )) {
-      this.myDates = this.myCalendar[0].years.find( years => years.year === this.yearSelected ).days;
-    } else {
-      this.myDates = [];
+    if (!this.myCalendar.years.some( years => years.year === this.yearSelected )) {
+      let newYear = {
+        'year': this.yearSelected,
+        'days': []
+      };
+      this.myCalendar.years.push(newYear);
+      this.updateCalendar();
     }
+    // Get all checked dates and then create months with calendar
+    this.myDates = this.myCalendar.years.find( years => years.year === this.yearSelected ).days;
     this.createMonths();
     this.createCalendars(this.myDates);
+    // Get number of holiday dates, used in the counter
     this.holidays = this.myDates.length;
   }
 
+  // Check if calendar exists and return boolean
   amIExist(year): boolean {
-    return this.myCalendar[0].years.some( years => years.year === year );
+    return this.myCalendar.years.some( years => years.year === year );
   }
 
-  // Create calendars inside each month
+  // Create calendars inside each month - Datepicker UI
   createCalendars(myDates) {
       for (let month = 1; month < 13; month++) {
 
@@ -99,23 +114,23 @@ export class CalendarComponent implements OnInit, OnChanges {
             firstDay: 1,
             inline: true,
             onSelect: (date, inst) => {
-                let thisDate = new Date(date).getTime();
-                let dateIndex = myDates.indexOf(thisDate);
+                date = new Date(date).getTime();
+                let dateIndex = myDates.indexOf(date);
                 if (  dateIndex !== -1 ) {
                   myDates.splice(dateIndex, 1);
                 } else {
-                  myDates.push(thisDate);
+                  myDates.push(date);
                 }
                 this.createCalendars(myDates);
                 this.holidays = this.myDates.length;
-                console.log(myDates);
+                this.updateCalendar();
             },
             beforeShowDay: (date) => {
                 date = new Date(date).getTime();
                 if ( myDates.indexOf(date) !== -1 ) {
-                    return [true, 'event-day', 'event-day'];
+                    return [true, 'holiday', this.uncheckTitle];
                 } else {
-                    return [true, '', 'holiday'];
+                    return [true, '', this.checkTitle];
                 }
             }
         });
@@ -128,26 +143,39 @@ export class CalendarComponent implements OnInit, OnChanges {
     for (let i = 1; i < 13; i++) {
       $(`<div/>`, {
           id: `calendar-${i}`,
-          class: 'calendar'
+          class: `calendar`
       }).appendTo('.months');
     }
   }
 
-  // Save a new calendar (rForm onSubmit or input blur)
-  saveCalendar(calendarName) {
-    // if form is correct
+  // Save a new calendar (rForm onSubmit)
+  updateNameCalendar(calendarName) {
     if ( this.rForm.valid ) {
       // Returns calendar name 'Capitalized'
-      this.myCalendar[0].name = this.myServices.capitalizeFirstLetter(calendarName.toLowerCase()).trim();
-      this.showMsg();
+      this.myCalendar.name = this.myServices.capitalizeFirstLetter(calendarName.toLowerCase()).trim();
+      this.updateCalendar();
     } else {
       console.log('Form not filled correctly');
     }
   }
 
+  updateCalendar() {
+    this.myCalendarsServices.updateCalendar(this.myCalendar)
+    .subscribe(
+      (res: iCalendars[]) => {
+        console.log('Correctly updated');
+      },
+      (err) => {
+        console.log('err', err);
+      }
+    );
+  }
+
   // Show msg positive
   showMsg() {
-    this.calendarCreatedOk = true;
+    if (this.rForm.valid) {
+      this.calendarCreatedOk = true;
+    }
     setTimeout( () => {
       this.calendarCreatedOk = false;
     }, 2000);

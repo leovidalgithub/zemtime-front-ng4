@@ -2,16 +2,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { iCalendars } from '../../../shared';
 
 @Pipe({
-    name: 'myCalendarsTypesPipe'
-})
-export class CalendarsTypesPipe implements PipeTransform {
+    name: 'myCalendarsTypesPipe',
+    pure: false // declare a pipe to be stateful
+  })
+  export class CalendarsTypesPipe implements PipeTransform {
     transform(items: Array<iCalendars>, myType: number): Array<iCalendars> {
         return items.filter(item => item.type === myType);
+      }
     }
-}
 
 @Pipe({
-  name: 'myCalendarsNamePipe'
+    name: 'myCalendarsNamePipe',
+    pure: false // declare a pipe to be stateful
 })
 export class CalendarsNamePipe implements PipeTransform {
   transform(items: Array<iCalendars>, currentId: string): string {
