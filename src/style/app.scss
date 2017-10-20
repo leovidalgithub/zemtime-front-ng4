@@ -16,7 +16,7 @@
 
 
 // BASIC RESET STYLES
-  * {
+  :root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,58 +52,3 @@
     margin-top: 50px;
     padding: 10px 3%;
   }
-
-
-
-
-// .month {
-//   text-align: center;
-//   // background-color: tomato;
-// }
-
-// .day_title {
-//   text-align: left;
-//   width: 40px;
-//   height: 40px;
-//   font-size: 15px;
-//   margin: 2px;
-//   padding: 5px;
-//   border-style: solid;
-//   border-width: 2px;
-//   border-color: #c0c0c0;
-//   display: inline-block;
-//   vertical-align: bottom;
-// }
-
-// .day{
-//   text-align: left;
-//   width: 40px;
-//   height: 40px;
-//   font-size: 15px;
-//   margin: 2px;
-//   padding: 5px;
-//   border-style: solid;
-//   border-width: 2px;
-//   border-color: #c0c0c0;
-//   display: inline-block;
-//   vertical-align: bottom;
-// }
-
-
-
-// .empty {
-//   border-color: #e0e0e0;
-// }
-
-// .day_off {
-//   border-color: #ff6666;
-// }
-
-// .day_today {
-//   border-color: #33cc33;
-// }
-
-// /* Test */
-// .testWeek {
-//   color: green;
-// }
