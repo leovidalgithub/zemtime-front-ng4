@@ -1,7 +1,6 @@
 @import "../../../../../style/colors";
 @import "../../../../../style/extends";
 
-
 // Create new calendar form and Calendar title
 form {
   animation: enterTranslateYdown .6s;
@@ -12,13 +11,12 @@ form {
   // padding-bottom: 8px;
   margin-bottom: 15px;
   margin-top: 25px;
-
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
 
-  input[type="text"] {
+  input[type='text'] {
     width: auto;
     border: none;
     text-align: center;
@@ -46,7 +44,7 @@ form {
 
   }
 
-  .daysCounter {
+  .days-counter {
     position: absolute;
     right: 8px;
     bottom: 8px;
@@ -54,7 +52,7 @@ form {
     color: $col-orange;
   }
 
-  .alert, .alertOk {
+  .alert, .alert-ok {
     padding: 4px;
     position: absolute;
     bottom: 100%;
@@ -65,10 +63,12 @@ form {
   .alert {
     color: $col-red;
   }
-  .alertOk {
+  .alert-ok {
     color: $col-green;
   }
-
+  .create-ok {
+    background-color: lighten($col-green, 20%); //cursor: text;
+  }
 }
 
 // Year selector
@@ -126,7 +126,7 @@ form {
 
 // DATEPICKER STYLES
 // Datepicker Container
-#months {
+.months {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -208,7 +208,7 @@ form {
     background-color: lighten($col-orange, 25%) !important;
 
     a{
-      color: white !important;
+      color: white;
     }
   }
 

@@ -1,19 +1,20 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
-import { CalendarLangService } from './calendar.translations.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
 import { CalendarsServices } from '../calendars.services';
 
 declare var $: any; // Jquery
 
+
 @Component({
-    selector: 'zem-calendar-selected',
-    templateUrl: 'calendar.component.html',
-    styleUrls: ['calendar.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'zem-calendar-selected',
+  templateUrl: 'calendar.component.html',
+  styleUrls: ['calendar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
+
 export class CalendarComponent implements OnInit, OnChanges {
 
   @Input('currentId') currentId:     string;
@@ -43,7 +44,6 @@ export class CalendarComponent implements OnInit, OnChanges {
       private translate:             TranslateService,
       private myServices:            MyServices,
       private fb:                    FormBuilder,
-      private myCalendarLangService: CalendarLangService,
       private myCalendarsServices:   CalendarsServices
   ) {
     // Input calendar title
@@ -61,9 +61,12 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-      // Select calendar language based in the current language and then create months and calendars
-      $.datepicker.regional[this.translate.currentLang] = this.myCalendarLangService.getCalendarLang(this.translate.currentLang);
-      $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
+    // Select calendar language based in the current language and then create months and calendars
+    this.myCalendarsServices.getTranslationJSON(this.translate.currentLang)
+      .subscribe( (value) => {
+        $.datepicker.regional[this.translate.currentLang] = value;
+        $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
+      });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -136,12 +139,12 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   // Create 12 months to apply calendar
   createMonths() {
-    $('#months div').remove();
+    $('.months div').remove();
     for (let i = 1; i < 13; i++) {
       $(`<div/>`, {
           id: `calendar-${i}`,
           class: `calendar`
-      }).appendTo('#months');
+      }).appendTo('.months');
     }
   }
 

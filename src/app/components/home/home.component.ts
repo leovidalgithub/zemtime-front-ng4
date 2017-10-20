@@ -2,7 +2,7 @@
 // Home Component is the parent route of all the app components routes except the Auth Component, which contains session login.
 // It accomplish two basic functions:
 //    . Integrates Sidebar Component and gives it his data
-//    . Has the #mainWrapper where the router-outlet loads all the content of the app
+//    . Has the #main-wrapper where the router-outlet loads all the content of the app
 // *************************************************** //
 
 import { Component, OnInit } from '@angular/core';

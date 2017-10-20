@@ -4,22 +4,22 @@
 
 // MEDIA QUERIES
 // *************
-	// Mobile First
-		$sm-phone: "(min-width: 319px)";
-		$phone: "(min-width: 479px)";
-		$lg-phone: "(min-width: 544px)";
-		$tablet: "(min-width: 769px)";
-		$desktop: "(min-width: 1023px)";
-		$lg-desktop: "(min-width: 1200px)";
+ // Mobile First
+ $sm-phone: '(min-width: 319px)';
+ $phone: '(min-width: 479px)';
+ $lg-phone: '(min-width: 544px)';
+ $tablet: '(min-width: 769px)';
+ $desktop: '(min-width: 1023px)';
+ $lg-desktop: '(min-width: 1200px)';
 
-	// Desktop First
-		$d-sm-phone: "(max-width: 320px)";
-		$d-phone: "(max-width: 480px)";
-		$d-lg-phone: "(max-width: 545px)";
-		$d-tablet: "(max-width: 770px)";
-		$d-desktop: "(max-width: 1024px)";
-		$d-lg-desktop: "(max-width: 1999px)";
+ // Desktop First
+ $d-sm-phone: '(max-width: 320px)';
+ $d-phone: '(max-width: 480px)';
+ $d-lg-phone: '(max-width: 545px)';
+ $d-tablet: '(max-width: 770px)';
+ $d-desktop: '(max-width: 1024px)';
+ $d-lg-desktop: '(max-width: 1999px)';
 
-	// Orientation
-		$portrait: "(orientation: portrait)";
-		$landscape: "(orientation: landscape)";
+ // Orientation
+ $portrait: '(orientation: portrait)';
+ $landscape: '(orientation: landscape)';

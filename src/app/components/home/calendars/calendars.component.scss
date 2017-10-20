@@ -1,15 +1,15 @@
-@import "../../../../style/colors";
-@import "../../../../style/typo";
-@import "../../../../style/icons";
-@import "../../../../style/extends";
-.headerWrapper {
-  @extend %headerWrapper;
+@import '../../../../style/colors';
+@import '../../../../style/typo';
+@import '../../../../style/icons';
+@import '../../../../style/extends';
+.header-wrapper {
+  @extend %header-wrapper;
 }
 
 .filter {
   width: 100%;
   margin: 0 auto; // Filter Buttons
-  .filterButtons {
+  .filter-buttons {
     li {
       display: inline-block;
       padding: 10px;
@@ -20,22 +20,23 @@
       border-bottom: 1px solid $col-smoke-white;
       transition: all .3s;
       &:hover {
-        border-bottom: 1px solid $col-zemsania !important;
+        border-bottom: 1px solid $col-zemsania;
       }
     }
   }
-  .filterOptions {
+
+  .filter-options {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
 
-    .filtratedList {
+    .filtrated-list {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
       padding: 8px 0;
 
-      li {
+      li, span {
         display: inline-block;
         padding-right: 10px;
         margin-bottom: 8px;
@@ -53,10 +54,11 @@
           }
         }
         .active-calendar {
-          color: $col-orange !important; // @extend %fw-bold;
+          color: $col-orange; // @extend %fw-bold;
         }
       }
-      .createCalendarIcon {
+
+      .create-calendar-icon {
         display: inline-block;
         padding: 0;
         .add-calendar {
@@ -82,10 +84,9 @@
 
 } // Filter close
 
-.choosenCalendar {
-  margin-top: 25px;
+.choosen-calendar {
   text-align: center;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 
 

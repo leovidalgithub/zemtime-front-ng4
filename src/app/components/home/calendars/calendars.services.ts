@@ -43,6 +43,12 @@ export class CalendarsServices {
     return this.http.post(this.msUtils.buildURL('updateCalendar'), calendar);
   }
 
+  getTranslationJSON(lang): Observable<any> {
+    return this.http.get(`../../../../../assets/locale/translationsCalendar/${lang}.json`)
+      .map( (response: any) => {
+        return response.json();
+      });
+  }
 }
 
 class CalendarClass implements iCalendars  {
