@@ -74,7 +74,7 @@
   }
 
   .filter-selected {
-    border-bottom: 1px solid $col-zemsania;
+    border-bottom: 1px solid $col-zemsania !important;
     @extend %fw-bold;
   }
 
