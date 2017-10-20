@@ -9,7 +9,7 @@
 .filter {
   width: 100%;
   margin: 0 auto; // Filter Buttons
-  .filterButtons {
+  .filter-buttons {
     li {
       display: inline-block;
       padding: 10px;
@@ -20,22 +20,22 @@
       border-bottom: 1px solid $col-smoke-white;
       transition: all .3s;
       &:hover {
-        border-bottom: 1px solid $col-zemsania !important;
+        border-bottom: 1px solid $col-zemsania;
       }
     }
   }
-  .filterOptions {
+  .filter-options {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
 
-    .filtratedList {
+    .filtrated-list {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
       padding: 8px 0;
 
-      li {
+      li, span {
         display: inline-block;
         padding-right: 10px;
         margin-bottom: 8px;
@@ -53,7 +53,7 @@
           }
         }
         .active-calendar {
-          color: $col-orange !important; // @extend %fw-bold;
+          color: $col-orange; // @extend %fw-bold;
         }
       }
       .createCalendarIcon {
@@ -72,7 +72,7 @@
   }
 
   .filter-selected {
-    border-bottom: 1px solid $col-zemsania !important;
+    border-bottom: 1px solid $col-zemsania;
     @extend %fw-bold;
   }
 
@@ -82,7 +82,7 @@
 
 } // Filter close
 
-.choosenCalendar {
+.choosen-calendar {
   margin-top: 25px;
   text-align: center;
   margin: 0 auto;

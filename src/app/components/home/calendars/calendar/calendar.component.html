@@ -7,10 +7,10 @@
       <span class="alert" *ngIf="!rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty">{{ 'general.alerts.newCalendarLenght' | translate }}</span>
       <!-- Name exists alert -->
       <span class="alert" *ngIf="calendarExists">{{ 'general.alerts.newCalendarExists' | translate }}</span>
-      <!-- Name exists alertOk -->
-      <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarUpdatedOk' | translate }}</span>
+      <!-- Name exists alert-ok -->
+      <span class="alert-ok" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarUpdatedOk' | translate }}</span>
 
-      <span class="daysCounter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
+      <span class="days-counter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
 
   </form>
 
@@ -23,6 +23,6 @@
   </ul>
 
   <!-- Calendars into #months created dynamically with jquery-ui -->
-  <div id="months"></div>
+  <div class="months"></div>
 
 

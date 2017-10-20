@@ -1,0 +1,18 @@
+{
+  "closeText": "Tanca",
+  "prevText": "Anterior",
+  "nextText": "Següent",
+  "currentText": "Avui",
+  "monthNames": [ "Gener", "Febrer", "Març", "Abril", "Maig", "Juny",
+    "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre" ],
+  "monthNamesShort": [ "gen", "feb", "març", "abr", "maig", "juny",
+    "jul", "ag", "set", "oct", "nov", "des" ],
+  "dayNames": [ "diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte" ],
+  "dayNamesShort": [ "dg", "dl", "dt", "dc", "dj", "dv", "ds" ],
+  "dayNamesMin": [ "Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds" ],
+  "weekHeader": "Set",
+  "firstDay": 1,
+  "isRTL": false,
+  " showMonthAfterYear": false,
+  "yearSuffix": ""
+}
