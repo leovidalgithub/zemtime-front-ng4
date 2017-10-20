@@ -1,31 +1,65 @@
 {
   "general": {
     "sidebar": {
-      "menuClose": "Close",
-      "bugReport": "Report bug",
-      "logout": "LogOut"
+      "menuClose": "Cerrar menú",
+      "bugReport": "Reportar bug",
+      "closeSession": "Cerrar sesión"
     },
     "buttons": {
-      "ok": "Accept",
-      "send": "Send",
-      "cancel": "Cancel"
+      "send": "Enviar",
+      "save": "Guardar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "title": {
+        "addCalendar": "Añadir calendario",
+        "nameCalendar": "Nombre calendario",
+        "sureToDelete": "¿Desea eliminar el calendario de"
+      }
+    },
+    "alerts": {
+      "newCalendarLenght": "¡ Debe contener mínimo 2 letras. No puede contener caracteres extraños !",
+      "newCalendarExists": "El calendario ya existe",
+      "newCalendarUpdatedOk": "Calendario actualizado correctamente"
     }
   },
   "auth": {
     "login": {
-      "login": "Login"
+      "login": "Iniciar sesión"
     }
   },
   "dashboard": {
-    "title": "Notifications"
+    "title": "Notificaciones"
   },
   "calendars": {
-    "title": "Calendars",
-    "calendar": "Calendar",
+    "title": "Calendarios",
+    "titleCalendar": "Calendario de",
+    "titleInput": "Editar nombre",
+    "deleteCalendar": "Eliminar calendario",
+    "createNextCal": "Crear calendario",
+    "checkDay": "Marcar festivo",
+    "uncheckDay": "Desmarcar festivo",
+    "newCalendarName": "Calendario Nuevo",
+    "holidays": "festivos",
     "filter": {
-      "showCountries": "Countries",
-      "showCommunities": "Comunities",
-      "showCities": "Cities"
+      "showCountries": "Países",
+      "showCommunities": "Comunidades",
+      "showCities": "Ciudades"
+    }
+  },
+  "datepicker": {
+    "monthNames": {
+      "jan": "Enero",
+      "feb": "Febrero",
+      "mar": "Marzo",
+      "apr": "Abril",
+      "may": "Mayo",
+      "jun": "Junio",
+      "jul": "Julio",
+      "aug": "Agosto",
+      "sep": "Septiembre",
+      "oct": "Octubre",
+      "nov": "Noviembre",
+      "dec": "Diciembre"
     }
   }
 }

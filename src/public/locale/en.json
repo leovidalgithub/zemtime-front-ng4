@@ -8,15 +8,18 @@
     "buttons": {
       "send": "Enviar",
       "save": "Guardar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
       "title": {
         "addCalendar": "Añadir calendario",
-        "nameCalendar": "Nombre calendario"
+        "nameCalendar": "Nombre calendario",
+        "sureToDelete": "¿Desea eliminar el calendario de"
       }
     },
     "alerts": {
-      "newCalendarLenght": "Debe contener entre 2-20 carácteres",
+      "newCalendarLenght": "¡ Debe contener mínimo 2 letras. No puede contener caracteres extraños !",
       "newCalendarExists": "El calendario ya existe",
-      "newCalendarCreatedOk": "Calendario creado correctamente"
+      "newCalendarUpdatedOk": "Calendario actualizado correctamente"
     }
   },
   "auth": {
@@ -30,9 +33,13 @@
   "calendars": {
     "title": "Calendarios",
     "titleCalendar": "Calendario de",
+    "titleInput": "Editar nombre",
     "deleteCalendar": "Eliminar calendario",
-    "createNextCal": "Crear calendario de",
+    "createNextCal": "Crear calendario",
+    "checkDay": "Marcar festivo",
+    "uncheckDay": "Desmarcar festivo",
     "newCalendarName": "Calendario Nuevo",
+    "holidays": "festivos",
     "filter": {
       "showCountries": "Países",
       "showCommunities": "Comunidades",
