@@ -9,6 +9,7 @@ import { TranslationService } from '../../../shared';
 
 export class DashboardComponent implements OnInit {
 
+  // tslint:disable-next-line:no-unused-variable
   private headerData: object = {
     sectionData : {
       title: this.myTranslate.getTranslation('dashboard.title'),

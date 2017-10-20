@@ -70,10 +70,11 @@ export class CalendarsComponent implements OnInit {
             (err) => {
                 alert('error while deleting calendar');
             }
-            );
+        );
     }
 
-     createCalendar() {
+    createCalendar() {
+        this.currentId = null;
         this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
             let newCalendarData: object = {
                 name: newDefaultName,
@@ -87,6 +88,7 @@ export class CalendarsComponent implements OnInit {
                     this.currentId = res[0].id;
                 },
                 (err) => {
+                    alert('error creating a new calendar');
                     console.log('err', err);
                 }
             );

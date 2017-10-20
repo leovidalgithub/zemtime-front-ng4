@@ -16,6 +16,7 @@ import { TranslationService } from '../../shared';
 export class HomeComponent implements OnInit {
 
   // SIDEBAR DATA
+  // tslint:disable-next-line:no-unused-variable
   private sidebarData: object = {
     headSidebar: {
       logoLink: 'dashboard',

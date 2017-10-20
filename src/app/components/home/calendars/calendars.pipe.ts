@@ -12,7 +12,8 @@ export class CalendarsTypesPipe implements PipeTransform {
 }
 
 @Pipe({
-  name: 'myCalendarsNamePipe'
+  name: 'myCalendarsNamePipe',
+  pure: false // declare a pipe to be stateful
 })
 export class CalendarsNamePipe implements PipeTransform {
   transform(items: Array<iCalendars>, currentId: string): string {
