@@ -113,7 +113,7 @@
       "zem",
       "kebab-case"
     ],
-    "no-unused-variable" : [true, {"ignore-pattern": "^_"}],
+    // "no-unused-variable" : [true, {"ignore-pattern": "^_"}],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,

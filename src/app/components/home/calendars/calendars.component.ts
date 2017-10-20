@@ -13,14 +13,13 @@ enum eCalendarTypeShowed {
     selector: 'zem-calendars',
     templateUrl: './calendars.component.html',
     styleUrls: ['./calendars.component.scss']
-    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarsComponent implements OnInit {
 
-    private myCalendars: Array<iCalendars> = []; // Recive all calendars with interface iCalendar
-    private currentType: eCalendarTypeShowed = 1; // Initialize in 'Country' by default
-    private currentId: string = null;
-    private deleteConfirm: Boolean = false;
+    private myCalendars:   Array<iCalendars>   = []; // Recive all calendars with interface iCalendar
+    private currentType:   eCalendarTypeShowed = 1; // Initialize in 'Country' by default
+    private currentId:     string              = null; // Current calendar Id
+    private deleteConfirm: Boolean             = false; // Show delete confirmation
 
     // HEADER DATA
     // tslint:disable-next-line:no-unused-variable
@@ -37,30 +36,33 @@ export class CalendarsComponent implements OnInit {
     };
 
     constructor(
-        private myTranslate: TranslationService,
+        private myTranslate:         TranslationService,
         private myCalendarsServices: CalendarsServices,
-        private myServices: MyServices,
+        private myServices:          MyServices
     ) { }
 
     ngOnInit() {
-        this.getCalendars();
+      // Recive all calendars
+      this.getCalendars();
     }
 
+    // Recive all calendars
     getCalendars() {
-        this.myCalendarsServices.getCalendars()
-            .subscribe(
+      this.myCalendarsServices.getCalendars()
+          .subscribe(
             (res: iCalendars[]) => {
                 this.myCalendars = res;
             },
             (err) => {
                 console.log('err', err);
             }
-            );
+          );
     }
 
+    // Delete full calendar by id
     deleteCalendar() {
         this.myCalendarsServices.deleteCalendar(this.currentId)
-            .subscribe(
+          .subscribe(
             (res) => {
                 let indexToRemove = this.myCalendars.findIndex((elm) => elm.id === this.currentId);
                 this.myCalendars.splice(indexToRemove, 1);
@@ -70,11 +72,12 @@ export class CalendarsComponent implements OnInit {
             (err) => {
                 alert('error while deleting calendar');
             }
-        );
+          );
     }
 
+    // Create calendar
     createCalendar() {
-        this.currentId = null;
+       this.currentId = null;
         this.myTranslate.getTranslation('calendars.newCalendarName').subscribe(newDefaultName => {
             let newCalendarData: object = {
                 name: newDefaultName,
