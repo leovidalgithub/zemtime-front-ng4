@@ -9,6 +9,8 @@ export * from './home/home.component';
     // Calendar
     export * from './home/calendars/calendar/calendar.component';
     export * from './home/calendars/calendar/calendar.translations.service';
+    // User Calendars
+    export * from './home/calendars/userCalendars/user-calendars.component';
 
 // AUTH
 export * from './auth/auth.component';

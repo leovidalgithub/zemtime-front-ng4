@@ -6,7 +6,8 @@ import { CalendarsServices } from './calendars.services';
 enum eCalendarTypeShowed {
     country = 1,
     state = 2,
-    city = 3
+    city = 3,
+    userCalendars = 4
 }
 
 @Component({

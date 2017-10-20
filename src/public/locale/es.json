@@ -43,7 +43,8 @@
     "filter" : {
       "showCountries" : "Países",
       "showCommunities" : "Comunidades",
-      "showCities" : "Ciudades"
+      "showCities" : "Ciudades",
+      "showUserCalendars" : "Mis calendarios"
     }
   },
   "datepicker" : {

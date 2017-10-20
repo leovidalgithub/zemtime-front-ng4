@@ -1,5 +1,7 @@
 <div class="headerWrapper">
-    <ia-comp-header [compHeaderSectionData]="headerData.sectionData" [compHeaderActionsShow]="headerData.actionsShow">
+    <ia-comp-header
+      [compHeaderSectionData]="headerData.sectionData"
+      [compHeaderActionsShow]="headerData.actionsShow">
     </ia-comp-header>
 </div>
 
@@ -9,9 +11,10 @@
 
         <!-- Filter buttons  - main options-->
         <ul class="filterButtons">
-            <li (click)="currentType = 1; currentId = null" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
-            <li (click)="currentType = 2; currentId = null" [class.filter-selected]="currentType === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
-            <li (click)="currentType = 3; currentId = null" [class.filter-selected]="currentType === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="currentType = 1; currentId = null; userId = false" [class.filter-selected]="currentType === 1 ">{{ 'calendars.filter.showCountries' | translate}}</li>
+            <li (click)="currentType = 2; currentId = null; userId = false" [class.filter-selected]="currentType === 2 ">{{ 'calendars.filter.showCommunities' | translate}}</li>
+            <li (click)="currentType = 3; currentId = null; userId = false" [class.filter-selected]="currentType === 3 ">{{ 'calendars.filter.showCities' | translate}}</li>
+            <li (click)="currentType = 4; currentId = null; userId = true" [class.filter-selected]="currentType === 4 ">{{ 'calendars.filter.showUserCalendars' | translate}}</li>
         </ul>
 
         <!-- Filter suboptions -->
@@ -35,6 +38,13 @@
                 <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
                     <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
                 </li>
+                <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
+            </ul>
+            <!-- Show user calendars -->
+            <ul *ngSwitchCase="4" class="filtratedList">
+                <!-- <li *ngFor="let city of (myCalendars | myCalendarsTypesPipe:3)">
+                    <a (click)="currentId = city.id" [ngClass]="{'active-calendar': city.id === currentId}">{{ city.name }}</a>
+                </li> -->
                 <ng-container *ngTemplateOutlet="newCalendarButton"></ng-container>
             </ul>
 
@@ -67,6 +77,11 @@
             <button class="bt bt-neg" (click)="deleteConfirm = false">{{ 'general.buttons.cancel' | translate }}</button>
           </div>
         </div>
+
+    </div>
+
+    <div *ngIf="userId">
+      <zem-user-calendars></zem-user-calendars>
     </div>
 
 </main>

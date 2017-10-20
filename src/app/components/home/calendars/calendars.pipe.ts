@@ -7,9 +7,9 @@ import { iCalendars } from '../../../shared';
   })
   export class CalendarsTypesPipe implements PipeTransform {
     transform(items: Array<iCalendars>, myType: number): Array<iCalendars> {
-        return items.filter(item => item.type === myType);
-      }
+      return items.filter(item => item.type === myType);
     }
+  }
 
 @Pipe({
     name: 'myCalendarsNamePipe',
