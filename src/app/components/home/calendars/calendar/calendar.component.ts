@@ -1,8 +1,7 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input, ViewEncapsulation } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../../shared';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ViewEncapsulation } from '@angular/core';
 import { CalendarsServices } from '../calendars.services';
 
 declare var $: any; // Jquery
@@ -51,7 +50,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       'nameNewCalendar': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(21) ]) ]
     });
 
-    // Translations for check uncheck holidays titles
+    // Translations for check/uncheck holidays titles
     myTranslate.getTranslation('calendars.checkDay').subscribe(
       (value) => { this.checkTitle = value; }
     );
