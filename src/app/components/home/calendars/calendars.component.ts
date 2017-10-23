@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslationService, iCalendars, MyServices } from '../../../shared';
 import { CalendarsServices } from './calendars.services';
+import { TranslateService } from '@ngx-translate/core';
+
+declare var $: any; // Jquery
+
 
 // Filter calendar types
 enum eCalendarTypeShowed {
@@ -39,10 +43,17 @@ export class CalendarsComponent implements OnInit {
     constructor(
         private myTranslate:         TranslationService,
         private myCalendarsServices: CalendarsServices,
-        private myServices:          MyServices
+        private myServices:          MyServices,
+        private translate:           TranslateService
     ) { }
 
     ngOnInit() {
+      // Select calendar language based in the current language and set default
+      this.myCalendarsServices.getTranslationJSON(this.translate.currentLang)
+          .subscribe( (value) => {
+            $.datepicker.regional[this.translate.currentLang] = value;
+            $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
+      });
       // Recive all calendars
       this.getCalendars();
     }

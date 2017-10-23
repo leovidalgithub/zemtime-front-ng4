@@ -60,12 +60,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // Select calendar language based in the current language and then create months and calendars
-    this.myCalendarsServices.getTranslationJSON(this.translate.currentLang)
-      .subscribe( (value) => {
-        $.datepicker.regional[this.translate.currentLang] = value;
-        $.datepicker.setDefaults($.datepicker.regional[this.translate.currentLang]);
-      });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
