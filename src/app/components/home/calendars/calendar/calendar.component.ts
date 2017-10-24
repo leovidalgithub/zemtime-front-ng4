@@ -122,9 +122,9 @@ export class CalendarComponent implements OnInit, OnChanges {
             beforeShowDay: (date) => {
                 date = new Date(date).getTime();
                 if ( myDates.indexOf(date) !== -1 ) {
-                    return [true, 'holiday', this.uncheckTitle];
+                    return [true, 'holiday myday ' + date, this.uncheckTitle];
                 } else {
-                    return [true, '', this.checkTitle];
+                    return [true, 'myday ' + date, this.checkTitle];
                 }
             }
         });

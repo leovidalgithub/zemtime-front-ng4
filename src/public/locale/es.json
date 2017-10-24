@@ -3,7 +3,7 @@
     "sidebar" : {
       "menuClose" : "Cerrar menú",
       "bugReport" : "Reportar bug",
-      "closeSession" : "Cerrar sesión"
+      "logout" : "Cerrar sesión"
     },
     "buttons" : {
       "send" : "Enviar",

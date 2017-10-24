@@ -67,7 +67,7 @@ form {
     color: $col-green;
   }
   .create-ok {
-    background-color: lighten($col-green, 20%); //cursor: text;
+    background-color: lighten($col-green, 20%) !important; //cursor: text;
   }
 }
 
