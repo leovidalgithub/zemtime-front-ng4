@@ -1,4 +1,5 @@
-  <!-- Create new calendar form -->
+<button (click)="filterDays()">Go!</button>
+<!-- Create new calendar form -->
   <form [formGroup]="rForm" (ngSubmit)="updateNameCalendar(calendarName.value); showMsg()">
 
       <input #calendarName formControlName="nameNewCalendar" maxlength="20" type="text" value="{{ myCalendars | myCalendarsNamePipe:currentId }}" [ngClass]="{ 'createOk': calendarCreatedOk, 'calendarKo' : !rForm.controls['nameNewCalendar'].valid && rForm.controls['nameNewCalendar'].dirty }" title="{{ 'calendars.titleInput' | translate }}">
@@ -10,7 +11,7 @@
       <!-- Name exists alertOk -->
       <span class="alertOk" *ngIf="calendarCreatedOk">{{ 'general.alerts.newCalendarUpdatedOk' | translate }}</span>
 
-      <span class="daysCounter">{{ holidays }} {{ 'calendars.holidays' | translate }}</span>
+      <span class="daysCounter">{{ myDates.length }} {{ 'calendars.holidays' | translate }}</span>
 
   </form>
 

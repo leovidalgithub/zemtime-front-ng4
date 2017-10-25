@@ -202,14 +202,26 @@ form {
       }
     }
 
+    .myday::after {
+      display: block;
+      font-size: .8em;
+      color: red;
+      position: relative;
+      content: attr(data-test);
+    }
+
   }
   // Calendar date holiday
   .holiday {
     background-color: lighten($col-orange, 25%) !important;
-
+    
     a{
       color: white !important;
     }
+  }
+  
+  .testclass {
+    background-color: lighten(teal, 5%) !important;
   }
 
 }
